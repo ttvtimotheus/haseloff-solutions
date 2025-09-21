@@ -1,0 +1,53 @@
+{
+  "Nav": {
+    "projects": "Projects",
+    "services": "Services",
+    "philosophy": "Philosophy",
+    "contact": "Contact",
+    "legal": "Legal",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "cta": "Request a project",
+    "language": "Language"
+  },
+  "Hero": {
+    "claim": "Custom software. Hand-crafted.",
+    "subline": "Web, apps and tools that actually solve problems. Direct, fast and maintainable.",
+    "cta": "Request a project"
+  },
+  "Projects": {
+    "title": "Projects",
+    "empty": "No projects published yet."
+  },
+  "Services": {
+    "title": "Services",
+    "web": "Web Development",
+    "app": "App Development",
+    "custom": "Custom Software",
+    "webBody": "Modern, high-performance web applications with clear architecture and clean code.",
+    "appBody": "Native or cross-platform apps focused on user experience and maintainability.",
+    "customBody": "Tailored tools, APIs and automations that fit your process precisely.",
+    "more": "Learn more"
+  },
+  "Philosophy": {
+    "title": "Philosophy",
+    "clarity": "Clarity",
+    "quality": "Quality",
+    "responsibility": "Responsibility",
+    "text": "Quality, pragmatism and clear communication: this is how long-lasting solutions with real impact are built."
+  },
+  "Contact": {
+    "title": "Contact",
+    "intro": "Tell me in two sentences what it is about. I will get back to you shortly.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send message",
+    "success": "Thanks! I will get back to you shortly.",
+    "error": "Something went wrong. Please try again.",
+    "altMail": "Or write directly to"
+  },
+  "Footer": {
+    "rights": "All rights reserved."
+  }
+}

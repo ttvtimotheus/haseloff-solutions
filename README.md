@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Haseloff Software Solutions – Portfolio
 
-## Getting Started
+Farbiges, charakterstarkes Portfolio mit Oversized Typography, gebaut mit Next.js 15 (App Router), TypeScript, Tailwind CSS v4 und next-intl.
 
-First, run the development server:
+### Stack
+- Next.js 15 (App Router unter `src/app/`)
+- TypeScript (strict)
+- Tailwind CSS v4 (Theming via `@theme` Tokens in `src/styles/globals.css`)
+- next-intl (i18n, automatische Locale-Erkennung per Cookie/`Accept-Language`, Fallback: `en`)
+- Framer Motion (Microinteractions/Parallax, `prefers-reduced-motion`-freundlich)
+
+### Entwicklung
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Öffne http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Produktion
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+pnpm start
+```
 
-## Learn More
+### Linting & Formatierung
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm lint
+pnpm format
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Struktur
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+  app/
+    layout.tsx
+    page.tsx
+    impressum/page.tsx
+    datenschutz/page.tsx
+    kontakt/page.tsx
+    api/locale/route.ts
+    api/contact/route.ts
+    robots.ts
+    sitemap.ts
+  components/
+    Header.tsx, Footer.tsx, Section.tsx, Hero.tsx, Projects.tsx,
+    Services.tsx, Philosophy.tsx, ContactForm.tsx, Badge.tsx, Button.tsx,
+    NoiseLayer.tsx, LocaleToggle.tsx, HeroMotion.tsx
+  lib/
+    projects.ts, utils.ts
+  messages/
+    de.json, en.json
+  styles/
+    globals.css
+```
 
-## Deploy on Vercel
+### i18n
+- Locale wird aus Cookie `locale` gelesen, sonst aus `Accept-Language` (de/en, Fallback `en`).
+- Manuelle Umschaltung im Header (POST an `/api/locale`).
+- `html lang` wird serverseitig korrekt gesetzt.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Inhalte
+- Projekte: `src/lib/projects.ts` – hier echte Projekteinträge ergänzen (keine Beispiel-/Dummy-Daten).
+- Rechtliches: `src/app/impressum`, `src/app/datenschutz`.
+- Kontakt: Formular sendet an `/api/contact` mit ARIA Live-Feedback und Validierung (progressive Enhancement), alternativ `mailto`-Link.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Designhinweise
+- Nur Light Mode. Farben: Indigo (Primär), Türkis (Sekundär), warmes Orange (Akzent).
+- Oversized Headlines per fluiden Clamp-Skalen.
+- Glows/Verläufe/Noise via Utility-Klassen (`.bg-hero`, `.bg-noise`).
+
+### Hinweise
+- Fonts: System-Stack mit Fallbacks. Optional können später lokale Schriften (mit `font-display: swap`) eingebunden werden.

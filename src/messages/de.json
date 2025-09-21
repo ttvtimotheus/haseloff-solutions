@@ -1,0 +1,53 @@
+{
+  "Nav": {
+    "projects": "Projekte",
+    "services": "Leistungen",
+    "philosophy": "Philosophie",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "cta": "Projekt anfragen",
+    "language": "Sprache"
+  },
+  "Hero": {
+    "claim": "Individuelle Software. Von Hand gemacht.",
+    "subline": "Web, Apps und Tools, die Probleme wirklich lösen. Direkt, schnell und wartbar.",
+    "cta": "Projekt anfragen"
+  },
+  "Projects": {
+    "title": "Projekte",
+    "empty": "Aktuell keine Projekte veröffentlicht."
+  },
+  "Services": {
+    "title": "Leistungen",
+    "web": "Webentwicklung",
+    "app": "Appentwicklung",
+    "custom": "Individuelle Software",
+    "webBody": "Moderne, performante Webanwendungen mit klarer Architektur und sauberem Code.",
+    "appBody": "Native oder Cross-Platform Apps mit Fokus auf User Experience und Wartbarkeit.",
+    "customBody": "Individuelle Tools, APIs und Automatisierungen, die exakt zum Prozess passen.",
+    "more": "Mehr dazu"
+  },
+  "Philosophy": {
+    "title": "Philosophie",
+    "clarity": "Klarheit",
+    "quality": "Qualität",
+    "responsibility": "Verantwortung",
+    "text": "Qualität, Pragmatismus und klare Kommunikation: So entstehen langlebige Lösungen, die echten Mehrwert schaffen."
+  },
+  "Contact": {
+    "title": "Kontakt",
+    "intro": "Schreibe mir in zwei Sätzen, worum es geht. Ich melde mich zeitnah.",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "submit": "Nachricht senden",
+    "success": "Danke! Ich melde mich zeitnah.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "altMail": "Oder schreibe direkt an"
+  },
+  "Footer": {
+    "rights": "Alle Rechte vorbehalten."
+  }
+}
