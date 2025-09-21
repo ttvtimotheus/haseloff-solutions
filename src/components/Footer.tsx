@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
 
 export default function Footer() {
   const t = useTranslations();
@@ -12,12 +13,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="relative w-10 h-10 bg-white rounded-pixel-sm">
-                <div className="absolute top-0 right-0 w-2 h-2 bg-secondary"></div>
-                <span className="absolute inset-0 flex items-center justify-center text-primary font-display font-bold text-xl">
-                  H
-                </span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative">
+                <Image
+                  src="/nur-logo-fuer-icon.svg"
+                  alt="Haseloff Software Solutions Icon"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 filter brightness-0 invert"
+                />
               </div>
               <span className="font-display font-bold text-lg">
                 {t('footer.company')}

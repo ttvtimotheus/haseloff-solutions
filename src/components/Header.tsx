@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
 import LangSwitch from './LangSwitch';
 import { cn } from '@/lib/utils';
 
@@ -35,15 +36,19 @@ export default function Header() {
     >
       <nav className="container mx-auto px-4 py-4" role="navigation" aria-label="Hauptnavigation">
         <div className="flex items-center justify-between">
-          <Link href="/" className="group flex items-center gap-2">
-            <div className="relative w-10 h-10 bg-primary rounded-pixel-sm group-hover:translate-x-[1px] group-hover:translate-y-[1px] transition-transform">
-              <div className="absolute top-0 right-0 w-2 h-2 bg-secondary"></div>
-              <span className="absolute inset-0 flex items-center justify-center text-white font-display font-bold text-xl">
-                H
-              </span>
+          <Link href="/" className="group flex items-center gap-3">
+            <div className="relative group-hover:translate-x-[1px] group-hover:translate-y-[1px] transition-transform">
+              <Image
+                src="/nur-logo-fuer-icon.svg"
+                alt="Haseloff Software Solutions Logo"
+                width={40}
+                height={40}
+                priority
+                className="w-10 h-10"
+              />
             </div>
             <span className="hidden sm:block font-display font-bold text-lg">
-              Haseloff Software
+              Haseloff Software Solutions
             </span>
           </Link>
 

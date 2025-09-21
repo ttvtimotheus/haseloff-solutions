@@ -2,10 +2,11 @@ import { getTranslations } from 'next-intl/server';
 import PixelCard from '@/components/PixelCard';
 
 export async function generateMetadata({
-  params: { locale }
+  params
 }: {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'datenschutz' });
   
   return {
@@ -18,10 +19,11 @@ export async function generateMetadata({
 }
 
 export default async function DatenschutzPage({
-  params: { locale }
+  params
 }: {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'datenschutz' });
 
   return (
