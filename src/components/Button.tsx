@@ -11,7 +11,7 @@ const buttonStyles = cva(
     variants: {
       variant: {
         primary:
-          "bg-primary-600 text-white shadow-[var(--shadow-glow)] hover:bg-primary-700",
+          "bg-gradient-to-r from-primary-600 via-primary-500 to-secondary-500 text-white shadow-[var(--shadow-glow)] hover:from-primary-700 hover:via-primary-600 hover:to-secondary-600 hover:shadow-lg transition-all duration-200",
         secondary:
           "bg-secondary-500 text-white hover:bg-secondary-600 shadow-sm",
         ghost:
@@ -21,6 +21,7 @@ const buttonStyles = cva(
         sm: "h-9 px-3 text-sm",
         md: "h-11 px-5 text-base",
         lg: "h-12 px-6 text-base",
+        xl: "h-14 px-8 text-lg font-semibold",
       },
     },
     defaultVariants: {

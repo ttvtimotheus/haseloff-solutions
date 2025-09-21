@@ -26,11 +26,11 @@ export default function Hero() {
           <h1 id="page-title" className="font-extrabold leading-[0.85] text-[clamp(2.5rem,8vw,6rem)] text-black/90 text-balance">
             {t("claim")}
           </h1>
-          <p className="mt-8 text-black/75 text-[clamp(1.125rem,2.5vw,1.5rem)] leading-relaxed max-w-2xl">
+          <p className="mt-12 text-black/75 text-[clamp(1.125rem,2.5vw,1.5rem)] leading-relaxed max-w-2xl">
             {t("subline")}
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <ButtonLink href="#kontakt" variant="primary" size="lg">
+          <div className="mt-12 flex flex-wrap items-center gap-6">
+            <ButtonLink href="#kontakt" variant="primary" size="xl">
               {t("cta")}
             </ButtonLink>
             <ButtonLink href="#projekte" variant="ghost" size="lg">
