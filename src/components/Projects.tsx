@@ -10,8 +10,13 @@ export default function Projects() {
   const locale = useLocale();
 
   return (
-    <section id="projekte" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="projekte" className="py-20 relative overflow-hidden">
+      {/* Pixel-Highlights im Hintergrund */}
+      <div className="absolute top-16 right-12 w-2 h-2 bg-accent rounded-pixel-sm animate-pulse opacity-20" />
+      <div className="absolute bottom-24 left-8 w-3 h-3 bg-secondary rounded-pixel animate-pulse opacity-15" style={{animationDelay: '1s'}} />
+      <div className="absolute top-1/3 left-16 w-2 h-2 bg-primary rounded-pixel-sm animate-pulse opacity-25" style={{animationDelay: '2s'}} />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
             {t('title')}

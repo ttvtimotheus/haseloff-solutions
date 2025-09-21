@@ -81,8 +81,13 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="kontakt" className="py-20 bg-surface">
-      <div className="container mx-auto px-4">
+    <section id="kontakt" className="py-20 bg-surface relative overflow-hidden">
+      {/* Pixel-Highlights im Hintergrund */}
+      <div className="absolute top-16 left-14 w-3 h-3 bg-secondary rounded-pixel-sm animate-pulse opacity-20" />
+      <div className="absolute bottom-20 right-10 w-2 h-2 bg-accent rounded-pixel animate-pulse opacity-15" style={{animationDelay: '1s'}} />
+      <div className="absolute top-1/3 right-20 w-3 h-3 bg-primary rounded-pixel-sm animate-pulse opacity-25" style={{animationDelay: '2s'}} />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
             {t('title')}

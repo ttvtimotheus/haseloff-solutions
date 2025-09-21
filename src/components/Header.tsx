@@ -59,7 +59,7 @@ export default function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="font-display font-medium hover:text-secondary transition-colors relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all hover:after:w-full"
+                    className="font-display font-medium hover:text-secondary hover:translate-x-[1px] transition-all duration-200 relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all hover:after:w-full"
                   >
                     {item.label}
                   </Link>
@@ -104,7 +104,7 @@ export default function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-display font-medium hover:text-secondary transition-colors block py-2"
+                  className="font-display font-medium hover:text-secondary hover:translate-x-[1px] transition-all duration-200 block py-2"
                 >
                   {item.label}
                 </Link>

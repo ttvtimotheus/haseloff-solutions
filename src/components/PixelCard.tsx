@@ -24,7 +24,7 @@ const PixelCard = forwardRef<HTMLDivElement, PixelCardProps>(
           'relative bg-white border-2 border-primary rounded-pixel p-6',
           'before:absolute before:content-[""] before:w-4 before:h-4 before:bg-background',
           cornerStyles[missingCorner],
-          hover && 'transition-all duration-200 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-pixel-hover cursor-pointer',
+          hover && 'transition-all duration-200 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-pixel-hover cursor-pointer group',
           'shadow-pixel',
           className
         )}
