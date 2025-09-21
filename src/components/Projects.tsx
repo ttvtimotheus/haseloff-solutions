@@ -26,7 +26,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <PixelCard
               key={project.id}
@@ -55,15 +55,15 @@ export default function Projects() {
               </div>
 
               <details className="group">
-                <summary className="cursor-pointer font-display font-medium text-sm text-secondary hover:text-secondary-dark transition-colors list-none flex items-center gap-2">
+                <summary className="cursor-pointer font-display font-medium text-sm text-secondary hover:text-secondary-dark hover:translate-x-[1px] transition-all duration-200 list-none flex items-center gap-2">
                   <span className="inline-block w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-t-4 border-t-secondary group-open:rotate-180 transition-transform" />
                   {t('techStack')}
                 </summary>
-                <div className="mt-2 pt-2 border-t border-border flex flex-wrap gap-1">
+                <div className="mt-3 pt-3 border-t border-border flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-primary text-white text-xs rounded-pixel-sm"
+                      className="px-3 py-1 bg-accent text-primary text-xs font-display font-medium rounded-pixel-sm shadow-pixel-sm hover:shadow-pixel hover:translate-x-[1px] hover:translate-y-[1px] transition-all duration-200"
                     >
                       {tech}
                     </span>

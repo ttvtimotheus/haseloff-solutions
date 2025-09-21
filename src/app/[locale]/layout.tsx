@@ -21,6 +21,7 @@ const spaceGrotesk = Space_Grotesk({
   weight: ['500', '700'],
 });
 
+
 export async function generateMetadata({
   params
 }: {

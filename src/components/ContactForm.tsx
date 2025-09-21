@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from '@/i18n/navigation';
 import PixelButton from './PixelButton';
 import PixelCard from './PixelCard';
 
 export default function ContactForm() {
   const t = useTranslations('contact');
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -61,6 +63,10 @@ export default function ContactForm() {
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        // Weiterleitung zur Danke-Seite nach kurzer Verzögerung
+        setTimeout(() => {
+          router.push('/danke');
+        }, 1000);
       } else {
         setSubmitStatus('error');
       }
@@ -105,16 +111,19 @@ export default function ContactForm() {
                   <label htmlFor="name" className="block font-display font-medium mb-2">
                     {t('form.name')}
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
-                    aria-invalid={!!errors.name}
-                    aria-describedby={errors.name ? 'name-error' : undefined}
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-offset-2 relative before:absolute before:content-[''] before:top-0 before:right-0 before:w-3 before:h-3 before:bg-background"
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? 'name-error' : undefined}
+                    />
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-background"></div>
+                  </div>
                   {errors.name && (
                     <p id="name-error" className="mt-2 text-sm text-red-600" role="alert" aria-live="polite">
                       {errors.name}
@@ -126,16 +135,19 @@ export default function ContactForm() {
                   <label htmlFor="email" className="block font-display font-medium mb-2">
                     {t('form.email')}
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
-                    aria-invalid={!!errors.email}
-                    aria-describedby={errors.email ? 'email-error' : undefined}
-                  />
+                  <div className="relative">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-offset-2"
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'email-error' : undefined}
+                    />
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-background"></div>
+                  </div>
                   {errors.email && (
                     <p id="email-error" className="mt-2 text-sm text-red-600" role="alert" aria-live="polite">
                       {errors.email}
@@ -147,16 +159,19 @@ export default function ContactForm() {
                   <label htmlFor="message" className="block font-display font-medium mb-2">
                     {t('form.message')}
                   </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={6}
-                    className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 resize-none"
-                    aria-invalid={!!errors.message}
-                    aria-describedby={errors.message ? 'message-error' : undefined}
-                  />
+                  <div className="relative">
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={6}
+                      className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-offset-2 resize-none"
+                      aria-invalid={!!errors.message}
+                      aria-describedby={errors.message ? 'message-error' : undefined}
+                    />
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-background"></div>
+                  </div>
                   {errors.message && (
                     <p id="message-error" className="mt-2 text-sm text-red-600" role="alert" aria-live="polite">
                       {errors.message}
@@ -189,7 +204,7 @@ export default function ContactForm() {
                   
                   <div className="text-center sm:text-right">
                     <p className="text-sm text-gray-600 mb-1">{t('alternative')}</p>
-                    <a href={`mailto:${t('email')}`} className="font-display font-medium text-secondary hover:text-secondary-dark transition-colors">
+                    <a href={`mailto:${t('email')}`} className="font-display font-medium text-secondary hover:text-secondary-dark hover:translate-x-[1px] transition-all duration-200">
                       {t('email')}
                     </a>
                   </div>

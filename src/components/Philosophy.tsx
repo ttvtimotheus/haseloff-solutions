@@ -19,7 +19,7 @@ export default function Philosophy() {
     },
     {
       id: 'responsibility',
-      color: 'bg-primary',
+      color: 'bg-gray-900',
       icon: '▲',
     },
   ];
@@ -71,7 +71,7 @@ export default function Philosophy() {
                 {t(`${value.id}.title`)}
               </h3>
               
-              <p className="text-gray-600 max-w-sm mx-auto">
+              <p className="text-gray-700 font-medium max-w-sm mx-auto">
                 {t(`${value.id}.description`)}
               </p>
             </div>

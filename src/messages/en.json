@@ -86,13 +86,21 @@
       }
     },
     "alternative": "Or write directly to",
-    "email": "contact@haseloff-software.de"
+    "email": "contact@haseloff-solutions.de"
   },
   "footer": {
     "company": "Haseloff Software Solutions",
     "tagline": "Software with structure. Pixel by pixel.",
     "rights": "All rights reserved.",
     "madeWith": "Built with"
+  },
+  "thankYou": {
+    "title": "Message Sent!",
+    "message": "Thank you for your message. We have received your inquiry and will get back to you as soon as possible.",
+    "responseTime": "Response time: Within 24 hours",
+    "contact": "For urgent matters: 01525 870 5975",
+    "backHome": "Back to Home",
+    "viewProjects": "View Projects"
   },
   "impressum": {
     "title": "Legal Notice",
@@ -103,7 +111,7 @@
     "city": "39288 Burg OT Detershagen",
     "contact": "Contact",
     "phone": "Phone: 01525 870 5975",
-    "email": "Email: contact@haseloff-software.de",
+    "email": "Email: contact@haseloff-solutions.de",
     "vat": "VAT ID",
     "vatNumber": "VAT identification number according to § 27 a VAT Act: [VAT ID]"
   },

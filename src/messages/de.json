@@ -86,13 +86,21 @@
       }
     },
     "alternative": "Oder schreiben Sie direkt an",
-    "email": "kontakt@haseloff-software.de"
+    "email": "kontakt@haseloff-solutions.de"
   },
   "footer": {
     "company": "Haseloff Software Solutions",
     "tagline": "Software mit System. Pixel für Pixel.",
     "rights": "Alle Rechte vorbehalten.",
     "madeWith": "Entwickelt mit"
+  },
+  "thankYou": {
+    "title": "Nachricht gesendet!",
+    "message": "Vielen Dank für Ihre Nachricht. Wir haben Ihre Anfrage erhalten und werden uns so schnell wie möglich bei Ihnen melden.",
+    "responseTime": "Antwortzeit: Innerhalb von 24 Stunden",
+    "contact": "Bei dringenden Anliegen: 01525 870 5975",
+    "backHome": "Zur Startseite",
+    "viewProjects": "Projekte ansehen"
   },
   "impressum": {
     "title": "Impressum",
@@ -103,7 +111,7 @@
     "city": "39288 Burg OT Detershagen",
     "contact": "Kontakt",
     "phone": "Telefon: 01525 870 5975",
-    "email": "E-Mail: kontakt@haseloff-software.de",
+    "email": "E-Mail: kontakt@haseloff-solutions.de",
     "vat": "Umsatzsteuer-ID",
     "vatNumber": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: [USt-IdNr.]"
   },
