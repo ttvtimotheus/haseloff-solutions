@@ -1,53 +1,134 @@
 {
-  "Nav": {
-    "projects": "Projekte",
-    "services": "Leistungen",
-    "philosophy": "Philosophie",
-    "contact": "Kontakt",
-    "legal": "Rechtliches",
-    "imprint": "Impressum",
-    "privacy": "Datenschutz",
-    "cta": "Projekt anfragen",
-    "language": "Sprache"
+  "metadata": {
+    "title": "Haseloff Software Solutions - Software mit System",
+    "description": "Wir entwickeln Web, Apps und Tools mit Präzision, reduziert auf das Wesentliche."
   },
-  "Hero": {
-    "claim": "Individuelle Software. Von Hand gemacht.",
-    "subline": "Web, Apps und Tools, die Probleme wirklich lösen. Direkt, schnell und wartbar.",
-    "cta": "Projekt anfragen"
+  "hero": {
+    "title": "Software mit System.",
+    "titleHighlight": "Pixel für Pixel.",
+    "subtitle": "Wir entwickeln Web, Apps und Tools mit Präzision, reduziert auf das Wesentliche."
   },
-  "Projects": {
+  "cta": {
+    "primary": "Projekt anfragen",
+    "secondary": "Projekte ansehen"
+  },
+  "nav": {
+    "projekte": "Projekte",
+    "leistungen": "Leistungen",
+    "philosophie": "Philosophie",
+    "kontakt": "Kontakt",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz"
+  },
+  "projects": {
     "title": "Projekte",
-    "empty": "Aktuell keine Projekte veröffentlicht."
+    "subtitle": "Ausgewählte Arbeiten aus unserem Portfolio",
+    "viewProject": "Projekt ansehen",
+    "techStack": "Technologie-Stack",
+    "tags": {
+      "webapp": "Web App",
+      "mobile": "Mobile",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "api": "API",
+      "database": "Datenbank"
+    }
   },
-  "Services": {
+  "services": {
     "title": "Leistungen",
-    "web": "Webentwicklung",
-    "app": "Appentwicklung",
-    "custom": "Individuelle Software",
-    "webBody": "Moderne, performante Webanwendungen mit klarer Architektur und sauberem Code.",
-    "appBody": "Native oder Cross-Platform Apps mit Fokus auf User Experience und Wartbarkeit.",
-    "customBody": "Individuelle Tools, APIs und Automatisierungen, die exakt zum Prozess passen.",
-    "more": "Mehr dazu"
+    "subtitle": "Maßgeschneiderte Lösungen für Ihre Anforderungen",
+    "web": {
+      "title": "Webentwicklung",
+      "description": "Moderne, performante Webanwendungen mit React, Next.js und TypeScript. Von der Landing Page bis zur komplexen Business-Applikation."
+    },
+    "app": {
+      "title": "App-Entwicklung",
+      "description": "Native und Cross-Platform Apps für iOS und Android. Optimiert für Performance und Benutzererfahrung."
+    },
+    "custom": {
+      "title": "Individuelle Software",
+      "description": "Maßgeschneiderte Lösungen für spezielle Anforderungen. Backend-Systeme, APIs und Automatisierungen."
+    }
   },
-  "Philosophy": {
+  "philosophy": {
     "title": "Philosophie",
-    "clarity": "Klarheit",
-    "quality": "Qualität",
-    "responsibility": "Verantwortung",
-    "text": "Qualität, Pragmatismus und klare Kommunikation: So entstehen langlebige Lösungen, die echten Mehrwert schaffen."
+    "subtitle": "Die Werte, die unsere Arbeit definieren",
+    "clarity": {
+      "title": "Klarheit",
+      "description": "Transparente Kommunikation und verständliche Lösungen. Komplexität reduzieren, ohne Funktionalität zu verlieren."
+    },
+    "quality": {
+      "title": "Qualität",
+      "description": "Sauberer Code, durchdachte Architektur und Best Practices. Jedes Pixel, jede Zeile Code hat einen Zweck."
+    },
+    "responsibility": {
+      "title": "Verantwortung",
+      "description": "Nachhaltiger Entwicklung, Datenschutz und Barrierefreiheit. Software, die allen zugänglich ist."
+    }
   },
-  "Contact": {
+  "contact": {
     "title": "Kontakt",
-    "intro": "Schreibe mir in zwei Sätzen, worum es geht. Ich melde mich zeitnah.",
-    "name": "Name",
-    "email": "E-Mail",
-    "message": "Nachricht",
-    "submit": "Nachricht senden",
-    "success": "Danke! Ich melde mich zeitnah.",
-    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
-    "altMail": "Oder schreibe direkt an"
+    "subtitle": "Lassen Sie uns über Ihr Projekt sprechen",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "send": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "success": "Ihre Nachricht wurde erfolgreich gesendet!",
+      "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+      "validation": {
+        "nameRequired": "Bitte geben Sie Ihren Namen ein",
+        "emailRequired": "Bitte geben Sie Ihre E-Mail-Adresse ein",
+        "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+        "messageRequired": "Bitte geben Sie eine Nachricht ein",
+        "messageMin": "Die Nachricht sollte mindestens 10 Zeichen lang sein"
+      }
+    },
+    "alternative": "Oder schreiben Sie direkt an",
+    "email": "kontakt@haseloff-software.de"
   },
-  "Footer": {
-    "rights": "Alle Rechte vorbehalten."
+  "footer": {
+    "company": "Haseloff Software Solutions",
+    "tagline": "Software mit System. Pixel für Pixel.",
+    "rights": "Alle Rechte vorbehalten.",
+    "madeWith": "Entwickelt mit"
+  },
+  "impressum": {
+    "title": "Impressum",
+    "company": "Angaben gemäß § 5 TMG",
+    "companyName": "Haseloff Software Solutions",
+    "owner": "Inhaber: [Name]",
+    "address": "[Straße und Hausnummer]",
+    "city": "[PLZ] [Stadt]",
+    "contact": "Kontakt",
+    "phone": "Telefon: [Telefonnummer]",
+    "email": "E-Mail: kontakt@haseloff-software.de",
+    "vat": "Umsatzsteuer-ID",
+    "vatNumber": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: [USt-IdNr.]"
+  },
+  "datenschutz": {
+    "title": "Datenschutzerklärung",
+    "intro": "Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003).",
+    "controller": {
+      "title": "Verantwortlicher",
+      "text": "Verantwortlich für die Datenverarbeitung ist Haseloff Software Solutions."
+    },
+    "dataCollection": {
+      "title": "Datenerfassung",
+      "text": "Beim Besuch unserer Website werden automatisch Informationen allgemeiner Natur erfasst. Diese Informationen (Server-Logfiles) beinhalten etwa die Art des Webbrowsers, das verwendete Betriebssystem, den Domainnamen Ihres Internet Service Providers und Ähnliches."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "Unsere Website verwendet nur technisch notwendige Cookies. Diese Cookies sind erforderlich, um die Grundfunktionen unserer Website zu ermöglichen."
+    },
+    "contact": {
+      "title": "Kontaktformular",
+      "text": "Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert."
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "text": "Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu."
+    }
   }
 }

@@ -1,46 +1,52 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
-function isValidEmail(email: string) {
-  return /.+@.+\..+/.test(email);
-}
-
-export async function POST(req: NextRequest) {
-  const contentType = req.headers.get("content-type") || "";
-
-  let name = "";
-  let email = "";
-  let message = "";
-  let redirectTo = "/kontakt?ok=1";
-
+export async function POST(request: Request) {
   try {
-    if (contentType.includes("application/json")) {
-      const body = await req.json();
-      name = String(body.name || "").trim();
-      email = String(body.email || "").trim();
-      message = String(body.message || "").trim();
-      redirectTo = String(body.redirectTo || redirectTo);
-    } else {
-      const form = await req.formData();
-      name = String(form.get("name") || "").trim();
-      email = String(form.get("email") || "").trim();
-      message = String(form.get("message") || "").trim();
-      redirectTo = String(form.get("redirectTo") || redirectTo);
+    const body = await request.json();
+    const { name, email, message } = body;
+
+    // Validate input
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
-    if (!name || !email || !message || !isValidEmail(email)) {
-      return NextResponse.json({ ok: false, error: "Invalid input" }, { status: 400 });
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email address' },
+        { status: 400 }
+      );
     }
 
-    // Here you could send an email or persist to a DB.
-    // This endpoint validates input and returns a success response or redirect.
+    // In a real application, you would send an email here
+    // For example, using a service like SendGrid, Resend, or AWS SES
+    console.log('Contact form submission:', {
+      name,
+      email,
+      message,
+      timestamp: new Date().toISOString(),
+    });
 
-    const accept = req.headers.get("accept") || "";
-    if (accept.includes("text/html")) {
-      return NextResponse.redirect(new URL(redirectTo, req.url));
-    }
+    // Simulate email sending delay
+    await new Promise(resolve => setTimeout(resolve, 500));
 
-    return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ ok: false, error: "Server error" }, { status: 500 });
+    // Return success response
+    return NextResponse.json(
+      { 
+        message: 'Message sent successfully',
+        data: { name, email }
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

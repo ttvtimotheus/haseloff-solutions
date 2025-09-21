@@ -1,43 +1,51 @@
-import { useTranslations } from "next-intl";
-import { ButtonLink } from "@/components/Button";
-import NoiseLayer from "@/components/NoiseLayer";
-import HeroBackground from "@/components/HeroBackground";
+'use client';
+
+import { useTranslations } from 'next-intl';
+import PixelButton from './PixelButton';
+import GridBackground from './GridBackground';
 
 export default function Hero() {
-  const t = useTranslations("Hero");
+  const t = useTranslations('hero');
+  const tCta = useTranslations('cta');
 
   return (
-    <section
-      className="relative overflow-hidden bg-hero min-h-[85vh] flex items-center"
-      aria-labelledby="page-title"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/8 via-secondary-400/6 to-accent-400/8" />
-      {/* Enhanced subtle particles */}
-      <div aria-hidden className="absolute inset-0">
-        <span className="particle left-[8%] top-[15%] h-1.5 w-1.5 text-primary-500/60" style={{ ['--dur' as any]: '8s' }} />
-        <span className="particle left-[15%] top-[35%] h-2 w-2 text-secondary-400/50" style={{ ['--dur' as any]: '10s' }} />
-        <span className="particle left-[25%] top-[70%] h-1 w-1 text-accent-400/70" style={{ ['--dur' as any]: '12s' }} />
-        <span className="particle left-[5%] top-[55%] h-1.5 w-1.5 text-primary-400/40" style={{ ['--dur' as any]: '9s' }} />
-      </div>
-      <HeroBackground />
-      <NoiseLayer />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-24 sm:py-32 w-full">
-        <div className="max-w-5xl">
-          <h1 id="page-title" className="font-extrabold leading-[0.85] text-[clamp(2.5rem,8vw,6rem)] text-black/90 text-balance">
-            {t("claim")}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <GridBackground />
+      
+      <div className="container mx-auto px-4 py-32 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 animate-fade-in">
+            <span className="block">{t('title')}</span>
+            <span className="block text-secondary mt-2">{t('titleHighlight')}</span>
           </h1>
-          <p className="mt-12 text-black/75 text-[clamp(1.125rem,2.5vw,1.5rem)] leading-relaxed max-w-2xl">
-            {t("subline")}
+          
+          <p className="text-lg sm:text-xl text-gray-600 mb-12 max-w-2xl mx-auto animate-slide-up" style={{animationDelay: '200ms'}}>
+            {t('subtitle')}
           </p>
-          <div className="mt-12 flex flex-wrap items-center gap-6">
-            <ButtonLink href="#kontakt" variant="primary" size="xl">
-              {t("cta")}
-            </ButtonLink>
-            <ButtonLink href="#projekte" variant="ghost" size="lg">
-              {"→ Projekte"}
-            </ButtonLink>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{animationDelay: '400ms'}}>
+            <PixelButton 
+              variant="primary" 
+              size="lg"
+              onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              {tCta('primary')}
+            </PixelButton>
+            <PixelButton 
+              variant="secondary" 
+              size="lg"
+              pixelCorner="bottom-right"
+              onClick={() => document.getElementById('projekte')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              {tCta('secondary')}
+            </PixelButton>
           </div>
         </div>
+        
+        {/* Decorative pixel elements */}
+        <div className="absolute top-20 left-10 w-4 h-4 bg-accent rounded-pixel-sm animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-6 h-6 bg-secondary rounded-pixel animate-pulse" style={{animationDelay: '1s'}} />
+        <div className="absolute top-1/3 right-20 w-3 h-3 bg-primary rounded-pixel-sm animate-pulse" style={{animationDelay: '2s'}} />
       </div>
     </section>
   );

@@ -1,53 +1,134 @@
 {
-  "Nav": {
-    "projects": "Projects",
-    "services": "Services",
-    "philosophy": "Philosophy",
-    "contact": "Contact",
-    "legal": "Legal",
-    "imprint": "Imprint",
-    "privacy": "Privacy",
-    "cta": "Request a project",
-    "language": "Language"
+  "metadata": {
+    "title": "Haseloff Software Solutions - Software with Structure",
+    "description": "We build web apps and tools with precision, reduced to the essential."
   },
-  "Hero": {
-    "claim": "Custom software. Hand-crafted.",
-    "subline": "Web, apps and tools that actually solve problems. Direct, fast and maintainable.",
-    "cta": "Request a project"
+  "hero": {
+    "title": "Software with structure.",
+    "titleHighlight": "Pixel by pixel.",
+    "subtitle": "We build web apps and tools with precision, reduced to the essential."
   },
-  "Projects": {
+  "cta": {
+    "primary": "Request a project",
+    "secondary": "View projects"
+  },
+  "nav": {
+    "projekte": "Projects",
+    "leistungen": "Services",
+    "philosophie": "Philosophy",
+    "kontakt": "Contact",
+    "impressum": "Legal Notice",
+    "datenschutz": "Privacy Policy"
+  },
+  "projects": {
     "title": "Projects",
-    "empty": "No projects published yet."
+    "subtitle": "Selected works from our portfolio",
+    "viewProject": "View project",
+    "techStack": "Technology Stack",
+    "tags": {
+      "webapp": "Web App",
+      "mobile": "Mobile",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "api": "API",
+      "database": "Database"
+    }
   },
-  "Services": {
+  "services": {
     "title": "Services",
-    "web": "Web Development",
-    "app": "App Development",
-    "custom": "Custom Software",
-    "webBody": "Modern, high-performance web applications with clear architecture and clean code.",
-    "appBody": "Native or cross-platform apps focused on user experience and maintainability.",
-    "customBody": "Tailored tools, APIs and automations that fit your process precisely.",
-    "more": "Learn more"
+    "subtitle": "Tailored solutions for your requirements",
+    "web": {
+      "title": "Web Development",
+      "description": "Modern, performant web applications with React, Next.js, and TypeScript. From landing pages to complex business applications."
+    },
+    "app": {
+      "title": "App Development",
+      "description": "Native and cross-platform apps for iOS and Android. Optimized for performance and user experience."
+    },
+    "custom": {
+      "title": "Custom Software",
+      "description": "Tailored solutions for specific requirements. Backend systems, APIs, and automation."
+    }
   },
-  "Philosophy": {
+  "philosophy": {
     "title": "Philosophy",
-    "clarity": "Clarity",
-    "quality": "Quality",
-    "responsibility": "Responsibility",
-    "text": "Quality, pragmatism and clear communication: this is how long-lasting solutions with real impact are built."
+    "subtitle": "The values that define our work",
+    "clarity": {
+      "title": "Clarity",
+      "description": "Transparent communication and understandable solutions. Reducing complexity without losing functionality."
+    },
+    "quality": {
+      "title": "Quality",
+      "description": "Clean code, well-thought-out architecture, and best practices. Every pixel, every line of code has a purpose."
+    },
+    "responsibility": {
+      "title": "Responsibility",
+      "description": "Sustainable development, data protection, and accessibility. Software that is accessible to everyone."
+    }
   },
-  "Contact": {
+  "contact": {
     "title": "Contact",
-    "intro": "Tell me in two sentences what it is about. I will get back to you shortly.",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "submit": "Send message",
-    "success": "Thanks! I will get back to you shortly.",
-    "error": "Something went wrong. Please try again.",
-    "altMail": "Or write directly to"
+    "subtitle": "Let's talk about your project",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Your message was sent successfully!",
+      "error": "An error occurred. Please try again later.",
+      "validation": {
+        "nameRequired": "Please enter your name",
+        "emailRequired": "Please enter your email address",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "Please enter a message",
+        "messageMin": "Message should be at least 10 characters long"
+      }
+    },
+    "alternative": "Or write directly to",
+    "email": "contact@haseloff-software.de"
   },
-  "Footer": {
-    "rights": "All rights reserved."
+  "footer": {
+    "company": "Haseloff Software Solutions",
+    "tagline": "Software with structure. Pixel by pixel.",
+    "rights": "All rights reserved.",
+    "madeWith": "Built with"
+  },
+  "impressum": {
+    "title": "Legal Notice",
+    "company": "Information according to § 5 TMG",
+    "companyName": "Haseloff Software Solutions",
+    "owner": "Owner: [Name]",
+    "address": "[Street and House Number]",
+    "city": "[Postal Code] [City]",
+    "contact": "Contact",
+    "phone": "Phone: [Phone Number]",
+    "email": "Email: contact@haseloff-software.de",
+    "vat": "VAT ID",
+    "vatNumber": "VAT identification number according to § 27 a VAT Act: [VAT ID]"
+  },
+  "datenschutz": {
+    "title": "Privacy Policy",
+    "intro": "The protection of your personal data is of particular concern to us. We therefore process your data exclusively on the basis of the legal provisions (GDPR, TKG 2003).",
+    "controller": {
+      "title": "Data Controller",
+      "text": "The data controller responsible for data processing is Haseloff Software Solutions."
+    },
+    "dataCollection": {
+      "title": "Data Collection",
+      "text": "When visiting our website, information of a general nature is automatically collected. This information (server log files) includes the type of web browser, the operating system used, the domain name of your Internet service provider, and similar."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "Our website only uses technically necessary cookies. These cookies are required to enable the basic functions of our website."
+    },
+    "contact": {
+      "title": "Contact Form",
+      "text": "If you send us inquiries via the contact form, your information from the inquiry form including the contact data you provided there will be stored by us for the purpose of processing the inquiry and in case of follow-up questions."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "text": "You generally have the rights to information, correction, deletion, restriction, data portability, revocation, and objection."
+    }
   }
 }

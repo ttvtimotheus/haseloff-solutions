@@ -1,117 +1,199 @@
-import Section from "@/components/Section";
-import { useTranslations } from "next-intl";
-import { Button } from "@/components/Button";
-import Link from "next/link";
+'use client';
 
-export default function ContactForm({ searchParams }: { searchParams?: { ok?: string } }) {
-  const t = useTranslations("Contact");
-  const ok = searchParams?.ok === "1";
-  const mailHref = "mailto:timo@haseloff-solutions.de";
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
+import PixelButton from './PixelButton';
+import PixelCard from './PixelCard';
+
+export default function ContactForm() {
+  const t = useTranslations('contact');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = t('form.validation.nameRequired');
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = t('form.validation.emailRequired');
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = t('form.validation.emailInvalid');
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = t('form.validation.messageRequired');
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = t('form.validation.messageMin');
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+  };
 
   return (
-    <Section id="kontakt" ariaLabelledby="contact-title">
-      <h2 id="contact-title" className="text-[length:var(--text-h2)] font-extrabold text-black/90">
-        {t("title")}
-      </h2>
-      <p className="mt-2 text-black/75 max-w-prose">{t("intro")}</p>
-
-      {ok && (
-        <div role="status" aria-live="polite" className="mt-4 rounded-lg bg-green-50 text-green-900 ring-1 ring-green-200 p-3">
-          {t("success")}
+    <section id="kontakt" className="py-20 bg-surface">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
+            {t('title')}
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {t('subtitle')}
+          </p>
         </div>
-      )}
 
-      <form
-        className="mt-6 grid gap-4 max-w-xl"
-        method="POST"
-        action="/api/contact"
-        noValidate
-      >
-        <label className="grid gap-1">
-          <span className="text-sm font-medium">{t("name")}</span>
-          <input id="name" name="name" type="text" required aria-describedby="name-error" className="h-11 rounded-xl border border-black/10 px-3 focus-ring" />
-          <p id="name-error" className="sr-only" aria-live="polite" />
-        </label>
-        <label className="grid gap-1">
-          <span className="text-sm font-medium">{t("email")}</span>
-          <input id="email" name="email" type="email" required aria-describedby="email-error" className="h-11 rounded-xl border border-black/10 px-3 focus-ring" />
-          <p id="email-error" className="sr-only" aria-live="polite" />
-        </label>
-        <label className="grid gap-1">
-          <span className="text-sm font-medium">{t("message")}</span>
-          <textarea id="message" name="message" required aria-describedby="message-error" rows={5} className="rounded-xl border border-black/10 px-3 py-2 focus-ring" />
-          <p id="message-error" className="sr-only" aria-live="polite" />
-        </label>
-        <input type="hidden" name="redirectTo" value="/kontakt?ok=1" />
-        <Button type="submit" variant="primary" size="lg" className="w-fit">
-          {t("submit")}
-        </Button>
-        <p className="text-sm text-black/70">
-          {t("altMail")} <Link href={mailHref} className="text-primary-700 hover:underline">{mailHref}</Link>
-        </p>
-      </form>
-      {/* Client-side ARIA validation enhancer (progressive enhancement) */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(() => {
-  if (typeof window === 'undefined') return;
-  const form = document.querySelector('form[action="/api/contact"]');
-  if (!form) return;
-  const fields = [
-    { id: 'name', type: 'text', required: true },
-    { id: 'email', type: 'email', required: true },
-    { id: 'message', type: 'text', required: true },
-  ];
-  function setError(id, msg) {
-    const input = document.getElementById(id);
-    const err = document.getElementById(id + '-error');
-    if (!input || !err) return;
-    if (msg) {
-      input.setAttribute('aria-invalid', 'true');
-      err.classList.remove('sr-only');
-      err.textContent = msg;
-    } else {
-      input.removeAttribute('aria-invalid');
-      err.classList.add('sr-only');
-      err.textContent = '';
-    }
-  }
-  function validate() {
-    let ok = true;
-    for (const f of fields) {
-      const el = document.getElementById(f.id);
-      if (!el) continue;
-      const val = /** @type {HTMLInputElement|HTMLTextAreaElement} */ (el).value.trim();
-      let msg = '';
-      if (f.required && !val) msg = 'Pflichtfeld';
-      if (!msg && f.type === 'email' && val && !/.+@.+\..+/.test(val)) msg = 'Ungültige E-Mail';
-      setError(f.id, msg);
-      if (msg) ok = false;
-    }
-    return ok;
-  }
-  form.addEventListener('input', (e) => {
-    const t = e.target;
-    if (!(t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement)) return;
-    const id = t.id;
-    if (!id) return;
-    // Revalidate single field
-    const f = fields.find(x => x.id === id);
-    if (!f) return;
-    let msg = '';
-    const val = t.value.trim();
-    if (f.required && !val) msg = 'Pflichtfeld';
-    if (!msg && f.type === 'email' && val && !/.+@.+\..+/.test(val)) msg = 'Ungültige E-Mail';
-    setError(id, msg);
-  });
-  form.addEventListener('submit', (e) => {
-    if (!validate()) {
-      e.preventDefault();
-    }
-  });
-})();`,
-        }}
-      />
-    </Section>
+        <div className="max-w-2xl mx-auto">
+          <PixelCard missingCorner="top-right">
+            <form onSubmit={handleSubmit} noValidate>
+              <div className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block font-display font-medium mb-2">
+                    {t('form.name')}
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
+                  />
+                  {errors.name && (
+                    <p id="name-error" className="mt-2 text-sm text-red-600" role="alert" aria-live="polite">
+                      {errors.name}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block font-display font-medium mb-2">
+                    {t('form.email')}
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
+                  />
+                  {errors.email && (
+                    <p id="email-error" className="mt-2 text-sm text-red-600" role="alert" aria-live="polite">
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block font-display font-medium mb-2">
+                    {t('form.message')}
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={6}
+                    className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 resize-none"
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? 'message-error' : undefined}
+                  />
+                  {errors.message && (
+                    <p id="message-error" className="mt-2 text-sm text-red-600" role="alert" aria-live="polite">
+                      {errors.message}
+                    </p>
+                  )}
+                </div>
+
+                {submitStatus === 'success' && (
+                  <div className="p-4 bg-green-100 text-green-800 rounded-pixel border-2 border-green-300" role="alert" aria-live="polite">
+                    {t('form.success')}
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="p-4 bg-red-100 text-red-800 rounded-pixel border-2 border-red-300" role="alert" aria-live="polite">
+                    {t('form.error')}
+                  </div>
+                )}
+
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <PixelButton
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto"
+                  >
+                    {isSubmitting ? t('form.sending') : t('form.send')}
+                  </PixelButton>
+                  
+                  <div className="text-center sm:text-right">
+                    <p className="text-sm text-gray-600 mb-1">{t('alternative')}</p>
+                    <a href={`mailto:${t('email')}`} className="font-display font-medium text-secondary hover:text-secondary-dark transition-colors">
+                      {t('email')}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </PixelCard>
+        </div>
+      </div>
+    </section>
   );
 }

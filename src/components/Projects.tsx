@@ -1,48 +1,99 @@
-import { useTranslations } from "next-intl";
-import Section from "@/components/Section";
-import { projects } from "@/lib/projects";
-import Image from "next/image";
-import Badge from "@/components/Badge";
+'use client';
+
+import { useTranslations, useLocale } from 'next-intl';
+import PixelCard from './PixelCard';
+import { projects } from '@/lib/projects';
+import { staggerDelay } from '@/lib/utils';
 
 export default function Projects() {
-  const t = useTranslations("Projects");
+  const t = useTranslations('projects');
+  const locale = useLocale();
 
   return (
-    <Section id="projekte" ariaLabelledby="projects-title">
-      <h2 id="projects-title" className="text-[length:var(--text-h1)] font-extrabold text-black/90">
-        {t("title")}
-      </h2>
-      {projects.length === 0 ? (
-        <p className="mt-4 text-black/70">{t("empty")}</p>
-      ) : (
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <article key={p.id} className="group rounded-2xl bg-white p-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 hover:shadow-lg transition-shadow">
-              {p.image && (
-                <div className="relative aspect-[16/10] overflow-hidden rounded-xl">
-                  <Image src={p.image.src} alt={p.image.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
-                </div>
-              )}
-              <h3 className="mt-4 text-lg font-bold">{p.title}</h3>
-              <p className="mt-2 text-sm text-black/70">{p.summary}</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {p.tags.map((tag) => (
-                  <Badge key={tag}>{tag}</Badge>
+    <section id="projekte" className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
+            {t('title')}
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {t('subtitle')}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <PixelCard
+              key={project.id}
+              missingCorner={index % 2 === 0 ? 'top-right' : 'bottom-left'}
+              hover
+              className="animate-stagger-in opacity-0"
+              style={staggerDelay(index)}
+            >
+              <h3 className="font-display font-bold text-xl mb-2">
+                {project.title}
+              </h3>
+              
+              <p className="text-gray-600 mb-4">
+                {locale === 'de' ? project.description : project.descriptionEn}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-surface text-xs font-display font-medium rounded-pixel-sm border border-border"
+                  >
+                    {t(`tags.${tag}`)}
+                  </span>
                 ))}
               </div>
-              {p.stack && (
-                <div className="mt-3 flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {p.stack.map((s) => (
-                    <Badge key={s} className="bg-secondary-500/10 text-secondary-600 ring-1 ring-secondary-500/20">
-                      {s}
-                    </Badge>
+
+              <details className="group">
+                <summary className="cursor-pointer font-display font-medium text-sm text-secondary hover:text-secondary-dark transition-colors list-none flex items-center gap-2">
+                  <span className="inline-block w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-t-4 border-t-secondary group-open:rotate-180 transition-transform" />
+                  {t('techStack')}
+                </summary>
+                <div className="mt-2 pt-2 border-t border-border flex flex-wrap gap-1">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 bg-primary text-white text-xs rounded-pixel-sm"
+                    >
+                      {tech}
+                    </span>
                   ))}
                 </div>
+              </details>
+
+              {(project.link || project.github) && (
+                <div className="mt-4 pt-4 border-t border-border flex gap-4">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-display font-medium text-secondary hover:text-secondary-dark transition-colors"
+                    >
+                      {t('viewProject')} →
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-display font-medium text-primary hover:text-primary-light transition-colors"
+                    >
+                      GitHub →
+                    </a>
+                  )}
+                </div>
               )}
-            </article>
+            </PixelCard>
           ))}
         </div>
-      )}
-    </Section>
+      </div>
+    </section>
   );
 }

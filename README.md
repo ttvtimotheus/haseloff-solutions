@@ -1,76 +1,131 @@
-## Haseloff Software Solutions – Portfolio
+# Haseloff Software Solutions
 
-Farbiges, charakterstarkes Portfolio mit Oversized Typography, gebaut mit Next.js 15 (App Router), TypeScript, Tailwind CSS v4 und next-intl.
+Eine moderne Portfolio-Website für Haseloff Software Solutions, entwickelt mit Next.js 15, TypeScript und Tailwind CSS.
 
-### Stack
-- Next.js 15 (App Router unter `src/app/`)
-- TypeScript (strict)
-- Tailwind CSS v4 (Theming via `@theme` Tokens in `src/styles/globals.css`)
-- next-intl (i18n, automatische Locale-Erkennung per Cookie/`Accept-Language`, Fallback: `en`)
-- Framer Motion (Microinteractions/Parallax, `prefers-reduced-motion`-freundlich)
+## Features
 
-### Entwicklung
+- 🌐 **Mehrsprachigkeit**: Deutsch und Englisch mit automatischer Browser-Erkennung
+- 🎨 **Pixel-Perfect Design**: Angelehnt an das kantige Logo mit dem "fehlenden Pixel" Motiv
+- ⚡ **Performance**: Optimiert für Lighthouse Score 90+
+- 📱 **Responsive**: Vollständig responsiv von 320px bis 1440px+
+- ♿ **Accessibility**: ARIA-Labels, semantisches HTML, Keyboard-Navigation
+- 🔒 **Type-Safe**: Vollständig typisiert mit TypeScript
+- 🎯 **SEO-Optimiert**: Meta-Tags, Open Graph, strukturierte Daten
+
+## Technologie-Stack
+
+- **Framework**: Next.js 15 mit App Router
+- **Sprache**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS mit Custom Design System
+- **Internationalisierung**: next-intl
+- **Font**: Space Grotesk (Display) + Inter (Body)
+- **Animationen**: Framer Motion kompatible CSS Animationen
+
+## Installation
 
 ```bash
+# Abhängigkeiten installieren
+npm install
+# oder
+yarn install
+# oder
+pnpm install
+```
+
+## Entwicklung
+
+```bash
+# Entwicklungsserver starten
+npm run dev
+# oder
+yarn dev
+# oder
 pnpm dev
 ```
 
-Öffne http://localhost:3000
+Die Anwendung ist dann unter [http://localhost:3000](http://localhost:3000) erreichbar.
 
-### Produktion
+## Build
 
 ```bash
+# Production Build erstellen
+npm run build
+# oder
+yarn build
+# oder
 pnpm build
+
+# Production Server starten
+npm run start
+# oder
+yarn start
+# oder
 pnpm start
 ```
 
-### Linting & Formatierung
-
-```bash
-pnpm lint
-pnpm format
-```
-
-### Struktur
+## Projektstruktur
 
 ```
 src/
-  app/
-    layout.tsx
-    page.tsx
-    impressum/page.tsx
-    datenschutz/page.tsx
-    kontakt/page.tsx
-    api/locale/route.ts
-    api/contact/route.ts
-    robots.ts
-    sitemap.ts
-  components/
-    Header.tsx, Footer.tsx, Section.tsx, Hero.tsx, Projects.tsx,
-    Services.tsx, Philosophy.tsx, ContactForm.tsx, Badge.tsx, Button.tsx,
-    NoiseLayer.tsx, LocaleToggle.tsx, HeroMotion.tsx
-  lib/
-    projects.ts, utils.ts
-  messages/
-    de.json, en.json
-  styles/
-    globals.css
+├── app/                  # Next.js App Router
+│   ├── [locale]/        # Lokalisierte Routen
+│   │   ├── layout.tsx   # Root Layout
+│   │   ├── page.tsx     # Homepage
+│   │   ├── kontakt/     # Kontaktseite
+│   │   ├── impressum/   # Impressum
+│   │   └── datenschutz/ # Datenschutz
+│   └── api/             # API Routes
+│       └── contact/     # Kontaktformular Endpoint
+├── components/          # React Komponenten
+│   ├── PixelButton.tsx  # Signature Button mit Pixel-Effekt
+│   ├── PixelCard.tsx    # Card mit fehlendem Pixel
+│   ├── GridBackground.tsx # Animiertes Grid
+│   └── ...
+├── lib/                 # Utilities und Daten
+│   ├── utils.ts        # Helper Funktionen
+│   └── projects.ts     # Projekt-Daten
+├── messages/           # Übersetzungen
+│   ├── de.json        # Deutsche Texte
+│   └── en.json        # Englische Texte
+├── i18n/              # Internationalisierung
+│   ├── request.ts     # i18n Config
+│   └── navigation.ts  # Navigation Helper
+└── styles/            # Global Styles
+    └── globals.css    # Tailwind und Custom CSS
 ```
 
-### i18n
-- Locale wird aus Cookie `locale` gelesen, sonst aus `Accept-Language` (de/en, Fallback `en`).
-- Manuelle Umschaltung im Header (POST an `/api/locale`).
-- `html lang` wird serverseitig korrekt gesetzt.
+## Design System
 
-### Inhalte
-- Projekte: `src/lib/projects.ts` – hier echte Projekteinträge ergänzen (keine Beispiel-/Dummy-Daten).
-- Rechtliches: `src/app/impressum`, `src/app/datenschutz`.
-- Kontakt: Formular sendet an `/api/contact` mit ARIA Live-Feedback und Validierung (progressive Enhancement), alternativ `mailto`-Link.
+### Farben
+- **Primary**: Schwarz (#000000)
+- **Secondary**: Blau (#2563eb)
+- **Accent**: Türkis (#06b6d4)
+- **Signal**: Orange (sparsam eingesetzt)
 
-### Designhinweise
-- Nur Light Mode. Farben: Indigo (Primär), Türkis (Sekundär), warmes Orange (Akzent).
-- Oversized Headlines per fluiden Clamp-Skalen.
-- Glows/Verläufe/Noise via Utility-Klassen (`.bg-hero`, `.bg-noise`).
+### Typografie
+- **Headlines**: Space Grotesk Bold
+- **Body**: Inter
 
-### Hinweise
-- Fonts: System-Stack mit Fallbacks. Optional können später lokale Schriften (mit `font-display: swap`) eingebunden werden.
+### Komponenten
+- **PixelButton**: Buttons mit abgeschnittener Ecke
+- **PixelCard**: Cards mit "fehlendem Pixel"
+- **GridBackground**: Animiertes Pixel-Grid
+
+## Performance
+
+Die Website ist optimiert für:
+- Lighthouse Performance Score: 90+
+- Lighthouse Best Practices: 90+
+- First Contentful Paint < 1.5s
+- Cumulative Layout Shift < 0.1
+
+## Browser-Unterstützung
+
+- Chrome (letzten 2 Versionen)
+- Firefox (letzten 2 Versionen)
+- Safari (letzten 2 Versionen)
+- Edge (letzten 2 Versionen)
+
+## Lizenz
+
+© 2024 Haseloff Software Solutions. Alle Rechte vorbehalten.

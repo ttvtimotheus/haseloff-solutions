@@ -1,23 +1,88 @@
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+'use client';
+
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 export default function Footer() {
-  const t = useTranslations("Nav");
-  const f = useTranslations("Footer");
-  const year = new Date().getFullYear();
+  const t = useTranslations();
 
   return (
-    <footer className="mt-24 border-t border-black/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-sm text-black/70">
-            © {year} Haseloff Software Solutions Inhaber: Timo Haseloff. {f("rights")} <br className="sm:hidden" />
+    <footer className="bg-primary text-white mt-24" role="contentinfo">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Company Info */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="relative w-10 h-10 bg-white rounded-pixel-sm">
+                <div className="absolute top-0 right-0 w-2 h-2 bg-secondary"></div>
+                <span className="absolute inset-0 flex items-center justify-center text-primary font-display font-bold text-xl">
+                  H
+                </span>
+              </div>
+              <span className="font-display font-bold text-lg">
+                {t('footer.company')}
+              </span>
+            </div>
+            <p className="text-sm text-gray-300">
+              {t('footer.tagline')}
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-display font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/#projekte" className="text-sm text-gray-300 hover:text-accent transition-colors">
+                  {t('nav.projekte')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/#leistungen" className="text-sm text-gray-300 hover:text-accent transition-colors">
+                  {t('nav.leistungen')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/#philosophie" className="text-sm text-gray-300 hover:text-accent transition-colors">
+                  {t('nav.philosophie')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/kontakt" className="text-sm text-gray-300 hover:text-accent transition-colors">
+                  {t('nav.kontakt')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="font-display font-bold mb-4">Legal</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/impressum" className="text-sm text-gray-300 hover:text-accent transition-colors">
+                  {t('nav.impressum')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/datenschutz" className="text-sm text-gray-300 hover:text-accent transition-colors">
+                  {t('nav.datenschutz')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-700 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-gray-400">
+            © {new Date().getFullYear()} {t('footer.company')}. {t('footer.rights')}
           </p>
-          <nav aria-label="Footer" className="text-sm flex gap-4">
-            <a href="#kontakt" className="hover:opacity-80 focus-ring">{t("contact")}</a>
-            <Link href="/impressum" className="hover:opacity-80 focus-ring">{t("imprint")}</Link>
-            <Link href="/datenschutz" className="hover:opacity-80 focus-ring">{t("privacy")}</Link>
-          </nav>
+          <p className="text-sm text-gray-400 flex items-center gap-2">
+            {t('footer.madeWith')} 
+            <span className="inline-block w-4 h-4 bg-accent rounded-pixel-sm animate-pulse"></span>
+            Next.js
+          </p>
         </div>
       </div>
     </footer>

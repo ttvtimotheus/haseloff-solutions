@@ -1,33 +1,116 @@
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { ButtonLink } from "@/components/Button";
-import LocaleToggle from "@/components/LocaleToggle";
-import Logo from "@/components/Logo";
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import LangSwitch from './LangSwitch';
+import { cn } from '@/lib/utils';
 
 export default function Header() {
-  const t = useTranslations("Nav");
+  const t = useTranslations('nav');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { href: '/#projekte', label: t('projekte') },
+    { href: '/#leistungen', label: t('leistungen') },
+    { href: '/#philosophie', label: t('philosophie') },
+    { href: '/kontakt', label: t('kontakt') },
+  ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-black/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center">
-            <Logo width={160} height={40} />
+    <header
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-pixel' : 'bg-transparent'
+      )}
+    >
+      <nav className="container mx-auto px-4 py-4" role="navigation" aria-label="Hauptnavigation">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="group flex items-center gap-2">
+            <div className="relative w-10 h-10 bg-primary rounded-pixel-sm group-hover:translate-x-[1px] group-hover:translate-y-[1px] transition-transform">
+              <div className="absolute top-0 right-0 w-2 h-2 bg-secondary"></div>
+              <span className="absolute inset-0 flex items-center justify-center text-white font-display font-bold text-xl">
+                H
+              </span>
+            </div>
+            <span className="hidden sm:block font-display font-bold text-lg">
+              Haseloff Software
+            </span>
           </Link>
-          <nav aria-label="Primary" className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <a href="#projekte" className="hover:opacity-80 focus-ring">{t("projects")}</a>
-            <a href="#leistungen" className="hover:opacity-80 focus-ring">{t("services")}</a>
-            <a href="#philosophie" className="hover:opacity-80 focus-ring">{t("philosophy")}</a>
-            <a href="#kontakt" className="hover:opacity-80 focus-ring">{t("contact")}</a>
-          </nav>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            <ul className="flex items-center gap-6">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="font-display font-medium hover:text-secondary transition-colors relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all hover:after:w-full"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <LangSwitch />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 rounded-pixel border-2 border-primary"
+            aria-label="Menü öffnen"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <div className="w-6 h-5 flex flex-col justify-between">
+              <span className={cn(
+                'block h-[2px] bg-primary transition-all',
+                isMobileMenuOpen && 'rotate-45 translate-y-[9px]'
+              )} />
+              <span className={cn(
+                'block h-[2px] bg-primary transition-all',
+                isMobileMenuOpen && 'opacity-0'
+              )} />
+              <span className={cn(
+                'block h-[2px] bg-primary transition-all',
+                isMobileMenuOpen && '-rotate-45 -translate-y-[9px]'
+              )} />
+            </div>
+          </button>
         </div>
-        <div className="flex items-center gap-3">
-          <LocaleToggle />
-          <ButtonLink href="#kontakt" className="hidden sm:inline-flex" variant="primary" size="md">
-            {t("cta")}
-          </ButtonLink>
+
+        {/* Mobile Menu */}
+        <div className={cn(
+          'md:hidden overflow-hidden transition-all duration-300',
+          isMobileMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
+        )}>
+          <ul className="flex flex-col gap-4 pb-4 border-t-2 border-primary pt-4">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="font-display font-medium hover:text-secondary transition-colors block py-2"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li className="pt-2">
+              <LangSwitch />
+            </li>
+          </ul>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }
