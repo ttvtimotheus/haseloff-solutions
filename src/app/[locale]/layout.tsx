@@ -34,6 +34,13 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     metadataBase: new URL('https://haseloff-software.de'),
+    alternates: {
+      languages: {
+        de: '/de',
+        en: '/en',
+        'x-default': '/de',
+      },
+    },
     openGraph: {
       title: t('title'),
       description: t('description'),
@@ -41,7 +48,7 @@ export async function generateMetadata({
       siteName: 'Haseloff Software Solutions',
       images: [
         {
-          url: '/og-image.png',
+          url: '/og',
           width: 1200,
           height: 630,
           alt: 'Haseloff Software Solutions',
@@ -54,7 +61,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: ['/og-image.png'],
+      images: ['/og'],
     },
     robots: {
       index: true,
@@ -70,10 +77,7 @@ export async function generateMetadata({
     icons: {
       icon: [
         { url: '/favicon.ico' },
-        { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
       ],
-      apple: [{ url: '/apple-touch-icon.png' }],
     },
   };
 }
@@ -93,6 +97,37 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
+  const orgJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Haseloff Software Solutions',
+    url: 'https://haseloff-software.de',
+    logo: 'https://haseloff-software.de/nur-logo-fuer-icon.svg',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Breite Straße 7',
+      postalCode: '39288',
+      addressLocality: 'Burg OT Detershagen',
+      addressCountry: 'DE',
+    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+49 1525 870 5975',
+        contactType: 'customer service',
+        email: 'kontakt@haseloff-solutions.de',
+        availableLanguage: ['de', 'en'],
+      },
+    ],
+  } as const;
+
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Haseloff Software Solutions',
+    url: 'https://haseloff-software.de',
+    inLanguage: locale,
+  } as const;
 
   return (
     <html lang={locale} className={`${inter.variable} ${spaceGrotesk.variable}`}>
@@ -104,6 +139,14 @@ export default async function LocaleLayout({
           </main>
           <Footer />
         </NextIntlClientProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
       </body>
     </html>
   );

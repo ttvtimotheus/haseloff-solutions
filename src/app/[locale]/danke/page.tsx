@@ -8,6 +8,17 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Nachricht gesendet - Haseloff Software Solutions',
   description: 'Vielen Dank für Ihre Nachricht. Wir melden uns bald bei Ihnen.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    languages: {
+      de: '/de/danke',
+      en: '/en/thank-you',
+      'x-default': '/de/danke',
+    },
+  },
 };
 
 export default function ThankYouPage() {

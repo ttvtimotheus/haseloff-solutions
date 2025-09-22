@@ -12,6 +12,13 @@ export async function generateMetadata({
   return {
     title: `${t('title')} | Haseloff Software Solutions`,
     description: t('subtitle'),
+    alternates: {
+      languages: {
+        de: '/de/kontakt',
+        en: '/en/contact',
+        'x-default': '/de/kontakt',
+      },
+    },
   };
 }
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { Link, useRouter } from '@/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import LangSwitch from './LangSwitch';
 import SectionLink from './ProjectsLink';

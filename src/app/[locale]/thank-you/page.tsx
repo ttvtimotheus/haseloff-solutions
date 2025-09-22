@@ -8,6 +8,17 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Message Sent - Haseloff Software Solutions',
   description: 'Thank you for your message. We will get back to you soon.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    languages: {
+      de: '/de/danke',
+      en: '/en/thank-you',
+      'x-default': '/de/danke',
+    },
+  },
 };
 
 export default function ThankYouPage() {
