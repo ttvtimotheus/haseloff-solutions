@@ -2,12 +2,13 @@
 
 import { useRouter } from '@/i18n/navigation';
 
-interface ProjectsLinkProps {
+interface SectionLinkProps {
   children: React.ReactNode;
   className?: string;
+  sectionId: string;
 }
 
-export default function ProjectsLink({ children, className }: ProjectsLinkProps) {
+export default function SectionLink({ children, className, sectionId }: SectionLinkProps) {
   const router = useRouter();
 
   const handleClick = () => {
@@ -16,7 +17,7 @@ export default function ProjectsLink({ children, className }: ProjectsLinkProps)
     
     // Small delay to ensure page loads, then scroll to section
     setTimeout(() => {
-      const element = document.getElementById('projekte');
+      const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
@@ -29,3 +30,6 @@ export default function ProjectsLink({ children, className }: ProjectsLinkProps)
     </button>
   );
 }
+
+// Backward compatibility
+export { SectionLink as ProjectsLink };

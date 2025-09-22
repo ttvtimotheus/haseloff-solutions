@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
+import SectionLink from './ProjectsLink';
 
 export default function Footer() {
   const t = useTranslations();
@@ -31,19 +32,19 @@ export default function Footer() {
             <h3 className="font-display font-medium text-base mb-5 text-gray-200">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/#projekte" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
+                <SectionLink sectionId="projekte" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
                   {t('nav.projekte')}
-                </Link>
+                </SectionLink>
               </li>
               <li>
-                <Link href="/#leistungen" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
+                <SectionLink sectionId="leistungen" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
                   {t('nav.leistungen')}
-                </Link>
+                </SectionLink>
               </li>
               <li>
-                <Link href="/#philosophie" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
+                <SectionLink sectionId="philosophie" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
                   {t('nav.philosophie')}
-                </Link>
+                </SectionLink>
               </li>
               <li>
                 <Link href="/kontakt" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">

@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import Image from 'next/image';
 import LangSwitch from './LangSwitch';
+import SectionLink from './ProjectsLink';
 import { cn } from '@/lib/utils';
 
 export default function Header() {
@@ -20,11 +21,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { href: '/#projekte', label: t('projekte') },
-    { href: '/#leistungen', label: t('leistungen') },
-    { href: '/#philosophie', label: t('philosophie') },
-    { href: '/kontakt', label: t('kontakt') },
+  const sectionItems = [
+    { sectionId: 'projekte', label: t('projekte') },
+    { sectionId: 'leistungen', label: t('leistungen') },
+    { sectionId: 'philosophie', label: t('philosophie') },
+  ];
+  
+  const pageItems = [
+    { href: '/kontakt' as const, label: t('kontakt') },
   ];
 
   return (
@@ -55,7 +59,17 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <ul className="flex items-center gap-6">
-              {navItems.map((item) => (
+              {sectionItems.map((item) => (
+                <li key={item.sectionId}>
+                  <SectionLink
+                    sectionId={item.sectionId}
+                    className="font-display font-medium hover:text-secondary hover:translate-x-[1px] transition-all duration-200 relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all hover:after:w-full"
+                  >
+                    {item.label}
+                  </SectionLink>
+                </li>
+              ))}
+              {pageItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -102,7 +116,17 @@ export default function Header() {
             {/* Missing pixel corner */}
             <div className="absolute top-0 right-0 w-3 h-3 bg-background"></div>
             <ul className="flex flex-col gap-4">
-            {navItems.map((item) => (
+            {sectionItems.map((item) => (
+              <li key={item.sectionId}>
+                <SectionLink
+                  sectionId={item.sectionId}
+                  className="font-display font-medium hover:text-secondary hover:translate-x-[1px] transition-all duration-200 block py-2"
+                >
+                  {item.label}
+                </SectionLink>
+              </li>
+            ))}
+            {pageItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}

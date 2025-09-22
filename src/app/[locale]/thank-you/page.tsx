@@ -69,7 +69,7 @@ export default function ThankYouPage() {
                 </PixelButton>
               </Link>
               
-              <ProjectsLink>
+              <ProjectsLink sectionId="projekte">
                 <PixelButton 
                   variant="secondary" 
                   size="lg"
