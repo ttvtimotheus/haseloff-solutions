@@ -25,9 +25,9 @@ export default function SectionLink({ children, className, sectionId }: SectionL
   };
 
   return (
-    <button onClick={handleClick} className={className}>
+    <div onClick={handleClick} className={className} style={{ cursor: 'pointer' }}>
       {children}
-    </button>
+    </div>
   );
 }
 
