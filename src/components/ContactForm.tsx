@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import PixelButton from './PixelButton';
 import PixelCard from './PixelCard';
+import PixelSpinner from './PixelSpinner';
 
 export default function ContactForm() {
   const t = useTranslations('contact');
@@ -197,8 +198,9 @@ export default function ContactForm() {
                     variant="primary"
                     size="lg"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto"
+                    className="w-full sm:w-auto flex items-center gap-3"
                   >
+                    {isSubmitting && <PixelSpinner size="sm" />}
                     {isSubmitting ? t('form.sending') : t('form.send')}
                   </PixelButton>
                   

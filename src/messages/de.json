@@ -6,11 +6,13 @@
   "hero": {
     "title": "Software mit System.",
     "titleHighlight": "Pixel für Pixel.",
-    "subtitle": "Wir entwickeln Web, Apps und Tools mit Präzision, reduziert auf das Wesentliche."
+    "subtitle": "Wir entwickeln Web, Apps und Tools mit Präzision, reduziert auf das Wesentliche.",
+    "responseHint": "Antwort innerhalb von 24h"
   },
   "cta": {
     "primary": "Projekt anfragen",
-    "secondary": "Projekte ansehen"
+    "secondary": "Projekte ansehen",
+    "responseHint": "Antwort innerhalb von 24h"
   },
   "nav": {
     "projekte": "Projekte",

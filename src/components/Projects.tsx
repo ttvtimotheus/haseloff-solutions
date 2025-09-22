@@ -1,13 +1,32 @@
 'use client';
 
 import { useTranslations, useLocale } from 'next-intl';
+import { useState, useEffect } from 'react';
 import PixelCard from './PixelCard';
+import PixelCardSkeleton from './PixelCardSkeleton';
 import { projects } from '@/lib/projects';
 import { staggerDelay } from '@/lib/utils';
 
 export default function Projects() {
   const t = useTranslations('projects');
   const locale = useLocale();
+  const [isLoading, setIsLoading] = useState(true);
+  const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
+
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      // Staggered reveal of projects
+      projects.forEach((_, index) => {
+        setTimeout(() => {
+          setVisibleProjects(prev => [...prev, index]);
+        }, index * 200);
+      });
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section id="projekte" className="py-20 relative overflow-hidden">
@@ -27,14 +46,28 @@ export default function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <PixelCard
-              key={project.id}
-              missingCorner={index % 2 === 0 ? 'top-right' : 'bottom-left'}
-              hover
-              className="animate-stagger-in opacity-0"
-              style={staggerDelay(index)}
-            >
+          {isLoading ? (
+            // Show skeleton cards while loading
+            [...Array(6)].map((_, index) => (
+              <PixelCardSkeleton
+                key={`skeleton-${index}`}
+                variant="project"
+                className="opacity-0 animate-stagger-in"
+                style={staggerDelay(index)}
+              />
+            ))
+          ) : (
+            projects.map((project, index) => (
+              <PixelCard
+                key={project.id}
+                missingCorner={index % 2 === 0 ? 'top-right' : 'bottom-left'}
+                hover
+                className={`transition-all duration-500 ${
+                  visibleProjects.includes(index) 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4'
+                }`}
+              >
               <h3 className="font-display font-bold text-xl mb-2">
                 {project.title}
               </h3>
@@ -96,7 +129,7 @@ export default function Projects() {
                 </div>
               )}
             </PixelCard>
-          ))}
+          )))}
         </div>
       </div>
     </section>

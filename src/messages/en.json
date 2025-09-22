@@ -6,11 +6,13 @@
   "hero": {
     "title": "Software with structure.",
     "titleHighlight": "Pixel by pixel.",
-    "subtitle": "We build web apps and tools with precision, reduced to the essential."
+    "subtitle": "We build web apps and tools with precision, reduced to the essential.",
+    "responseHint": "Response within 24h"
   },
   "cta": {
     "primary": "Request a project",
-    "secondary": "View projects"
+    "secondary": "View projects",
+    "responseHint": "Response within 24h"
   },
   "nav": {
     "projekte": "Projects",

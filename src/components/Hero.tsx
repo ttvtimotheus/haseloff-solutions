@@ -23,22 +23,33 @@ export default function Hero() {
             {t('subtitle')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{animationDelay: '400ms'}}>
-            <PixelButton 
-              variant="primary" 
-              size="lg"
-              onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              {tCta('primary')}
-            </PixelButton>
-            <PixelButton 
-              variant="secondary" 
-              size="lg"
-              pixelCorner="bottom-right"
-              onClick={() => document.getElementById('projekte')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              {tCta('secondary')}
-            </PixelButton>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up" style={{animationDelay: '400ms'}}>
+            <div className="flex flex-col items-center">
+              <PixelButton 
+                variant="primary" 
+                size="lg"
+                onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                {tCta('primary')}
+              </PixelButton>
+              {/* Response Time Hint */}
+              <div className="flex items-center gap-2 mt-3 animate-fade-in" style={{animationDelay: '600ms'}}>
+                <div className="w-2 h-2 bg-accent rounded-pixel-sm animate-pulse"></div>
+                <span className="text-xs font-display font-medium text-gray-600">
+                  {tCta('responseHint')}
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col items-center">
+              <PixelButton 
+                variant="secondary" 
+                size="lg"
+                pixelCorner="bottom-right"
+                onClick={() => document.getElementById('projekte')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                {tCta('secondary')}
+              </PixelButton>
+            </div>
           </div>
         </div>
         

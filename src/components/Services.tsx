@@ -1,11 +1,22 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { useState, useEffect } from 'react';
 import PixelCard from './PixelCard';
+import PixelCardSkeleton from './PixelCardSkeleton';
 import { staggerDelay } from '@/lib/utils';
 
 export default function Services() {
   const t = useTranslations('services');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const services = [
     {
@@ -82,13 +93,23 @@ export default function Services() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <PixelCard
-              key={service.id}
-              missingCorner={index === 1 ? 'bottom-right' : 'top-right'}
-              className="animate-stagger-in opacity-0"
-              style={staggerDelay(index)}
-            >
+          {isLoading ? (
+            [...Array(3)].map((_, index) => (
+              <PixelCardSkeleton
+                key={`service-skeleton-${index}`}
+                variant="service"
+                className="animate-stagger-in opacity-0"
+                style={staggerDelay(index)}
+              />
+            ))
+          ) : (
+            services.map((service, index) => (
+              <PixelCard
+                key={service.id}
+                missingCorner={index === 1 ? 'bottom-right' : 'top-right'}
+                className="animate-stagger-in opacity-0"
+                style={staggerDelay(index)}
+              >
               <div className="flex items-center justify-center w-16 h-16 bg-secondary text-white rounded-pixel mb-4">
                 {service.icon}
               </div>
@@ -102,7 +123,7 @@ export default function Services() {
                 {t(`${service.id}.description`)}
               </p>
             </PixelCard>
-          ))}
+          )))}
         </div>
       </div>
     </section>
