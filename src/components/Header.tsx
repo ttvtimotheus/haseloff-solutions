@@ -98,7 +98,10 @@ export default function Header() {
           'md:hidden overflow-hidden transition-all duration-300',
           isMobileMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
         )}>
-          <ul className="flex flex-col gap-4 pb-4 border-t-2 border-primary pt-4">
+          <div className="bg-white border-2 border-primary rounded-pixel p-4 shadow-pixel relative">
+            {/* Missing pixel corner */}
+            <div className="absolute top-0 right-0 w-3 h-3 bg-background"></div>
+            <ul className="flex flex-col gap-4">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
@@ -114,6 +117,7 @@ export default function Header() {
               <LangSwitch />
             </li>
           </ul>
+          </div>
         </div>
       </nav>
     </header>
