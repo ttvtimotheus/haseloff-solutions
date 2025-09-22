@@ -1,52 +1,42 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, email, message } = body;
 
-    // Validate input
     if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Invalid email address' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
     }
 
-    // In a real application, you would send an email here
-    // For example, using a service like SendGrid, Resend, or AWS SES
-    console.log('Contact form submission:', {
-      name,
-      email,
-      message,
-      timestamp: new Date().toISOString(),
+    // E-Mail senden
+    await resend.emails.send({
+      from: 'Kontaktformular <noreply@haseloff-solutions.de>',
+      to: ['kontakt@haseloff-solutions.de'],
+      subject: `Neue Kontaktanfrage von ${name}`,
+      html: `
+        <h2>Neue Kontaktanfrage</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>E-Mail:</strong> ${email}</p>
+        <p><strong>Nachricht:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p><small>Gesendet am: ${new Date().toLocaleString('de-DE')}</small></p>
+      `,
+      replyTo: email,
     });
 
-    // Simulate email sending delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-
-    // Return success response
-    return NextResponse.json(
-      { 
-        message: 'Message sent successfully',
-        data: { name, email }
-      },
-      { status: 200 }
-    );
+    return NextResponse.json({ message: 'Message sent successfully' }, { status: 200 });
   } catch (error) {
     console.error('Contact form error:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
