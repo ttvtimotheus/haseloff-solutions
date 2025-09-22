@@ -68,7 +68,7 @@ export default function ThankYouPage() {
                 </PixelButton>
               </Link>
               
-              <Link href="/#projekte">
+              <a href="/#projekte">
                 <PixelButton 
                   variant="secondary" 
                   size="lg"
@@ -76,7 +76,7 @@ export default function ThankYouPage() {
                 >
                   {t('viewProjects')}
                 </PixelButton>
-              </Link>
+              </a>
             </div>
           </PixelCard>
         </div>
