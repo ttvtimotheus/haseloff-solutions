@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import PixelButton from '@/components/PixelButton';
 import PixelCard from '@/components/PixelCard';
+import ProjectsLink from '@/components/ProjectsLink';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -68,7 +69,7 @@ export default function ThankYouPage() {
                 </PixelButton>
               </Link>
               
-              <a href="/#projekte">
+              <ProjectsLink>
                 <PixelButton 
                   variant="secondary" 
                   size="lg"
@@ -76,7 +77,7 @@ export default function ThankYouPage() {
                 >
                   {t('viewProjects')}
                 </PixelButton>
-              </a>
+              </ProjectsLink>
             </div>
           </PixelCard>
         </div>
