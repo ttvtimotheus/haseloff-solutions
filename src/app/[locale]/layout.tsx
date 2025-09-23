@@ -131,7 +131,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="min-h-screen bg-background text-primary font-sans">
+      <body className="min-h-screen bg-background text-primary font-sans" suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main role="main" className="pt-16">
