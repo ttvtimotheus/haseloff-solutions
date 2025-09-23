@@ -18,6 +18,7 @@
     "projekte": "Projekte",
     "leistungen": "Leistungen",
     "philosophie": "Philosophie",
+    "faq": "FAQ",
     "kontakt": "Kontakt",
     "impressum": "Impressum",
     "datenschutz": "Datenschutz"
@@ -139,6 +140,40 @@
     "rights": {
       "title": "Ihre Rechte",
       "text": "Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu."
+    }
+  },
+  "faq": {
+    "title": "Häufige Fragen",
+    "subtitle": "Die Fragen, die mir am öftesten   gestellt werden",
+    "items": {
+      "duration": {
+        "question": "Wie lange dauert sowas eigentlich?",
+        "answer": "Kommt drauf an, was du brauchst! Eine schicke Landing Page ist in 2-3 Wochen fertig. Für eine richtige Web-App mit Backend, Datenbank und allem Drum und Dran plane ich eher 2-4 Monate ein. Lass uns einfach kurz quatschen, dann kann ich dir eine realistische Einschätzung geben."
+      },
+      "cost": {
+        "question": "Was kostet der Spaß?",
+        "answer": "Ehrliche Antwort: Das hängt mega davon ab, was du willst. Eine saubere Website startet bei ~2.500€, eine richtige App kann auch mal 15-25k kosten. Klingt viel? Dafür bekommst du aber auch professionellen Code, der Jahre hält. Schreib mir einfach, was du im Kopf hast - dann mache ich dir ein faires Angebot."
+      },
+      "technologies": {
+        "question": "Mit welchen Technologien arbeitest du?",
+        "answer": "Ich setze auf das, was funktioniert und zukunftssicher ist: React & Next.js für Websites (weil sie einfach schnell sind), React Native für Apps, TypeScript (damit weniger Bugs entstehen) und PostgreSQL für Datenbanken. Kein fancy Zeug, das in 2 Jahren keiner mehr kennt."
+      },
+      "maintenance": {
+        "question": "Und danach? Lässt du mich hängen?",
+        "answer": "Niemals! Du bekommst 3 Monate Support gratis - falls was nicht läuft oder du Fragen hast. Danach kannst du einen Wartungsvertrag ab 150€/Monat buchen. Oder du rufst einfach an, wenn mal was ist. Ich lasse niemanden mit kaputtem Code allein."
+      },
+      "process": {
+        "question": "Wie läuft das ab? Bin zum ersten Mal hier...",
+        "answer": "Ganz entspannt: Wir reden erst mal über deine Idee (kostenlos, klar). Dann mache ich dir ein Angebot. Wenn's passt, starte ich mit Design-Mockups, damit du siehst, wo die Reise hingeht. Während der Entwicklung kriegst du regelmäßig Updates. Du bist immer im Loop, keine Überraschungen."
+      },
+      "support": {
+        "question": "Wie schnell antwortest du?",
+        "answer": "Innerhalb von 24h, meistens viel schneller. Bei akuten Problemen (\"Die Website ist down!\") bin ich auch telefonisch da. Ich hasse es selbst, wenn man tagelang auf Antworten wartet - deshalb mache ich das anders."
+      }
+    },
+    "contact": {
+      "title": "Noch Fragen?",
+      "description": "Schreib mir einfach! Ich berate dich gerne unverbindlich."
     }
   }
 }

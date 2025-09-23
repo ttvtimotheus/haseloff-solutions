@@ -18,6 +18,7 @@
     "projekte": "Projects",
     "leistungen": "Services",
     "philosophie": "Philosophy",
+    "faq": "FAQ",
     "kontakt": "Contact",
     "impressum": "Legal Notice",
     "datenschutz": "Privacy Policy"
@@ -139,6 +140,40 @@
     "rights": {
       "title": "Your Rights",
       "text": "You generally have the rights to information, correction, deletion, restriction, data portability, revocation, and objection."
+    }
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "The questions I get asked most often",
+    "items": {
+      "duration": {
+        "question": "How long does this stuff actually take?",
+        "answer": "Depends on what you need! A slick landing page? 2-3 weeks. A proper web app with backend, database, and all the bells and whistles? I'd plan for 2-4 months. Let's just chat quickly and I can give you a realistic estimate."
+      },
+      "cost": {
+        "question": "What's this gonna cost me?",
+        "answer": "Honest answer: It depends big time on what you want. A clean website starts around €2,500, a proper app can run €15-25k. Sounds like a lot? But you're getting professional code that'll last for years. Just shoot me what you have in mind - I'll give you a fair quote."
+      },
+      "technologies": {
+        "question": "What tech do you work with?",
+        "answer": "I stick to what works and is future-proof: React & Next.js for websites (because they're simply fast), React Native for apps, TypeScript (so fewer bugs happen), and PostgreSQL for databases. No fancy stuff that nobody will know in 2 years."
+      },
+      "maintenance": {
+        "question": "What happens after? You gonna leave me hanging?",
+        "answer": "Never! You get 3 months of free support - if something doesn't work or you have questions. After that, you can book a maintenance contract from €150/month. Or just call when something's up. I don't leave anyone alone with broken code."
+      },
+      "process": {
+        "question": "How does it work? First time here...",
+        "answer": "Super chill: We first talk about your idea (free, obviously). Then I make you an offer. If it fits, I start with design mockups so you see where we're heading. During development, you get regular updates. You're always in the loop, no surprises."
+      },
+      "support": {
+        "question": "How fast do you reply?",
+        "answer": "Within 24h, usually much faster. For urgent problems (\"The website is down!\") I'm also available by phone. I hate it myself when you wait days for answers - so I do it differently."
+      }
+    },
+    "contact": {
+      "title": "More questions?",
+      "description": "Just shoot me a message! Happy to give you free advice."
     }
   }
 }

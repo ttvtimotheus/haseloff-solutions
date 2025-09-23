@@ -25,6 +25,7 @@ export default function Header() {
     { sectionId: 'projekte', label: t('projekte') },
     { sectionId: 'leistungen', label: t('leistungen') },
     { sectionId: 'philosophie', label: t('philosophie') },
+    { sectionId: 'faq', label: t('faq') },
   ];
   
   const pageItems = [
