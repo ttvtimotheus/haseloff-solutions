@@ -96,7 +96,7 @@ export default function Projects() {
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-accent text-primary text-xs font-display font-medium rounded-pixel-sm shadow-pixel-sm hover:shadow-pixel hover:translate-x-[1px] hover:translate-y-[1px] transition-all duration-200"
+                      className="px-3 py-1 bg-secondary text-white text-xs font-display font-medium rounded-pixel-sm shadow-pixel-sm hover:shadow-pixel hover:translate-x-[1px] hover:translate-y-[1px] transition-all duration-200"
                     >
                       {tech}
                     </span>
