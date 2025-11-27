@@ -12,6 +12,14 @@ export default function GridBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    let mouseX = -100;
+    let mouseY = -100;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -19,6 +27,7 @@ export default function GridBackground() {
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('mousemove', handleMouseMove);
 
     const gridSize = 20;
     let animationId: number;
@@ -26,10 +35,11 @@ export default function GridBackground() {
 
     const drawGrid = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle = 'rgba(37, 99, 235, 0.05)'; // secondary color with low opacity
+      
+      // Draw base grid
+      ctx.strokeStyle = 'rgba(37, 99, 235, 0.05)';
       ctx.lineWidth = 1;
 
-      // Draw vertical lines
       for (let x = offset % gridSize; x < canvas.width; x += gridSize) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
@@ -37,7 +47,6 @@ export default function GridBackground() {
         ctx.stroke();
       }
 
-      // Draw horizontal lines
       for (let y = offset % gridSize; y < canvas.height; y += gridSize) {
         ctx.beginPath();
         ctx.moveTo(0, y);
@@ -45,15 +54,40 @@ export default function GridBackground() {
         ctx.stroke();
       }
 
-      // Draw random "missing pixels" - small squares
-      ctx.fillStyle = 'rgba(6, 182, 212, 0.1)'; // accent color
-      for (let i = 0; i < 5; i++) {
-        const x = Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize;
-        const y = Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize;
-        ctx.fillRect(x, y, gridSize, gridSize);
+      // Draw interactive pixels near mouse
+      const gridMouseX = Math.floor(mouseX / gridSize) * gridSize;
+      const gridMouseY = Math.floor(mouseY / gridSize) * gridSize;
+
+      // Radius of effect (in grid cells)
+      const radius = 4;
+
+      for (let x = -radius; x <= radius; x++) {
+        for (let y = -radius; y <= radius; y++) {
+          if (Math.random() > 0.5) continue; // Randomness for glitchy feel
+
+          const cellX = gridMouseX + (x * gridSize);
+          const cellY = gridMouseY + (y * gridSize);
+          
+          // Calculate distance for opacity falloff
+          const dist = Math.sqrt(x*x + y*y);
+          if (dist > radius) continue;
+
+          const opacity = (1 - dist / radius) * 0.15;
+          
+          ctx.fillStyle = `rgba(37, 99, 235, ${opacity})`; // secondary color
+          ctx.fillRect(cellX, cellY, gridSize, gridSize);
+        }
       }
 
-      offset += 0.1;
+      // Random ambient pixels
+      // ctx.fillStyle = 'rgba(6, 182, 212, 0.1)'; // accent color
+      // for (let i = 0; i < 3; i++) { // Reduced count
+      //   const x = Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize;
+      //   const y = Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize;
+      //   ctx.fillRect(x, y, gridSize, gridSize);
+      // }
+
+      offset += 0.2; // Slightly faster
       animationId = requestAnimationFrame(drawGrid);
     };
 
@@ -61,6 +95,7 @@ export default function GridBackground() {
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationId);
     };
   }, []);

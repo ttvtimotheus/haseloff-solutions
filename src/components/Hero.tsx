@@ -34,7 +34,6 @@ export default function Hero() {
               </PixelButton>
               {/* Response Time Hint */}
               <div className="flex items-center gap-2 mt-3 animate-fade-in" style={{animationDelay: '600ms'}}>
-                <div className="w-2 h-2 bg-accent rounded-pixel-sm animate-pulse"></div>
                 <span className="text-xs font-display font-medium text-gray-600">
                   {tCta('responseHint')}
                 </span>
@@ -53,10 +52,7 @@ export default function Hero() {
           </div>
         </div>
         
-        {/* Decorative pixel elements */}
-        <div className="absolute top-20 left-10 w-4 h-4 bg-accent rounded-pixel-sm animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-6 h-6 bg-secondary rounded-pixel animate-pulse" style={{animationDelay: '1s'}} />
-        <div className="absolute top-1/3 right-20 w-3 h-3 bg-primary rounded-pixel-sm animate-pulse" style={{animationDelay: '2s'}} />
+        {/* Decorative pixel elements removed */}
       </div>
     </section>
   );

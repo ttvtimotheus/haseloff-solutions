@@ -77,10 +77,7 @@ export default function Services() {
 
   return (
     <section id="leistungen" className="py-20 bg-surface relative overflow-hidden">
-      {/* Pixel-Highlights im Hintergrund */}
-      <div className="absolute top-12 left-12 w-3 h-3 bg-accent rounded-pixel-sm animate-pulse opacity-20" />
-      <div className="absolute bottom-16 right-14 w-4 h-4 bg-secondary rounded-pixel animate-pulse opacity-15" style={{animationDelay: '1s'}} />
-      <div className="absolute top-2/3 right-12 w-2 h-2 bg-primary rounded-pixel-sm animate-pulse opacity-25" style={{animationDelay: '1.5s'}} />
+      {/* Pixel-Highlights removed */}
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">

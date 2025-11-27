@@ -53,10 +53,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-20 relative overflow-hidden">
-      {/* Pixel-Highlights im Hintergrund */}
-      <div className="absolute top-14 right-12 w-3 h-3 bg-secondary rounded-pixel-sm animate-pulse opacity-20" />
-      <div className="absolute bottom-16 left-8 w-2 h-2 bg-accent rounded-pixel animate-pulse opacity-15" style={{animationDelay: '1s'}} />
-      <div className="absolute top-1/3 left-14 w-4 h-4 bg-primary rounded-pixel-sm animate-pulse opacity-25" style={{animationDelay: '2s'}} />
+      {/* Pixel-Highlights removed */}
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
@@ -120,7 +117,6 @@ export default function FAQ() {
           <div className="mt-12 text-center">
             <PixelCard className="bg-surface">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-2 h-2 bg-accent rounded-pixel-sm animate-pulse"></div>
                 <h3 className="font-display font-medium text-lg">
                   {t('contact.title')}
                 </h3>
