@@ -34,39 +34,39 @@ export default async function DatenschutzPage({
         </h1>
 
         <div className="prose prose-lg max-w-none space-y-6">
-          <PixelCard missingCorner="top-right" className="mb-6">
+          <PixelCard className="mb-6">
             <p className="text-gray-600">{t('intro')}</p>
           </PixelCard>
 
-          <PixelCard missingCorner="bottom-left">
+          <PixelCard>
             <h2 className="font-display font-bold text-xl mb-3">
               {t('controller.title')}
             </h2>
             <p className="text-gray-600">{t('controller.text')}</p>
           </PixelCard>
 
-          <PixelCard missingCorner="top-right">
+          <PixelCard>
             <h2 className="font-display font-bold text-xl mb-3">
               {t('dataCollection.title')}
             </h2>
             <p className="text-gray-600">{t('dataCollection.text')}</p>
           </PixelCard>
 
-          <PixelCard missingCorner="bottom-left">
+          <PixelCard>
             <h2 className="font-display font-bold text-xl mb-3">
               {t('cookies.title')}
             </h2>
             <p className="text-gray-600">{t('cookies.text')}</p>
           </PixelCard>
 
-          <PixelCard missingCorner="top-right">
+          <PixelCard>
             <h2 className="font-display font-bold text-xl mb-3">
               {t('contact.title')}
             </h2>
             <p className="text-gray-600">{t('contact.text')}</p>
           </PixelCard>
 
-          <PixelCard missingCorner="bottom-left">
+          <PixelCard>
             <h2 className="font-display font-bold text-xl mb-3">
               {t('rights.title')}
             </h2>

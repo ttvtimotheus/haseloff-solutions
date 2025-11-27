@@ -26,16 +26,10 @@ export default function ThankYouPage() {
 
   return (
     <section className="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
-      {/* Pixel-Highlights im Hintergrund */}
-      <div className="absolute top-20 left-12 w-3 h-3 bg-accent rounded-pixel-sm animate-pulse opacity-20" />
-      <div className="absolute bottom-24 right-16 w-4 h-4 bg-secondary rounded-pixel animate-pulse opacity-15" style={{animationDelay: '1s'}} />
-      <div className="absolute top-1/3 right-10 w-2 h-2 bg-accent rounded-pixel-sm animate-pulse opacity-25" style={{animationDelay: '2s'}} />
-      <div className="absolute bottom-1/3 left-20 w-3 h-3 bg-primary rounded-pixel-sm animate-pulse opacity-20" style={{animationDelay: '1.5s'}} />
-      <div className="absolute top-2/3 left-16 w-2 h-2 bg-secondary rounded-pixel-sm animate-pulse opacity-25" style={{animationDelay: '0.5s'}} />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
-          <PixelCard missingCorner="top-right" className="p-8 md:p-12">
+          <PixelCard className="p-8 md:p-12">
             {/* Success Icon */}
             <div className="flex items-center justify-center w-20 h-20 bg-accent text-primary rounded-pixel mx-auto mb-6">
               <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
@@ -60,12 +54,10 @@ export default function ThankYouPage() {
 
             <div className="space-y-4 mb-8">
               <div className="flex items-center justify-center gap-3 text-gray-600">
-                <div className="w-2 h-2 bg-accent rounded-pixel-sm animate-pulse"></div>
                 <span className="text-sm">{t('responseTime')}</span>
               </div>
               
               <div className="flex items-center justify-center gap-3 text-gray-600">
-                <div className="w-2 h-2 bg-secondary rounded-pixel-sm animate-pulse" style={{animationDelay: '0.5s'}}></div>
                 <span className="text-sm">{t('contact')}</span>
               </div>
             </div>

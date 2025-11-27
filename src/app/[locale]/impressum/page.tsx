@@ -33,7 +33,7 @@ export default async function ImpressumPage({
           {t('title')}
         </h1>
 
-        <PixelCard missingCorner="top-right">
+        <PixelCard>
           <div className="space-y-6">
             <section>
               <h2 className="font-display font-bold text-xl mb-3">

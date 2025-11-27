@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 import { Space_Grotesk } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ScrollProgress from '@/components/ScrollProgress';
 import '@/styles/globals.css';
 
 const inter = Inter({
@@ -133,6 +134,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen bg-background text-primary font-sans" suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
+          <ScrollProgress />
           <Header />
           <main role="main" className="pt-16">
             {children}

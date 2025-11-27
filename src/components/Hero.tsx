@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import PixelButton from './PixelButton';
 import GridBackground from './GridBackground';
+import Typewriter from './Typewriter';
 
 export default function Hero() {
   const t = useTranslations('hero');
@@ -19,11 +20,15 @@ export default function Hero() {
             <span className="block text-secondary mt-2">{t('titleHighlight')}</span>
           </h1>
           
-          <p className="text-lg sm:text-xl text-gray-600 mb-12 max-w-2xl mx-auto animate-slide-up" style={{animationDelay: '200ms'}}>
-            {t('subtitle')}
-          </p>
+          <div className="text-lg sm:text-xl text-gray-600 mb-12 max-w-2xl mx-auto min-h-[3em]">
+            <Typewriter 
+              text={t('subtitle')} 
+              startDelay={800}
+              delay={30}
+            />
+          </div>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up" style={{animationDelay: '400ms'}}>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up" style={{animationDelay: '2500ms'}}>
             <div className="flex flex-col items-center">
               <PixelButton 
                 variant="primary" 
