@@ -106,7 +106,6 @@ export default function Services() {
             services.map((service, index) => (
               <PixelCard
                 key={service.id}
-                missingCorner={index === 1 ? 'bottom-right' : 'top-right'}
                 className="animate-stagger-in opacity-0"
                 style={staggerDelay(index)}
               >

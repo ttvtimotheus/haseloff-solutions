@@ -24,8 +24,6 @@ export default function PixelSpinner({ size = 'md', className }: PixelSpinnerPro
     <div className={cn('relative', sizeClasses[size], className)}>
       {/* Outer frame */}
       <div className="absolute inset-0 border-2 border-primary rounded-pixel">
-        {/* Missing corner */}
-        <div className="absolute top-0 right-0 w-2 h-2 bg-background"></div>
       </div>
       
       {/* Animated pixels */}

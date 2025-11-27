@@ -13,7 +13,6 @@ export default function PixelCardSkeleton({ className, variant = 'default', styl
     <div 
       className={cn(
         'relative bg-gray-100 border-2 border-gray-200 rounded-pixel p-6 animate-pulse',
-        'before:absolute before:content-[""] before:w-4 before:h-4 before:bg-background before:top-0 before:right-0',
         'shadow-pixel',
         className
       )}

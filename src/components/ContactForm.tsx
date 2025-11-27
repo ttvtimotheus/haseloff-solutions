@@ -105,7 +105,7 @@ export default function ContactForm() {
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <PixelCard missingCorner="top-right">
+          <PixelCard>
             <form onSubmit={handleSubmit} noValidate>
               <div className="space-y-6">
                 <div>
@@ -119,11 +119,10 @@ export default function ContactForm() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-offset-2 relative before:absolute before:content-[''] before:top-0 before:right-0 before:w-3 before:h-3 before:bg-background"
+                      className="w-full px-4 py-3 border-2 border-primary rounded-pixel focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-offset-2"
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? 'name-error' : undefined}
                     />
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-background"></div>
                   </div>
                   {errors.name && (
                     <p id="name-error" className="mt-2 text-sm text-red-600" role="alert" aria-live="polite">
@@ -147,7 +146,6 @@ export default function ContactForm() {
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? 'email-error' : undefined}
                     />
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-background"></div>
                   </div>
                   {errors.email && (
                     <p id="email-error" className="mt-2 text-sm text-red-600" role="alert" aria-live="polite">
@@ -171,7 +169,6 @@ export default function ContactForm() {
                       aria-invalid={!!errors.message}
                       aria-describedby={errors.message ? 'message-error' : undefined}
                     />
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-background"></div>
                   </div>
                   {errors.message && (
                     <p id="message-error" className="mt-2 text-sm text-red-600" role="alert" aria-live="polite">

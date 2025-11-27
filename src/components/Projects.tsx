@@ -60,7 +60,6 @@ export default function Projects() {
             projects.map((project, index) => (
               <PixelCard
                 key={project.id}
-                missingCorner={index % 2 === 0 ? 'top-right' : 'bottom-left'}
                 hover
                 className={`transition-all duration-500 ${
                   visibleProjects.includes(index) 

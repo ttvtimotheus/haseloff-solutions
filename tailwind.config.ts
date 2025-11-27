@@ -38,9 +38,16 @@ const config: Config = {
         'pixel-lg': '6px',
       },
       boxShadow: {
-        'pixel': '2px 2px 0px rgba(0, 0, 0, 0.1)',
-        'pixel-hover': '3px 3px 0px rgba(0, 0, 0, 0.15)',
-        'pixel-active': '1px 1px 0px rgba(0, 0, 0, 0.1)',
+        'pixel-sm': '2px 2px 0px #000000',
+        'pixel': '4px 4px 0px #000000',
+        'pixel-hover': '6px 6px 0px #000000',
+        'pixel-active': '2px 2px 0px #000000',
+      },
+      dropShadow: {
+        'pixel-sm': '2px 2px 0px #000000',
+        'pixel': '4px 4px 0px #000000',
+        'pixel-hover': '6px 6px 0px #000000',
+        'pixel-active': '2px 2px 0px #000000',
       },
       animation: {
         'pixel-shift': 'pixelShift 0.3s ease-out',

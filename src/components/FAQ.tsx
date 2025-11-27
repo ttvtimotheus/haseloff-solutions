@@ -73,7 +73,6 @@ export default function FAQ() {
             {faqItems.map((item, index) => (
               <PixelCard 
                 key={item.id}
-                missingCorner={index % 2 === 0 ? 'top-right' : 'bottom-left'}
                 className="transition-all duration-300"
               >
                 <button
@@ -119,7 +118,7 @@ export default function FAQ() {
 
           {/* Zusätzliche Kontakt-Info */}
           <div className="mt-12 text-center">
-            <PixelCard missingCorner="top-right" className="bg-surface">
+            <PixelCard className="bg-surface">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="w-2 h-2 bg-accent rounded-pixel-sm animate-pulse"></div>
                 <h3 className="font-display font-medium text-lg">
