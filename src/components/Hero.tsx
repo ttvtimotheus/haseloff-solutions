@@ -48,7 +48,6 @@ export default function Hero() {
               <PixelButton 
                 variant="secondary" 
                 size="lg"
-                pixelCorner="bottom-right"
                 onClick={() => document.getElementById('projekte')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {tCta('secondary')}

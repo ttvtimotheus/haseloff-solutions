@@ -76,7 +76,6 @@ export default function ThankYouPage() {
                 <PixelButton 
                   variant="secondary" 
                   size="lg"
-                  pixelCorner="bottom-right"
                 >
                   {t('viewProjects')}
                 </PixelButton>

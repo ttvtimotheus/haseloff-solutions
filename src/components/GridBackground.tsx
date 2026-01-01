@@ -103,7 +103,7 @@ export default function GridBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none opacity-50"
+      className="absolute inset-0 pointer-events-none opacity-50"
       style={{ zIndex: 0 }}
     />
   );

@@ -51,8 +51,6 @@ export default function Philosophy() {
               {/* Pillar */}
               <div className="relative mx-auto w-24 h-48 mb-6">
                 <div className={`absolute inset-0 ${value.color} rounded-pixel`}>
-                  {/* Missing pixel at top */}
-                  <div className="absolute top-0 right-0 w-4 h-4 bg-background" />
                 </div>
                 
                 {/* Icon */}

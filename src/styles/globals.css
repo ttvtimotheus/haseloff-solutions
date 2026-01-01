@@ -37,27 +37,6 @@
 }
 
 @layer utilities {
-  /* Utility for creating pixel cutout effect */
-  .pixel-cutout-top-right {
-    clip-path: polygon(
-      0 0,
-      calc(100% - 8px) 0,
-      100% 8px,
-      100% 100%,
-      0 100%
-    );
-  }
-
-  .pixel-cutout-bottom-right {
-    clip-path: polygon(
-      0 0,
-      100% 0,
-      100% calc(100% - 8px),
-      calc(100% - 8px) 100%,
-      0 100%
-    );
-  }
-
   /* Grid pattern background */
   .grid-pattern {
     background-image: 
