@@ -3,23 +3,25 @@
 import { useTranslations } from 'next-intl';
 import { staggerDelay } from '@/lib/utils';
 
+import PixelCard from './PixelCard';
+
 export default function Philosophy() {
   const t = useTranslations('philosophy');
 
   const values = [
     {
       id: 'clarity',
-      color: 'bg-secondary',
+      color: 'text-secondary',
       icon: '◆',
     },
     {
       id: 'quality',
-      color: 'bg-accent',
+      color: 'text-accent',
       icon: '■',
     },
     {
       id: 'responsibility',
-      color: 'bg-gray-900',
+      color: 'text-primary',
       icon: '▲',
     },
   ];
@@ -45,33 +47,28 @@ export default function Philosophy() {
           {values.map((value, index) => (
             <div
               key={value.id}
-              className="text-center animate-stagger-in opacity-0"
+              className="animate-stagger-in opacity-0"
               style={staggerDelay(index)}
             >
-              {/* Pillar */}
-              <div className="relative mx-auto w-24 h-48 mb-6">
-                <div className={`absolute inset-0 ${value.color} rounded-pixel`}>
+              <PixelCard className="h-full flex flex-col items-center text-center hover:shadow-pixel-hover transition-all duration-200">
+                {/* Icon Block */}
+                <div className="mb-6 relative">
+                  <div className={`text-6xl ${value.color} opacity-20 absolute top-1 left-1 select-none`}>
+                    {value.icon}
+                  </div>
+                  <div className={`text-6xl ${value.color} relative z-10`}>
+                    {value.icon}
+                  </div>
                 </div>
-                
-                {/* Icon */}
-                <div className="absolute inset-0 flex items-center justify-center text-white text-4xl">
-                  {value.icon}
-                </div>
-                
-                {/* Animated pulse */}
-                <div 
-                  className={`absolute -inset-2 ${value.color} opacity-20 rounded-pixel animate-pulse`}
-                  style={{ animationDelay: `${index * 500}ms` }}
-                />
-              </div>
 
-              <h3 className="font-display font-bold text-xl mb-3">
-                {t(`${value.id}.title`)}
-              </h3>
-              
-              <p className="text-gray-700 font-medium max-w-sm mx-auto">
-                {t(`${value.id}.description`)}
-              </p>
+                <h3 className="font-display font-bold text-xl mb-3">
+                  {t(`${value.id}.title`)}
+                </h3>
+                
+                <p className="text-gray-700 font-medium">
+                  {t(`${value.id}.description`)}
+                </p>
+              </PixelCard>
             </div>
           ))}
         </div>

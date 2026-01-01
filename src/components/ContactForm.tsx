@@ -102,7 +102,7 @@ export default function ContactForm() {
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <PixelCard>
+          <PixelCard title="KONTAKT_FORMULAR.EXE">
             <form onSubmit={handleSubmit} noValidate>
               <div className="space-y-6">
                 <div>

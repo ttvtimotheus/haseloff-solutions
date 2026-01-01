@@ -37,7 +37,7 @@ export default function GridBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Draw base grid
-      ctx.strokeStyle = 'rgba(37, 99, 235, 0.05)';
+      ctx.strokeStyle = 'rgba(37, 99, 235, 0.1)';
       ctx.lineWidth = 1;
 
       for (let x = offset % gridSize; x < canvas.width; x += gridSize) {
