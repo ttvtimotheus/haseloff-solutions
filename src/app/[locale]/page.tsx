@@ -13,13 +13,13 @@ export default function HomePage() {
       <Hero />
       <PixelSeparator />
       <Projects />
-      <PixelSeparator />
+      <PixelSeparator className="pb-0" />
       <Services />
-      <PixelSeparator />
+      <PixelSeparator className="bg-surface pb-0" />
       <Philosophy />
       <PixelSeparator />
       <FAQ />
-      <PixelSeparator />
+      <PixelSeparator className="pb-0" />
       <ContactForm />
       <FAQSchema />
     </>
