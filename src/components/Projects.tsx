@@ -22,9 +22,7 @@ export default function Projects() {
                 {t('title')}
               </h2>
               <p className="text-cream/25 text-sm leading-relaxed hidden lg:block">
-                {locale === 'de'
-                  ? 'Von Logistik-Portalen bis Patienten-Apps – jedes Projekt ist maßgeschneidert.'
-                  : 'From logistics portals to patient apps – every project is custom-built.'}
+                {t('projectsIntro')}
               </p>
             </AnimateIn>
           </div>

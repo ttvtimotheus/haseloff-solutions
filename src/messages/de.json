@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "Haseloff Software Solutions – Deine Vision. Unser Code.",
-    "description": "Wir bauen Web-Apps, Mobile Apps und individuelle Software. Modern, schnell, zuverlässig."
+    "title": "Haseloff Software Solutions – Software, die verkauft.",
+    "description": "Wir entwickeln Websites, Apps und digitale Produkte für Unternehmen, die nicht untergehen wollen. Strategisch gedacht, sauber gebaut, messbar erfolgreich."
   },
   "hero": {
-    "title": "Deine Vision.",
-    "titleHighlight": "Unser Code.",
-    "subtitle": "Wir bauen Web-Apps, Mobile Apps und individuelle Software – modern, schnell und auf den Punkt.",
+    "title": "Software, die",
+    "titleHighlight": "verkauft.",
+    "subtitle": "Wir bauen digitale Produkte für Unternehmen, die es ernst meinen. Keine Templates. Keine halben Sachen.",
     "responseHint": "Antwort innerhalb von 24h"
   },
   "cta": {
@@ -17,15 +17,16 @@
   "nav": {
     "projekte": "Projekte",
     "leistungen": "Leistungen",
-    "philosophie": "Werte",
+    "philosophie": "Manifest",
     "faq": "FAQ",
     "kontakt": "Kontakt",
     "impressum": "Impressum",
     "datenschutz": "Datenschutz"
   },
   "projects": {
-    "title": "Unsere Projekte",
-    "subtitle": "Echte Lösungen für echte Unternehmen",
+    "title": "Unsere Arbeit",
+    "subtitle": "Ausgewählte Projekte",
+    "projectsIntro": "Jedes Projekt ist maßgeschneidert. Kein Template, kein Copy-Paste – nur Lösungen, die zum Unternehmen passen.",
     "viewProject": "Projekt ansehen",
     "techStack": "Tech Stack",
     "tags": {
@@ -38,53 +39,53 @@
     }
   },
   "services": {
-    "title": "Was wir machen",
-    "subtitle": "Drei Bereiche, ein Ziel: Software, die funktioniert",
+    "title": "Was wir liefern",
+    "subtitle": "Drei Disziplinen. Ein Ergebnis: Software, die dein Business nach vorne bringt.",
     "web": {
-      "title": "Webentwicklung",
-      "description": "Performante Webanwendungen mit React, Next.js und TypeScript. Ob Landing Page oder komplexe Business-App – wir liefern."
+      "title": "Web-Apps & Websites",
+      "description": "Schnelle, skalierbare Webanwendungen, die Kunden gewinnen und halten. Von der strategischen Landing Page bis zur komplexen Business-Plattform – gebaut, um zu konvertieren."
     },
     "app": {
-      "title": "App-Entwicklung",
-      "description": "Native und Cross-Platform Apps für iOS und Android. Schnell, stabil und mit einer UX, die begeistert."
+      "title": "Mobile Apps",
+      "description": "Apps, die Nutzer lieben und nicht nach einer Woche löschen. Native Performance, durchdachte UX, nahtlose Integration in deine bestehenden Systeme."
     },
     "custom": {
-      "title": "Individuelle Software",
-      "description": "Backend-Systeme, APIs und Automatisierungen. Maßgeschneidert für deine Anforderungen, keine Kompromisse."
+      "title": "Individuelle Systeme",
+      "description": "Backend-Architekturen, APIs und Automatisierungen, die dein Team schneller machen. Weniger manuelle Arbeit, mehr Wachstum."
     }
   },
   "philosophy": {
-    "title": "Unsere Werte",
-    "subtitle": "Wie wir arbeiten – und warum es funktioniert",
+    "title": "So arbeiten wir",
+    "subtitle": "Unser Manifest",
     "clarity": {
-      "title": "Klarheit",
-      "description": "Kein Bullshit. Transparente Kommunikation, verständliche Lösungen. Komplexität reduzieren, ohne Funktionalität zu verlieren."
+      "title": "Ergebnis vor Ego.",
+      "description": "Wir bauen keine Software, um uns selbst zu beeindrucken. Jede Entscheidung dient einem Ziel: dein Business messbar voranbringen. Kein Feature-Bloat, kein Over-Engineering."
     },
     "quality": {
-      "title": "Qualität",
-      "description": "Sauberer Code, durchdachte Architektur, Best Practices. Jede Zeile Code hat einen Zweck – nichts ist Zufall."
+      "title": "Gebaut für Jahre.",
+      "description": "Wir liefern Code, der in 3 Jahren noch genauso gut funktioniert wie am Launch-Tag. Durchdachte Architektur, saubere Patterns, null technische Schulden."
     },
     "responsibility": {
-      "title": "Verantwortung",
-      "description": "Datenschutz, Barrierefreiheit, nachhaltige Entwicklung. Software, die allen zugänglich ist und bleibt."
+      "title": "Kein Ghosting.",
+      "description": "Nach dem Launch fängt die echte Arbeit an. Wir betreuen, optimieren und skalieren – weil gute Software sich weiterentwickelt, nicht verstaubt."
     }
   },
   "contact": {
-    "title": "Lass uns reden",
-    "subtitle": "Du hast eine Idee? Wir haben den Code.",
+    "title": "Lass uns starten",
+    "subtitle": "Dein Projekt verdient mehr als eine Standard-Agentur. Erzähl uns, was du vorhast – der Rest ist unser Job.",
     "form": {
       "name": "Dein Name",
       "email": "Deine E-Mail",
-      "message": "Deine Nachricht",
-      "send": "Absenden",
+      "message": "Erzähl uns von deinem Projekt",
+      "send": "Nachricht senden",
       "sending": "Wird gesendet...",
-      "success": "Nachricht gesendet! Wir melden uns.",
-      "error": "Da ging was schief. Versuch's nochmal oder schreib uns direkt.",
+      "success": "Nachricht ist raus! Wir melden uns innerhalb von 24h.",
+      "error": "Da ging was schief. Versuch's nochmal oder schreib direkt an kontakt@haseloff-solutions.de",
       "validation": {
         "nameRequired": "Wie heißt du?",
-        "emailRequired": "Ohne E-Mail wird's schwierig",
-        "emailInvalid": "Das sieht nicht nach einer E-Mail aus",
-        "messageRequired": "Schreib uns was!",
+        "emailRequired": "Ohne E-Mail können wir nicht antworten",
+        "emailInvalid": "Das sieht nicht nach einer gültigen E-Mail aus",
+        "messageRequired": "Erzähl uns kurz, worum es geht",
         "messageMin": "Ein bisschen mehr bitte (mind. 10 Zeichen)"
       }
     },
@@ -92,27 +93,27 @@
     "email": "kontakt@haseloff-solutions.de"
   },
   "marquee": {
-    "items": ["Webentwicklung", "App-Entwicklung", "Individuelle Software", "UI/UX Design", "Beratung", "TypeScript", "React", "Next.js"]
+    "items": ["Web-Apps", "Mobile Apps", "Individuelle Software", "UI/UX Design", "Beratung", "TypeScript", "React", "Next.js"]
   },
   "stats": {
-    "projects": { "number": "30+", "label": "Projekte" },
-    "experience": { "number": "5+", "label": "Jahre Erfahrung" },
-    "clients": { "number": "100%", "label": "Zufriedenheit" },
-    "response": { "number": "24h", "label": "Antwortzeit" }
+    "projects": { "number": "30+", "label": "Gelieferte Projekte" },
+    "experience": { "number": "5+", "label": "Jahre im Game" },
+    "clients": { "number": "100%", "label": "Weiterempfehlung" },
+    "response": { "number": "<24h", "label": "Antwortzeit" }
   },
   "ctaBanner": {
-    "title": "Bereit für dein nächstes Projekt?",
-    "subtitle": "Lass uns zusammen etwas Großartiges bauen."
+    "title": "Gute Software entsteht nicht von allein.",
+    "subtitle": "Erzähl uns von deinem Vorhaben. Erstgespräch ist kostenlos und unverbindlich."
   },
   "footer": {
     "company": "Haseloff Software Solutions",
-    "tagline": "Deine Vision. Unser Code.",
+    "tagline": "Software, die verkauft.",
     "rights": "Alle Rechte vorbehalten.",
     "madeWith": "Gebaut mit"
   },
   "thankYou": {
     "title": "Nachricht ist raus!",
-    "message": "Danke! Wir haben deine Anfrage bekommen und melden uns schnellstmöglich bei dir.",
+    "message": "Danke für dein Vertrauen. Wir schauen uns deine Anfrage an und melden uns innerhalb von 24 Stunden.",
     "responseTime": "Antwortzeit: Innerhalb von 24 Stunden",
     "contact": "Dringend? Ruf an: 01525 870 5975",
     "backHome": "Zur Startseite",
@@ -157,36 +158,36 @@
   },
   "faq": {
     "title": "Häufige Fragen",
-    "subtitle": "Die Fragen, die mir am häufigsten gestellt werden",
+    "subtitle": "Straight talk – keine PR-Antworten",
     "items": {
       "duration": {
         "question": "Wie lange dauert ein Projekt?",
-        "answer": "Kommt drauf an! Eine Landing Page: 2–3 Wochen. Eine richtige Web-App mit Backend und allem: 2–4 Monate. Lass uns kurz quatschen, dann gebe ich dir eine realistische Einschätzung."
+        "answer": "Eine professionelle Website: 3–5 Wochen. Eine Web-App mit Backend: 2–4 Monate. Wir geben dir nach dem Erstgespräch eine verbindliche Timeline mit klaren Milestones – keine Überraschungen."
       },
       "cost": {
-        "question": "Was kostet das?",
-        "answer": "Ehrlich: Das hängt vom Umfang ab. Eine saubere Website startet bei ~2.500 €, eine App kann 15–25k kosten. Klingt viel? Dafür bekommst du professionellen Code, der Jahre hält. Schreib mir, was du im Kopf hast."
+        "question": "Was kostet das Ganze?",
+        "answer": "Websites starten ab 2.500 €, Apps und komplexe Systeme ab 10.000 €. Du bekommst dafür professionellen Code, der Jahre hält – kein WordPress-Theme, das nach 6 Monaten auseinanderfällt. Schreib uns, was du im Kopf hast."
       },
       "technologies": {
-        "question": "Welche Technologien nutzt du?",
-        "answer": "React & Next.js für Websites, React Native für Apps, TypeScript überall, PostgreSQL für Datenbanken. Bewährt, zukunftssicher, kein Hype-Zeug."
+        "question": "Welche Technologien setzt ihr ein?",
+        "answer": "React, Next.js und TypeScript für Frontends. React Native für Mobile. Node.js und PostgreSQL im Backend. Alles bewährt, zukunftssicher und von großen Teams weltweit eingesetzt – kein experimentelles Hype-Zeug."
       },
       "maintenance": {
         "question": "Was passiert nach dem Launch?",
-        "answer": "3 Monate Support gratis. Danach Wartungsvertrag ab 150 €/Monat – oder ruf einfach an, wenn was ist. Ich lasse niemanden mit kaputtem Code allein."
+        "answer": "3 Monate kostenloser Support sind inklusive. Danach bieten wir Wartungsverträge ab 150 €/Monat. Monitoring, Updates, Performance-Optimierung – wir lassen dich nicht mit deinem Produkt allein."
       },
       "process": {
-        "question": "Wie läuft die Zusammenarbeit ab?",
-        "answer": "Entspannt: Erstgespräch (kostenlos) → Angebot → Design-Mockups → Entwicklung mit regelmäßigen Updates. Du bist immer im Loop, keine Überraschungen."
+        "question": "Wie läuft ein Projekt ab?",
+        "answer": "Erstgespräch (kostenlos) → Angebot mit Fixpreis → Konzept & Design → Entwicklung mit wöchentlichen Updates → Launch & Betreuung. Du bist bei jedem Schritt im Loop."
       },
       "support": {
-        "question": "Wie schnell antwortest du?",
-        "answer": "Innerhalb von 24h, meistens schneller. Bei Notfällen auch telefonisch. Weil tagelang auf Antworten warten nervt – das mache ich anders."
+        "question": "Wie schnell bekomme ich eine Antwort?",
+        "answer": "Innerhalb von 24 Stunden, meistens schneller. Bei kritischen Problemen auch telefonisch. Weil tagelang auf Antworten warten unprofessionell ist."
       }
     },
     "contact": {
       "title": "Noch Fragen?",
-      "description": "Schreib mir! Beratung ist kostenlos und unverbindlich."
+      "description": "Schreib uns. Erstberatung ist kostenlos."
     }
   }
 }

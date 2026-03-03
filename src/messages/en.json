@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "Haseloff Software Solutions – Your Vision. Our Code.",
-    "description": "We build web apps, mobile apps, and custom software. Modern, fast, reliable."
+    "title": "Haseloff Software Solutions – Software that sells.",
+    "description": "We build websites, apps, and digital products for businesses that refuse to settle. Strategically designed, cleanly built, measurably successful."
   },
   "hero": {
-    "title": "Your Vision.",
-    "titleHighlight": "Our Code.",
-    "subtitle": "We build web apps, mobile apps, and custom software – modern, fast, and to the point.",
+    "title": "Software that",
+    "titleHighlight": "sells.",
+    "subtitle": "We build digital products for businesses that mean it. No templates. No half-measures.",
     "responseHint": "Response within 24h"
   },
   "cta": {
@@ -17,15 +17,16 @@
   "nav": {
     "projekte": "Projects",
     "leistungen": "Services",
-    "philosophie": "Values",
+    "philosophie": "Manifesto",
     "faq": "FAQ",
     "kontakt": "Contact",
     "impressum": "Legal Notice",
     "datenschutz": "Privacy Policy"
   },
   "projects": {
-    "title": "Our Projects",
-    "subtitle": "Real solutions for real businesses",
+    "title": "Our Work",
+    "subtitle": "Selected Projects",
+    "projectsIntro": "Every project is custom-built. No templates, no copy-paste – only solutions that fit the business.",
     "viewProject": "View project",
     "techStack": "Tech Stack",
     "tags": {
@@ -38,53 +39,53 @@
     }
   },
   "services": {
-    "title": "What We Do",
-    "subtitle": "Three areas, one goal: software that works",
+    "title": "What we deliver",
+    "subtitle": "Three disciplines. One outcome: software that moves your business forward.",
     "web": {
-      "title": "Web Development",
-      "description": "High-performance web apps with React, Next.js, and TypeScript. From landing pages to complex business applications – we deliver."
+      "title": "Web Apps & Websites",
+      "description": "Fast, scalable web applications that win and retain customers. From strategic landing pages to complex business platforms – built to convert."
     },
     "app": {
-      "title": "App Development",
-      "description": "Native and cross-platform apps for iOS and Android. Fast, stable, and with a UX that excites."
+      "title": "Mobile Apps",
+      "description": "Apps that users love and don't delete after a week. Native performance, thoughtful UX, seamless integration with your existing systems."
     },
     "custom": {
-      "title": "Custom Software",
-      "description": "Backend systems, APIs, and automations. Tailored to your requirements, no compromises."
+      "title": "Custom Systems",
+      "description": "Backend architectures, APIs, and automations that make your team faster. Less manual work, more growth."
     }
   },
   "philosophy": {
-    "title": "Our Values",
-    "subtitle": "How we work – and why it works",
+    "title": "How we work",
+    "subtitle": "Our Manifesto",
     "clarity": {
-      "title": "Clarity",
-      "description": "No BS. Transparent communication, understandable solutions. Reducing complexity without losing functionality."
+      "title": "Results over ego.",
+      "description": "We don't build software to impress ourselves. Every decision serves one goal: measurably moving your business forward. No feature bloat, no over-engineering."
     },
     "quality": {
-      "title": "Quality",
-      "description": "Clean code, thoughtful architecture, best practices. Every line of code has a purpose – nothing is accidental."
+      "title": "Built to last.",
+      "description": "We deliver code that works just as well in 3 years as it does on launch day. Thoughtful architecture, clean patterns, zero technical debt."
     },
     "responsibility": {
-      "title": "Responsibility",
-      "description": "Data protection, accessibility, sustainable development. Software that's accessible to everyone and stays that way."
+      "title": "No ghosting.",
+      "description": "The real work starts after launch. We support, optimize, and scale – because good software evolves, it doesn't collect dust."
     }
   },
   "contact": {
-    "title": "Let's Talk",
-    "subtitle": "Got an idea? We've got the code.",
+    "title": "Let's start",
+    "subtitle": "Your project deserves more than a standard agency. Tell us what you're planning – the rest is our job.",
     "form": {
       "name": "Your name",
       "email": "Your email",
-      "message": "Your message",
+      "message": "Tell us about your project",
       "send": "Send message",
       "sending": "Sending...",
-      "success": "Message sent! We'll be in touch.",
-      "error": "Something went wrong. Try again or email us directly.",
+      "success": "Message sent! We'll get back to you within 24h.",
+      "error": "Something went wrong. Try again or email kontakt@haseloff-solutions.de directly.",
       "validation": {
         "nameRequired": "What's your name?",
-        "emailRequired": "We need your email",
-        "emailInvalid": "That doesn't look like an email",
-        "messageRequired": "Tell us something!",
+        "emailRequired": "We need your email to reply",
+        "emailInvalid": "That doesn't look like a valid email",
+        "messageRequired": "Tell us briefly what it's about",
         "messageMin": "A bit more please (min. 10 characters)"
       }
     },
@@ -92,27 +93,27 @@
     "email": "kontakt@haseloff-solutions.de"
   },
   "marquee": {
-    "items": ["Web Development", "App Development", "Custom Software", "UI/UX Design", "Consulting", "TypeScript", "React", "Next.js"]
+    "items": ["Web Apps", "Mobile Apps", "Custom Software", "UI/UX Design", "Consulting", "TypeScript", "React", "Next.js"]
   },
   "stats": {
-    "projects": { "number": "30+", "label": "Projects" },
-    "experience": { "number": "5+", "label": "Years Experience" },
-    "clients": { "number": "100%", "label": "Satisfaction" },
-    "response": { "number": "24h", "label": "Response Time" }
+    "projects": { "number": "30+", "label": "Delivered Projects" },
+    "experience": { "number": "5+", "label": "Years in the Game" },
+    "clients": { "number": "100%", "label": "Referral Rate" },
+    "response": { "number": "<24h", "label": "Response Time" }
   },
   "ctaBanner": {
-    "title": "Ready for your next project?",
-    "subtitle": "Let's build something great together."
+    "title": "Great software doesn't build itself.",
+    "subtitle": "Tell us about your project. First consultation is free, no strings attached."
   },
   "footer": {
     "company": "Haseloff Software Solutions",
-    "tagline": "Your Vision. Our Code.",
+    "tagline": "Software that sells.",
     "rights": "All rights reserved.",
     "madeWith": "Built with"
   },
   "thankYou": {
-    "title": "Message Sent!",
-    "message": "Thanks! We got your inquiry and will get back to you ASAP.",
+    "title": "Message sent!",
+    "message": "Thanks for reaching out. We'll review your inquiry and get back to you within 24 hours.",
     "responseTime": "Response time: Within 24 hours",
     "contact": "Urgent? Call: +49 1525 870 5975",
     "backHome": "Back to Home",
@@ -157,36 +158,36 @@
   },
   "faq": {
     "title": "FAQ",
-    "subtitle": "The questions I get asked most",
+    "subtitle": "Straight talk – no PR answers",
     "items": {
       "duration": {
         "question": "How long does a project take?",
-        "answer": "Depends! A landing page: 2–3 weeks. A full web app with backend and everything: 2–4 months. Let's chat quickly and I'll give you a realistic estimate."
+        "answer": "A professional website: 3–5 weeks. A web app with backend: 2–4 months. After the initial call, we give you a binding timeline with clear milestones – no surprises."
       },
       "cost": {
         "question": "What does it cost?",
-        "answer": "Honestly: it depends on scope. A clean website starts around €2,500, a proper app can run €15–25k. Sounds like a lot? You're getting professional code that lasts for years. Just tell me what you have in mind."
+        "answer": "Websites start at €2,500, apps and complex systems from €10,000. You get professional code that lasts for years – not a WordPress theme that falls apart after 6 months. Tell us what you have in mind."
       },
       "technologies": {
-        "question": "What tech do you use?",
-        "answer": "React & Next.js for websites, React Native for apps, TypeScript everywhere, PostgreSQL for databases. Proven, future-proof, no hype stuff."
+        "question": "What technologies do you use?",
+        "answer": "React, Next.js, and TypeScript for frontends. React Native for mobile. Node.js and PostgreSQL for backends. All proven, future-proof, and used by major teams worldwide – no experimental hype stuff."
       },
       "maintenance": {
         "question": "What happens after launch?",
-        "answer": "3 months of free support. After that, maintenance contracts from €150/month – or just call when something's up. I don't leave anyone alone with broken code."
+        "answer": "3 months of free support included. After that, maintenance contracts from €150/month. Monitoring, updates, performance optimization – we don't leave you alone with your product."
       },
       "process": {
-        "question": "How does the process work?",
-        "answer": "Relaxed: Initial chat (free) → Proposal → Design mockups → Development with regular updates. You're always in the loop, no surprises."
+        "question": "How does a project work?",
+        "answer": "Initial call (free) → Fixed-price proposal → Concept & design → Development with weekly updates → Launch & ongoing support. You're in the loop at every step."
       },
       "support": {
-        "question": "How fast do you reply?",
-        "answer": "Within 24h, usually faster. For emergencies, also by phone. Because waiting days for answers sucks – I do things differently."
+        "question": "How fast do you respond?",
+        "answer": "Within 24 hours, usually faster. For critical issues, also by phone. Because waiting days for a reply is unprofessional."
       }
     },
     "contact": {
       "title": "More questions?",
-      "description": "Shoot me a message! Consultation is free."
+      "description": "Get in touch. First consultation is free."
     }
   }
 }

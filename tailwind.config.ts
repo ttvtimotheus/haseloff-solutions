@@ -19,7 +19,7 @@ const config: Config = {
       fontSize: {
         hero: [
           'clamp(3.5rem, 11vw, 9rem)',
-          { lineHeight: '0.92', letterSpacing: '-0.04em' },
+          { lineHeight: '0.96', letterSpacing: '-0.04em' },
         ],
         'display-xl': [
           'clamp(2.5rem, 6vw, 5rem)',
