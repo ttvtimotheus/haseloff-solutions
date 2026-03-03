@@ -12,10 +12,14 @@ export default function Header() {
   const t = useTranslations('nav');
   const tCta = useTranslations('cta');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+      setPastHero(window.scrollY > window.innerHeight * 0.85);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -32,15 +36,18 @@ export default function Header() {
     { id: 'faq', label: t('faq') },
   ];
 
+  const hamburger = (
+    <div className="w-3.5 h-2.5 flex flex-col justify-between">
+      <span className={cn('block h-[1.5px] bg-ink rounded-full transition-all duration-300 origin-center', menuOpen && 'rotate-45 translate-y-[4.5px]')} />
+      <span className={cn('block h-[1.5px] bg-ink rounded-full transition-all duration-300', menuOpen && 'opacity-0 scale-0')} />
+      <span className={cn('block h-[1.5px] bg-ink rounded-full transition-all duration-300 origin-center', menuOpen && '-rotate-45 -translate-y-[4.5px]')} />
+    </div>
+  );
+
   return (
     <>
-      <header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-          isScrolled ? 'glass-light' : 'bg-transparent',
-          menuOpen && 'bg-cream'
-        )}
-      >
+      {/* Static header at page top */}
+      <header className="absolute top-0 left-0 right-0 z-30">
         <nav className="container mx-auto px-4 sm:px-6 py-5">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2.5">
@@ -56,22 +63,50 @@ export default function Header() {
 
             <div className="flex items-center gap-3">
               <LangSwitch />
+              {/* Hamburger inside header — visible when not scrolled */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="w-10 h-10 rounded-full border border-ink/10 flex items-center justify-center hover:bg-ink/5 transition-colors relative"
+                className={cn(
+                  'w-10 h-10 rounded-full border border-ink/10 flex items-center justify-center hover:bg-ink/5 transition-all duration-300',
+                  isScrolled && !menuOpen && 'opacity-0 pointer-events-none'
+                )}
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={menuOpen}
               >
-                <div className="w-3.5 h-2.5 flex flex-col justify-between">
-                  <span className={cn('block h-[1.5px] bg-ink rounded-full transition-all duration-300 origin-center', menuOpen && 'rotate-45 translate-y-[4.5px]')} />
-                  <span className={cn('block h-[1.5px] bg-ink rounded-full transition-all duration-300', menuOpen && 'opacity-0 scale-0')} />
-                  <span className={cn('block h-[1.5px] bg-ink rounded-full transition-all duration-300 origin-center', menuOpen && '-rotate-45 -translate-y-[4.5px]')} />
-                </div>
+                {hamburger}
               </button>
             </div>
           </div>
         </nav>
       </header>
+
+      {/* Detached fixed hamburger — appears on scroll */}
+      <AnimatePresence>
+        {isScrolled && !menuOpen && (
+          <motion.button
+            onClick={() => setMenuOpen(true)}
+            className="fixed top-5 right-4 sm:right-6 z-50 w-10 h-10 rounded-full border border-ink/10 bg-cream/80 backdrop-blur-sm flex items-center justify-center hover:bg-cream transition-colors shadow-sm"
+            aria-label="Open menu"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.25 }}
+          >
+            {hamburger}
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* Menu close button — always fixed when menu is open */}
+      {menuOpen && (
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="fixed top-5 right-4 sm:right-6 z-50 w-10 h-10 rounded-full border border-ink/10 flex items-center justify-center hover:bg-ink/5 transition-colors"
+          aria-label="Close menu"
+        >
+          {hamburger}
+        </button>
+      )}
 
       <AnimatePresence>
         {menuOpen && (
@@ -139,20 +174,25 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      <motion.button
-        onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
-        className="fixed bottom-6 right-6 z-40 bg-ink text-cream px-5 py-3 rounded-full font-display font-bold text-sm shadow-lg flex items-center gap-2"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.97 }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.5 }}
-      >
-        {tCta('primary')}
-        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-        </svg>
-      </motion.button>
+      <AnimatePresence>
+        {pastHero && (
+          <motion.button
+            onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+            className="fixed bottom-6 right-6 z-40 bg-ink text-cream px-5 py-3 rounded-full font-display font-bold text-sm shadow-lg flex items-center gap-2"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.35 }}
+          >
+            {tCta('primary')}
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 }

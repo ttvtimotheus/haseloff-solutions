@@ -91,6 +91,19 @@
     "alternative": "Or email us directly at",
     "email": "kontakt@haseloff-solutions.de"
   },
+  "marquee": {
+    "items": ["Web Development", "App Development", "Custom Software", "UI/UX Design", "Consulting", "TypeScript", "React", "Next.js"]
+  },
+  "stats": {
+    "projects": { "number": "30+", "label": "Projects" },
+    "experience": { "number": "5+", "label": "Years Experience" },
+    "clients": { "number": "100%", "label": "Satisfaction" },
+    "response": { "number": "24h", "label": "Response Time" }
+  },
+  "ctaBanner": {
+    "title": "Ready for your next project?",
+    "subtitle": "Let's build something great together."
+  },
   "footer": {
     "company": "Haseloff Software Solutions",
     "tagline": "Your Vision. Our Code.",

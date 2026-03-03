@@ -73,128 +73,148 @@ export default function ContactForm() {
   return (
     <section id="kontakt" className="py-32 sm:py-40 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="max-w-2xl mx-auto">
-          <AnimateIn>
-            <h2 className="font-display font-extrabold text-display-xl text-ink mb-4">
-              {t('title')}
-            </h2>
-            <p className="text-ink/40 text-base sm:text-lg mb-16 sm:mb-20">
-              {t('subtitle')}
-            </p>
-          </AnimateIn>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
+          <div className="lg:col-span-5">
+            <AnimateIn>
+              <h2 className="font-display font-extrabold text-display-xl text-ink mb-6">
+                {t('title')}
+              </h2>
+              <p className="text-ink/40 text-base sm:text-lg mb-10 leading-relaxed">
+                {t('subtitle')}
+              </p>
+              <div className="space-y-3 text-sm">
+                <a
+                  href="mailto:kontakt@haseloff-solutions.de"
+                  className="flex items-center gap-3 text-ink/40 hover:text-ink transition-colors group"
+                >
+                  <span className="w-8 h-8 rounded-full border border-ink/10 flex items-center justify-center group-hover:bg-ink group-hover:text-cream transition-all shrink-0">
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                    </svg>
+                  </span>
+                  kontakt@haseloff-solutions.de
+                </a>
+                <a
+                  href="tel:+4915258705975"
+                  className="flex items-center gap-3 text-ink/40 hover:text-ink transition-colors group"
+                >
+                  <span className="w-8 h-8 rounded-full border border-ink/10 flex items-center justify-center group-hover:bg-ink group-hover:text-cream transition-all shrink-0">
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                    </svg>
+                  </span>
+                  +49 1525 870 5975
+                </a>
+              </div>
+            </AnimateIn>
+          </div>
 
-          <AnimateIn delay={0.15}>
-            <form onSubmit={handleSubmit} noValidate className="space-y-10">
-              <input type="text" name="_honey" value={formData._honey} onChange={handleChange} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+          <div className="lg:col-span-6 lg:col-start-7">
+            <AnimateIn delay={0.15}>
+              <form onSubmit={handleSubmit} noValidate className="space-y-10">
+                <input type="text" name="_honey" value={formData._honey} onChange={handleChange} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
-              {fields.map((field) => (
-                <div key={field.name} className="relative">
+                {fields.map((field) => (
+                  <div key={field.name} className="relative">
+                    <label
+                      htmlFor={field.name}
+                      className={cn(
+                        'absolute left-0 transition-all duration-300 pointer-events-none font-display',
+                        focused === field.name || formData[field.name as keyof typeof formData]
+                          ? 'text-[11px] -top-4 text-ink/40'
+                          : 'text-base top-3 text-ink/25'
+                      )}
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      type={field.type}
+                      id={field.name}
+                      name={field.name}
+                      value={formData[field.name as keyof typeof formData]}
+                      onChange={handleChange}
+                      onFocus={() => setFocused(field.name)}
+                      onBlur={() => setFocused(null)}
+                      className={cn(
+                        'w-full px-0 py-3 bg-transparent border-0 border-b-[1.5px] focus:outline-none transition-colors text-ink text-lg font-display',
+                        errors[field.name] ? 'border-red-400' : 'border-ink/10 focus:border-ink'
+                      )}
+                    />
+                    {errors[field.name] && (
+                      <motion.p
+                        className="mt-2 text-xs text-red-400 font-display"
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        {errors[field.name]}
+                      </motion.p>
+                    )}
+                  </div>
+                ))}
+
+                <div className="relative">
                   <label
-                    htmlFor={field.name}
+                    htmlFor="message"
                     className={cn(
                       'absolute left-0 transition-all duration-300 pointer-events-none font-display',
-                      focused === field.name || formData[field.name as keyof typeof formData]
+                      focused === 'message' || formData.message
                         ? 'text-[11px] -top-4 text-ink/40'
                         : 'text-base top-3 text-ink/25'
                     )}
                   >
-                    {field.label}
+                    {t('form.message')}
                   </label>
-                  <input
-                    type={field.type}
-                    id={field.name}
-                    name={field.name}
-                    value={formData[field.name as keyof typeof formData]}
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
-                    onFocus={() => setFocused(field.name)}
+                    onFocus={() => setFocused('message')}
                     onBlur={() => setFocused(null)}
+                    rows={4}
                     className={cn(
-                      'w-full px-0 py-3 bg-transparent border-0 border-b-[1.5px] focus:outline-none transition-colors text-ink text-lg font-display',
-                      errors[field.name] ? 'border-red-400' : 'border-ink/10 focus:border-ink'
+                      'w-full px-0 py-3 bg-transparent border-0 border-b-[1.5px] focus:outline-none transition-colors text-ink text-lg font-display resize-none',
+                      errors.message ? 'border-red-400' : 'border-ink/10 focus:border-ink'
                     )}
                   />
-                  {errors[field.name] && (
+                  {errors.message && (
                     <motion.p
                       className="mt-2 text-xs text-red-400 font-display"
                       initial={{ opacity: 0, y: -5 }}
                       animate={{ opacity: 1, y: 0 }}
                     >
-                      {errors[field.name]}
+                      {errors.message}
                     </motion.p>
                   )}
                 </div>
-              ))}
 
-              <div className="relative">
-                <label
-                  htmlFor="message"
-                  className={cn(
-                    'absolute left-0 transition-all duration-300 pointer-events-none font-display',
-                    focused === 'message' || formData.message
-                      ? 'text-[11px] -top-4 text-ink/40'
-                      : 'text-base top-3 text-ink/25'
-                  )}
-                >
-                  {t('form.message')}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  onFocus={() => setFocused('message')}
-                  onBlur={() => setFocused(null)}
-                  rows={4}
-                  className={cn(
-                    'w-full px-0 py-3 bg-transparent border-0 border-b-[1.5px] focus:outline-none transition-colors text-ink text-lg font-display resize-none',
-                    errors.message ? 'border-red-400' : 'border-ink/10 focus:border-ink'
-                  )}
-                />
-                {errors.message && (
-                  <motion.p
-                    className="mt-2 text-xs text-red-400 font-display"
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  >
-                    {errors.message}
+                {submitStatus === 'success' && (
+                  <motion.p className="text-green-600 font-display text-sm" initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }}>
+                    {t('form.success')}
                   </motion.p>
                 )}
-              </div>
+                {submitStatus === 'error' && (
+                  <motion.p className="text-red-400 font-display text-sm" initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }}>
+                    {t('form.error')}
+                  </motion.p>
+                )}
 
-              {submitStatus === 'success' && (
-                <motion.p
-                  className="text-green-600 font-display text-sm"
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-ink text-cream px-8 py-4 rounded-full font-display font-bold text-sm flex items-center gap-3 disabled:opacity-50"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  {t('form.success')}
-                </motion.p>
-              )}
-              {submitStatus === 'error' && (
-                <motion.p
-                  className="text-red-400 font-display text-sm"
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                >
-                  {t('form.error')}
-                </motion.p>
-              )}
-
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-ink text-cream px-8 py-4 rounded-full font-display font-bold text-sm flex items-center gap-3 disabled:opacity-50"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                {isSubmitting && <Spinner size="sm" />}
-                {isSubmitting ? t('form.sending') : t('form.send')}
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </motion.button>
-            </form>
-          </AnimateIn>
+                  {isSubmitting && <Spinner size="sm" />}
+                  {isSubmitting ? t('form.sending') : t('form.send')}
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </motion.button>
+              </form>
+            </AnimateIn>
+          </div>
         </div>
       </div>
     </section>
