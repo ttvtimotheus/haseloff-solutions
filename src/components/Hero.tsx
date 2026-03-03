@@ -7,7 +7,7 @@ export default function Hero() {
   const t = useTranslations('hero');
 
   return (
-    <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden pb-12 sm:pb-20">
+    <section aria-label="Hero" className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden pb-12 sm:pb-20">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-[-10%] right-[-15%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full gradient-blob animate-float opacity-50" />
         <div className="absolute bottom-[10%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full gradient-blob animate-float-reverse opacity-30" />

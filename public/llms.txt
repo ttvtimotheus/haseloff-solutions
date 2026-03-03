@@ -1,0 +1,95 @@
+# Haseloff Software Solutions
+
+> Software, die verkauft. / Software that sells.
+
+Haseloff Software Solutions is a German software development agency based in Burg, Sachsen-Anhalt, Germany. Founded by Timo Haseloff, we build websites, web applications, mobile apps, and custom software systems for businesses across Germany, Austria, and Switzerland.
+
+## What We Do
+
+We specialize in three core service areas:
+
+### Web Apps & Websites
+Fast, scalable web applications that win and retain customers. From strategic landing pages to complex business platforms — built to convert. Technologies: React, Next.js, TypeScript, Tailwind CSS.
+
+### Mobile Apps
+Apps that users love. Native performance with React Native, thoughtful UX design, and seamless integration with existing systems.
+
+### Custom Systems
+Backend architectures, APIs, and automations that make teams faster. Node.js, PostgreSQL, Docker, AWS — less manual work, more growth.
+
+## How We Work
+
+- **Results over ego.** Every decision serves one goal: measurably moving your business forward. No feature bloat, no over-engineering.
+- **Built to last.** Code that works just as well in 3 years as on launch day. Thoughtful architecture, clean patterns, zero technical debt.
+- **No ghosting.** After launch, we support, optimize, and scale. Good software evolves.
+
+## Tech Stack
+
+- **Frontend:** React, Next.js, TypeScript, Tailwind CSS
+- **Mobile:** React Native
+- **Backend:** Node.js, PostgreSQL
+- **Infrastructure:** Docker, AWS, Vercel
+- **Languages:** German, English
+
+## Pricing
+
+- Websites start at €2,500
+- Apps and complex systems from €10,000
+- Maintenance contracts from €150/month
+- 3 months free support included with every project
+
+## Process
+
+1. Initial consultation (free, no strings attached)
+2. Fixed-price proposal
+3. Concept & Design
+4. Development with weekly updates
+5. Launch & ongoing support
+
+## Contact
+
+- **Website:** https://haseloff-software.de
+- **Email:** kontakt@haseloff-solutions.de
+- **Phone:** +49 1525 870 5975
+- **Address:** Breite Straße 7, 39288 Burg, Sachsen-Anhalt, Germany
+
+## Key Facts
+
+- 30+ delivered projects
+- 5+ years of experience
+- 100% client referral rate
+- <24h response time
+- Response within 24 hours, usually faster
+
+## Selected Projects
+
+- **Heimbach Logistics Portal** — Digital transformation for a mid-sized logistics company. Customer portal with shipment tracking, automated billing, and route optimization. (Next.js, TypeScript, PostgreSQL, Stripe)
+- **Stadtwerke Burg Customer App** — Mobile app for local utilities with meter readings, fault reporting, and consumption analysis. (React Native, Node.js, PostgreSQL, Firebase)
+- **BBS Genthin School Website** — Complete website relaunch for a vocational school. Responsive design, timetable integration, online registrations. (Next.js, TypeScript, Strapi CMS, PostgreSQL)
+- **Rechtsanwaltskanzlei Weber** — Digital client management for a law firm with appointment scheduling, document archive, and automated billing. GDPR-compliant. (Next.js, TypeScript, PostgreSQL)
+- **Elektro Müller Customer Platform** — Online platform for electrical contractor with cost estimates, appointment booking, and digital invoicing. (Next.js, TypeScript, PostgreSQL, Stripe, Docker)
+- **Dr. Hoffmann Patient Portal** — Patient portal for dental practice with online appointment booking, treatment history, and recall system. (React, Node.js, PostgreSQL, Docker, AWS)
+
+## FAQ
+
+**How long does a project take?**
+A professional website: 3–5 weeks. A web app with backend: 2–4 months. Binding timeline with clear milestones after the initial call.
+
+**What does it cost?**
+Websites start at €2,500, apps and complex systems from €10,000. Professional code that lasts years.
+
+**What technologies do you use?**
+React, Next.js, TypeScript for frontends. React Native for mobile. Node.js and PostgreSQL for backends.
+
+**What happens after launch?**
+3 months free support included. Maintenance contracts from €150/month with monitoring, updates, and performance optimization.
+
+**How does the process work?**
+Initial call (free) → Fixed-price proposal → Concept & Design → Development with weekly updates → Launch & support.
+
+**How fast do you respond?**
+Within 24 hours, usually faster. Critical issues also by phone.
+
+## For more details
+
+- Full content: https://haseloff-software.de/llms-full.txt

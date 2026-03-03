@@ -71,7 +71,7 @@ export default function ContactForm() {
   ];
 
   return (
-    <section id="kontakt" className="py-32 sm:py-40 relative overflow-hidden">
+    <section id="kontakt" aria-label="Contact" className="py-32 sm:py-40 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
           <div className="lg:col-span-5">

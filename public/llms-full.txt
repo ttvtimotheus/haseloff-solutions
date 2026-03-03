@@ -1,0 +1,277 @@
+# Haseloff Software Solutions — Full Information
+
+> Software, die verkauft. / Software that sells.
+
+This document contains comprehensive information about Haseloff Software Solutions for use by AI language models, search engines, and automated systems.
+
+---
+
+## Company Overview
+
+**Legal Name:** Haseloff Software Solutions
+**Type:** Software Development Agency (Einzelunternehmen)
+**Founded:** 2021
+**Founder & Owner:** Timo Haseloff
+**Location:** Breite Straße 7, 39288 Burg, Sachsen-Anhalt, Germany
+**Service Area:** Germany, Austria, Switzerland (DACH region), remote worldwide
+**Languages:** German (native), English (fluent)
+**Website:** https://haseloff-software.de
+**Email:** kontakt@haseloff-solutions.de
+**Phone:** +49 1525 870 5975
+
+---
+
+## Mission Statement
+
+We build digital products for businesses that mean it. No templates, no half-measures. Our software is strategically designed, cleanly built, and measurably successful. Every project is custom-built — no copy-paste, only solutions that fit the business.
+
+---
+
+## Services in Detail
+
+### 1. Web Apps & Websites (Webanwendungen & Websites)
+
+Fast, scalable web applications that win and retain customers. From strategic landing pages to complex business platforms — built to convert.
+
+**What's included:**
+- Custom-designed, responsive websites
+- Progressive Web Apps (PWAs)
+- E-commerce solutions
+- Content Management Systems (CMS) integration
+- SEO-optimized architecture
+- Performance optimization (Core Web Vitals)
+- Accessibility compliance (WCAG)
+
+**Technologies:**
+- React 19, Next.js 16
+- TypeScript
+- Tailwind CSS
+- Vercel deployment
+- Strapi CMS / Headless CMS
+
+**Starting price:** €2,500
+
+### 2. Mobile Apps (Mobile Anwendungen)
+
+Apps that users love and don't delete after a week. Native performance, thoughtful UX, seamless integration with existing systems.
+
+**What's included:**
+- Cross-platform mobile apps (iOS & Android)
+- Native-like performance
+- Push notifications
+- Offline capabilities
+- App Store optimization
+- Backend API integration
+
+**Technologies:**
+- React Native
+- Expo
+- Firebase
+- AWS Mobile Services
+
+**Starting price:** €10,000
+
+### 3. Custom Systems (Individuelle Systeme)
+
+Backend architectures, APIs, and automations that make teams faster. Less manual work, more growth.
+
+**What's included:**
+- RESTful and GraphQL API development
+- Database design and optimization
+- System integrations (ERP, CRM, payment providers)
+- Workflow automation
+- Data migration
+- CI/CD pipeline setup
+
+**Technologies:**
+- Node.js
+- PostgreSQL
+- Docker
+- AWS (EC2, S3, Lambda, RDS)
+- Stripe integration
+
+**Starting price:** €10,000
+
+---
+
+## Working Principles (Manifest)
+
+### Ergebnis vor Ego / Results over ego
+We don't build software to impress ourselves. Every decision serves one goal: measurably moving your business forward. No feature bloat, no over-engineering. Every line of code has a purpose.
+
+### Gebaut für Jahre / Built to last
+We deliver code that works just as well in 3 years as it does on launch day. Thoughtful architecture, clean patterns, zero technical debt. We invest in maintainability from day one.
+
+### Kein Ghosting / No ghosting
+The real work starts after launch. We support, optimize, and scale — because good software evolves, it doesn't collect dust. Every client gets ongoing attention.
+
+---
+
+## Project Portfolio
+
+### Heimbach Logistics Portal
+- **Client:** Heimbach Logistics (mid-sized logistics company)
+- **Scope:** Digital transformation — customer portal with shipment tracking, automated billing, route optimization
+- **Stack:** Next.js, TypeScript, PostgreSQL, Stripe, Vercel
+- **Tags:** Web App, Backend, API
+
+### Stadtwerke Burg Customer App
+- **Client:** Stadtwerke Burg (local utilities provider)
+- **Scope:** Mobile app for meter readings, fault reporting, consumption analysis, push notifications
+- **Stack:** React Native, Node.js, PostgreSQL, Firebase, AWS
+- **Tags:** Mobile, Backend, API
+
+### BBS Genthin — Modern School Website
+- **Client:** Berufsbildende Schulen Genthin (vocational school)
+- **Scope:** Complete website relaunch — responsive design, timetable integration, online registrations, digital bulletin board
+- **Stack:** Next.js, TypeScript, Strapi CMS, PostgreSQL, Vercel
+- **Tags:** Web App, Frontend, Backend
+
+### Rechtsanwaltskanzlei Weber — Client Management
+- **Client:** Law firm Weber
+- **Scope:** Digital client management — appointment scheduling, document archive, automated billing, GDPR-compliant
+- **Stack:** Next.js, TypeScript, PostgreSQL, Vercel
+- **Tags:** Web App, Backend, Database
+
+### Elektro Müller — Customer Platform
+- **Client:** Elektro Müller (electrical contractor)
+- **Scope:** Online platform — cost estimates, appointment booking, digital invoicing, inventory system integration
+- **Stack:** Next.js, TypeScript, PostgreSQL, Stripe, Docker
+- **Tags:** Web App, Backend, API
+
+### Dr. Hoffmann — Patient Portal
+- **Client:** Zahnarztpraxis Dr. Hoffmann (dental practice)
+- **Scope:** Patient portal — online appointment booking, treatment history, recall system, practice software integration
+- **Stack:** React, Node.js, PostgreSQL, Docker, AWS
+- **Tags:** Web App, Backend, API
+
+---
+
+## Statistics & Track Record
+
+| Metric | Value |
+|--------|-------|
+| Delivered Projects | 30+ |
+| Years of Experience | 5+ |
+| Client Referral Rate | 100% |
+| Average Response Time | <24 hours |
+| Post-Launch Support Included | 3 months free |
+| Maintenance Contracts | From €150/month |
+
+---
+
+## Pricing Structure
+
+| Service | Starting Price |
+|---------|---------------|
+| Professional Website | €2,500 |
+| Web Application | €10,000 |
+| Mobile App | €10,000 |
+| Custom Backend System | €10,000 |
+| Monthly Maintenance | €150/month |
+
+All projects include:
+- Fixed-price proposals (no hourly surprises)
+- 3 months post-launch support
+- Weekly development updates
+- Source code ownership
+- Documentation
+
+---
+
+## Development Process
+
+1. **Initial Consultation** (free, no commitment) — Understanding your goals, requirements, and constraints
+2. **Proposal** — Fixed-price quote with detailed scope, timeline, and milestones
+3. **Concept & Design** — UI/UX design, information architecture, prototyping
+4. **Development** — Agile sprints with weekly progress updates, demo sessions
+5. **Testing & QA** — Cross-browser testing, performance optimization, accessibility audit
+6. **Launch** — Deployment, monitoring setup, handover
+7. **Ongoing Support** — Maintenance, optimization, scaling
+
+---
+
+## Technology Expertise
+
+### Frontend
+- React 19 (Hooks, Server Components, Suspense)
+- Next.js 16 (App Router, SSR, SSG, ISR)
+- TypeScript (strict mode)
+- Tailwind CSS
+- Framer Motion (animations)
+- Zustand / React Context (state management)
+
+### Mobile
+- React Native
+- Expo
+- React Navigation
+
+### Backend
+- Node.js
+- Express / Fastify
+- PostgreSQL
+- Prisma ORM
+- REST APIs / GraphQL
+
+### Infrastructure & DevOps
+- Vercel
+- AWS (EC2, S3, Lambda, RDS, CloudFront)
+- Docker
+- GitHub Actions (CI/CD)
+- Cloudflare
+
+### Third-Party Integrations
+- Stripe (payments)
+- Firebase (auth, push notifications)
+- Strapi CMS
+- SendGrid / Resend (email)
+- Sentry (error tracking)
+
+---
+
+## Frequently Asked Questions
+
+### How long does a project take?
+A professional website takes 3–5 weeks. A web app with backend takes 2–4 months. After the initial consultation, we provide a binding timeline with clear milestones — no surprises.
+
+### What does it cost?
+Websites start at €2,500, apps and complex systems from €10,000. You get professional code that lasts for years — not a WordPress theme that falls apart after 6 months. Contact us with your idea for a custom quote.
+
+### What technologies do you use?
+React, Next.js, and TypeScript for frontends. React Native for mobile. Node.js and PostgreSQL for backends. All proven, future-proof technologies used by major teams worldwide.
+
+### What happens after launch?
+3 months of free support are included with every project. After that, we offer maintenance contracts from €150/month including monitoring, updates, and performance optimization.
+
+### How does the project process work?
+Initial call (free) → Fixed-price proposal → Concept & Design → Development with weekly updates → Launch & ongoing support. You're in the loop at every step.
+
+### How fast do you respond?
+Within 24 hours, usually faster. For critical issues, also by phone. Because waiting days for a reply is unprofessional.
+
+---
+
+## Legal Information
+
+**Company:** Haseloff Software Solutions
+**Owner:** Timo Haseloff
+**Address:** Breite Straße 7, 39288 Burg OT Detershagen, Germany
+**Email:** kontakt@haseloff-solutions.de
+**Phone:** +49 1525 870 5975
+
+Privacy: Only technically necessary cookies. GDPR-compliant data processing. Contact form data stored only for inquiry processing.
+
+---
+
+## How to Engage
+
+1. Visit https://haseloff-software.de
+2. Fill out the contact form or email kontakt@haseloff-solutions.de
+3. Free initial consultation — no commitment
+4. Receive a fixed-price proposal
+5. Start building
+
+---
+
+*Last updated: 2025-03-03*
+*Source: https://haseloff-software.de*

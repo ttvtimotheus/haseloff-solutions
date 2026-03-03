@@ -13,7 +13,7 @@ export default function Philosophy() {
   ];
 
   return (
-    <section id="philosophie" className="section-dark py-32 sm:py-40 relative overflow-hidden">
+    <section id="philosophie" aria-label="Philosophy" className="section-dark py-32 sm:py-40 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <AnimateIn>
           <p className="font-display text-sm tracking-widest uppercase text-cream/25 mb-4">

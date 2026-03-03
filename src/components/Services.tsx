@@ -14,7 +14,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="leistungen" className="py-32 sm:py-40 relative overflow-hidden">
+    <section id="leistungen" aria-label="Services" className="py-32 sm:py-40 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <AnimateIn>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-24 sm:mb-32">

@@ -62,5 +62,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
       alternates: { languages: { en: `${baseUrl}/en/privacy`, de: `${baseUrl}/de/datenschutz` } },
     },
+    {
+      url: `${baseUrl}/llms.txt`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.2,
+    },
+    {
+      url: `${baseUrl}/llms-full.txt`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.2,
+    },
   ];
 }

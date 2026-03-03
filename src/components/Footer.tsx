@@ -12,32 +12,32 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6">
         <AnimateIn>
           <div className="mb-20 sm:mb-28">
-            <h2 className="font-display font-extrabold text-[clamp(2rem,5vw,4rem)] text-cream max-w-10xl leading-[1.05]">
+            <p className="font-display font-extrabold text-[clamp(2rem,5vw,4rem)] text-cream max-w-10xl leading-[1.05]">
               Haseloff Software Solutions
-            </h2>
+            </p>
           </div>
         </AnimateIn>
 
         <AnimateIn delay={0.1}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
             <div>
-              <h4 className="font-display font-bold text-xs tracking-widest uppercase text-cream/20 mb-4">
+              <h3 className="font-display font-bold text-xs tracking-widest uppercase text-cream/20 mb-4">
                 {t('nav.kontakt')}
-              </h4>
-              <div className="space-y-2 text-sm">
+              </h3>
+              <address className="space-y-2 text-sm not-italic">
                 <a href="mailto:kontakt@haseloff-solutions.de" className="block text-cream/30 hover:text-cream transition-colors duration-300">
                   kontakt@haseloff-solutions.de
                 </a>
                 <a href="tel:+4915258705975" className="block text-cream/30 hover:text-cream transition-colors duration-300">
                   +49 1525 870 5975
                 </a>
-              </div>
+              </address>
             </div>
 
-            <div>
-              <h4 className="font-display font-bold text-xs tracking-widest uppercase text-cream/20 mb-4">
+            <nav aria-label="Footer navigation">
+              <h3 className="font-display font-bold text-xs tracking-widest uppercase text-cream/20 mb-4">
                 Navigation
-              </h4>
+              </h3>
               <div className="space-y-2 text-sm">
                 {['projekte', 'leistungen', 'philosophie', 'faq'].map((id) => (
                   <button
@@ -49,12 +49,12 @@ export default function Footer() {
                   </button>
                 ))}
               </div>
-            </div>
+            </nav>
 
-            <div>
-              <h4 className="font-display font-bold text-xs tracking-widest uppercase text-cream/20 mb-4">
+            <nav aria-label="Legal links">
+              <h3 className="font-display font-bold text-xs tracking-widest uppercase text-cream/20 mb-4">
                 Legal
-              </h4>
+              </h3>
               <div className="space-y-2 text-sm">
                 <Link href="/impressum" className="block text-cream/30 hover:text-cream transition-colors duration-300">
                   {t('nav.impressum')}
@@ -63,7 +63,7 @@ export default function Footer() {
                   {t('nav.datenschutz')}
                 </Link>
               </div>
-            </div>
+            </nav>
 
             <div>
               <p className="text-cream/15 text-sm leading-relaxed">

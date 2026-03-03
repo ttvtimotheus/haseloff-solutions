@@ -12,39 +12,64 @@ export async function GET() {
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
+        justifyContent: 'space-between',
         background: '#f5f5f0',
         color: '#0a0a0a',
-        padding: '64px 96px',
+        padding: '72px 80px',
         fontFamily: 'Inter, ui-sans-serif, system-ui',
       },
     },
     React.createElement(
       'div',
-      { style: { fontSize: 54, fontWeight: 800, lineHeight: 1.1 } },
-      'Haseloff Software Solutions'
-    ),
-    React.createElement('div', { style: { height: 24 } }),
-    React.createElement(
-      'div',
-      {
-        style: {
-          fontSize: 36,
-          fontWeight: 700,
-          lineHeight: 1.2,
-          background: 'linear-gradient(90deg, #7c3aed, #ec4899)',
-          backgroundClip: 'text',
-          color: 'transparent',
+      { style: { display: 'flex', flexDirection: 'column', gap: '16px' } },
+      React.createElement(
+        'div',
+        {
+          style: {
+            fontSize: 64,
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: '-0.02em',
+          },
         },
-      },
-      'Deine Vision. Unser Code.'
+        'Software, die'
+      ),
+      React.createElement(
+        'div',
+        {
+          style: {
+            fontSize: 64,
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: '-0.02em',
+            color: 'rgba(10,10,10,0.2)',
+          },
+        },
+        'verkauft.'
+      )
     ),
-    React.createElement('div', { style: { height: 32 } }),
     React.createElement(
       'div',
-      { style: { fontSize: 24, color: 'rgba(10,10,10,0.35)' } },
-      'haseloff-software.de'
+      { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' } },
+      React.createElement(
+        'div',
+        { style: { display: 'flex', flexDirection: 'column', gap: '6px' } },
+        React.createElement(
+          'div',
+          { style: { fontSize: 26, fontWeight: 700, color: '#0a0a0a' } },
+          'Haseloff Software Solutions'
+        ),
+        React.createElement(
+          'div',
+          { style: { fontSize: 18, color: 'rgba(10,10,10,0.35)' } },
+          'Web-Apps · Mobile Apps · Individuelle Systeme'
+        )
+      ),
+      React.createElement(
+        'div',
+        { style: { fontSize: 16, color: 'rgba(10,10,10,0.25)' } },
+        'haseloff-software.de'
+      )
     )
   );
 

@@ -10,7 +10,7 @@ export default function Projects() {
   const locale = useLocale();
 
   return (
-    <section id="projekte" className="section-dark py-32 sm:py-40 relative overflow-hidden">
+    <section id="projekte" aria-label="Projects" className="section-dark py-32 sm:py-40 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">

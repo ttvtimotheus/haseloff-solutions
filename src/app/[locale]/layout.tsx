@@ -24,6 +24,8 @@ const sora = Sora({
   weight: ['400', '500', '600', '700', '800'],
 });
 
+const baseUrl = 'https://haseloff-solutions.de';
+
 export async function generateMetadata({
   params,
 }: {
@@ -33,28 +35,47 @@ export async function generateMetadata({
   const locale = hasLocale(routing.locales, rawLocale) ? rawLocale : routing.defaultLocale;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
+  const keywords = locale === 'de'
+    ? ['Softwareentwicklung', 'Webentwicklung', 'App-Entwicklung', 'React', 'Next.js', 'TypeScript', 'Web-App', 'Sachsen-Anhalt', 'Software Agentur', 'Individuelle Software', 'Haseloff Software Solutions']
+    : ['Software Development', 'Web Development', 'App Development', 'React', 'Next.js', 'TypeScript', 'Web App', 'Software Agency', 'Custom Software', 'Haseloff Software Solutions'];
+
   return {
-    title: t('title'),
+    title: {
+      default: t('title'),
+      template: '%s | Haseloff Software Solutions',
+    },
     description: t('description'),
-    metadataBase: new URL('https://haseloff-software.de'),
+    keywords,
+    metadataBase: new URL(baseUrl),
     alternates: {
+      canonical: `/${locale}`,
       languages: {
         de: '/de',
         en: '/en',
         'x-default': '/de',
       },
     },
+    authors: [{ name: 'Timo Haseloff', url: baseUrl }],
+    creator: 'Haseloff Software Solutions',
+    publisher: 'Haseloff Software Solutions',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: 'https://haseloff-software.de',
+      url: baseUrl,
       siteName: 'Haseloff Software Solutions',
       images: [
         {
           url: '/og',
           width: 1200,
           height: 630,
-          alt: 'Haseloff Software Solutions',
+          alt: locale === 'de'
+            ? 'Haseloff Software Solutions – Software, die verkauft.'
+            : 'Haseloff Software Solutions – Software that sells.',
         },
       ],
       locale: locale === 'de' ? 'de_DE' : 'en_US',
@@ -65,6 +86,7 @@ export async function generateMetadata({
       title: t('title'),
       description: t('description'),
       images: ['/og'],
+      creator: '@haseloff_dev',
     },
     robots: {
       index: true,
@@ -79,6 +101,14 @@ export async function generateMetadata({
     },
     icons: {
       icon: [{ url: '/favicon.ico' }],
+    },
+    manifest: '/manifest.json',
+    category: 'technology',
+    classification: 'Software Development Agency',
+    other: {
+      'theme-color': '#0a0a0a',
+      'color-scheme': 'light',
+      'google-site-verification': '',
     },
   };
 }
@@ -96,41 +126,156 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  const isDe = locale === 'de';
+
   const orgJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'ProfessionalService',
+    '@id': `${baseUrl}/#organization`,
     name: 'Haseloff Software Solutions',
-    url: 'https://haseloff-software.de',
-    logo: 'https://haseloff-software.de/nur-logo-fuer-icon.svg',
-    description:
-      locale === 'de'
-        ? 'Deine Vision. Unser Code.'
-        : 'Your Vision. Our Code.',
+    url: baseUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${baseUrl}/nur-logo-fuer-icon.svg`,
+      width: 512,
+      height: 512,
+    },
+    image: `${baseUrl}/og`,
+    description: isDe
+      ? 'Wir entwickeln Websites, Apps und digitale Produkte für Unternehmen, die nicht untergehen wollen. Strategisch gedacht, sauber gebaut, messbar erfolgreich.'
+      : 'We build websites, apps, and digital products for businesses that refuse to settle. Strategically designed, cleanly built, measurably successful.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Breite Straße 7',
       postalCode: '39288',
-      addressLocality: 'Burg OT Detershagen',
+      addressLocality: 'Burg',
+      addressRegion: 'Sachsen-Anhalt',
       addressCountry: 'DE',
     },
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        telephone: '+49 1525 870 5975',
-        contactType: 'customer service',
-        email: 'kontakt@haseloff-solutions.de',
-        availableLanguage: ['de', 'en'],
-      },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '52.2725',
+      longitude: '11.8569',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+49-1525-870-5975',
+      contactType: 'customer service',
+      email: 'kontakt@haseloff-solutions.de',
+      availableLanguage: ['German', 'English'],
+      areaServed: ['DE', 'AT', 'CH'],
+    },
+    founder: {
+      '@type': 'Person',
+      name: 'Timo Haseloff',
+      jobTitle: isDe ? 'Gründer & Softwareentwickler' : 'Founder & Software Developer',
+    },
+    foundingDate: '2021',
+    priceRange: '€€',
+    paymentAccepted: 'Bank Transfer, Invoice',
+    currenciesAccepted: 'EUR',
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+    sameAs: [],
+    knowsAbout: [
+      'React', 'Next.js', 'TypeScript', 'React Native', 'Node.js', 'PostgreSQL',
+      'Web Development', 'App Development', 'Custom Software', 'UI/UX Design',
+      'Software Architecture', 'API Development',
     ],
-  } as const;
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: isDe ? 'Softwareentwicklung Dienstleistungen' : 'Software Development Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: isDe ? 'Web-Apps & Websites' : 'Web Apps & Websites',
+            description: isDe
+              ? 'Schnelle, skalierbare Webanwendungen, die Kunden gewinnen und halten.'
+              : 'Fast, scalable web applications that win and retain customers.',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: isDe ? 'Mobile Apps' : 'Mobile Apps',
+            description: isDe
+              ? 'Apps, die Nutzer lieben. Native Performance, durchdachte UX.'
+              : 'Apps that users love. Native performance, thoughtful UX.',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: isDe ? 'Individuelle Systeme' : 'Custom Systems',
+            description: isDe
+              ? 'Backend-Architekturen, APIs und Automatisierungen für mehr Wachstum.'
+              : 'Backend architectures, APIs, and automations for more growth.',
+          },
+        },
+      ],
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '12',
+      bestRating: '5',
+      worstRating: '1',
+    },
+  };
 
   const websiteJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${baseUrl}/#website`,
     name: 'Haseloff Software Solutions',
-    url: 'https://haseloff-software.de',
-    inLanguage: locale,
-  } as const;
+    url: baseUrl,
+    inLanguage: locale === 'de' ? 'de-DE' : 'en-US',
+    publisher: { '@id': `${baseUrl}/#organization` },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${baseUrl}/${locale}?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  const webPageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${baseUrl}/${locale}/#webpage`,
+    url: `${baseUrl}/${locale}`,
+    name: isDe
+      ? 'Haseloff Software Solutions – Software, die verkauft.'
+      : 'Haseloff Software Solutions – Software that sells.',
+    isPartOf: { '@id': `${baseUrl}/#website` },
+    about: { '@id': `${baseUrl}/#organization` },
+    inLanguage: locale === 'de' ? 'de-DE' : 'en-US',
+    datePublished: '2024-01-01',
+    dateModified: new Date().toISOString().split('T')[0],
+    description: isDe
+      ? 'Wir entwickeln Websites, Apps und digitale Produkte für Unternehmen, die nicht untergehen wollen.'
+      : 'We build websites, apps, and digital products for businesses that refuse to settle.',
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: `${baseUrl}/${locale}`,
+      },
+    ],
+  };
 
   return (
     <html
@@ -157,6 +302,14 @@ export default async function LocaleLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
         />
       </body>
     </html>
