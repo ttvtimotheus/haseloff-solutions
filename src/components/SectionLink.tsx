@@ -8,14 +8,15 @@ interface SectionLinkProps {
   sectionId: string;
 }
 
-export default function SectionLink({ children, className, sectionId }: SectionLinkProps) {
+export default function SectionLink({
+  children,
+  className,
+  sectionId,
+}: SectionLinkProps) {
   const router = useRouter();
 
   const handleClick = () => {
-    // Navigate to home page first
     router.push('/');
-    
-    // Small delay to ensure page loads, then scroll to section
     setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -25,11 +26,20 @@ export default function SectionLink({ children, className, sectionId }: SectionL
   };
 
   return (
-    <div onClick={handleClick} className={className} style={{ cursor: 'pointer' }}>
+    <div
+      onClick={handleClick}
+      className={className}
+      style={{ cursor: 'pointer' }}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick();
+        }
+      }}
+    >
       {children}
     </div>
   );
 }
-
-// Backward compatibility
-export { SectionLink as ProjectsLink };

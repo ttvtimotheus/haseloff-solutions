@@ -1,14 +1,17 @@
 import ContactForm from '@/components/ContactForm';
 import { getTranslations } from 'next-intl/server';
+import { hasLocale } from 'next-intl';
+import { routing } from '@/i18n/routing';
 
 export async function generateMetadata({
-  params
+  params,
 }: {
-  params: Promise<{ locale: string }>
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: raw } = await params;
+  const locale = hasLocale(routing.locales, raw) ? raw : routing.defaultLocale;
   const t = await getTranslations({ locale, namespace: 'contact' });
-  
+
   return {
     title: `${t('title')} | Haseloff Software Solutions`,
     description: t('subtitle'),

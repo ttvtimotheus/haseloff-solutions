@@ -1,131 +1,72 @@
 'use client';
 
 import { useTranslations, useLocale } from 'next-intl';
-import { useState, useEffect } from 'react';
-import PixelCard from './PixelCard';
-import PixelCardSkeleton from './PixelCardSkeleton';
+import { motion } from 'framer-motion';
+import AnimateIn from './AnimateIn';
 import { projects } from '@/lib/projects';
-import { staggerDelay } from '@/lib/utils';
 
 export default function Projects() {
   const t = useTranslations('projects');
   const locale = useLocale();
-  const [isLoading, setIsLoading] = useState(true);
-  const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
-
-  useEffect(() => {
-    // Simulate loading delay
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      // Staggered reveal of projects
-      projects.forEach((_, index) => {
-        setTimeout(() => {
-          setVisibleProjects(prev => [...prev, index]);
-        }, index * 200);
-      });
-    }, 800);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
-    <section id="projekte" className="py-20 relative overflow-hidden">
-      {/* Pixel-Highlights removed */}
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
-            {t('title')}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+    <section id="projekte" className="section-dark py-32 sm:py-40 relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <AnimateIn>
+          <p className="font-display text-sm tracking-widest uppercase text-cream/25 mb-4">
             {t('subtitle')}
           </p>
-        </div>
+          <h2 className="font-display font-extrabold text-display-xl text-cream mb-20 sm:mb-28">
+            {t('title')}
+          </h2>
+        </AnimateIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {isLoading ? (
-            // Show skeleton cards while loading
-            [...Array(6)].map((_, index) => (
-              <PixelCardSkeleton
-                key={`skeleton-${index}`}
-                variant="project"
-                className="opacity-0 animate-stagger-in"
-                style={staggerDelay(index)}
-              />
-            ))
-          ) : (
-            projects.map((project, index) => (
-              <PixelCard
-                key={project.id}
-                hover
-                className={`transition-all duration-500 ${
-                  visibleProjects.includes(index) 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-4'
-                }`}
+        <div>
+          {projects.map((project, index) => (
+            <AnimateIn key={project.id} delay={index * 0.06}>
+              <motion.div
+                className="group border-b border-cream/[0.06] py-8 sm:py-10 first:pt-0 last:border-0 cursor-default"
+                whileHover="hover"
               >
-              <h3 className="font-display font-bold text-xl mb-2">
-                {project.title}
-              </h3>
-              
-              <p className="text-gray-600 mb-4">
-                {locale === 'de' ? project.description : project.descriptionEn}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-surface text-xs font-display font-medium rounded-pixel-sm border border-border"
-                  >
-                    {t(`tags.${tag}`)}
-                  </span>
-                ))}
-              </div>
-
-              <details className="group">
-                <summary className="cursor-pointer font-display font-medium text-sm text-secondary hover:text-secondary-dark hover:translate-x-[1px] transition-all duration-200 list-none flex items-center gap-2">
-                  <span className="inline-block w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-t-4 border-t-secondary group-open:rotate-180 transition-transform" />
-                  {t('techStack')}
-                </summary>
-                <div className="mt-3 pt-3 border-t border-border flex flex-wrap gap-2">
-                  {project.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-secondary text-white text-xs font-display font-medium rounded-pixel-sm shadow-pixel-sm hover:shadow-pixel hover:translate-x-[1px] hover:translate-y-[1px] transition-all duration-200"
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3 sm:gap-8">
+                  <div className="flex items-baseline gap-4 sm:gap-6 flex-1 min-w-0">
+                    <span className="font-display text-xs text-cream/15 tabular-nums shrink-0 tracking-wider">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <motion.h3
+                      className="font-display font-bold text-lg sm:text-2xl text-cream/40 transition-colors duration-500 truncate"
+                      variants={{ hover: { color: '#f5f5f0' } }}
                     >
+                      {project.title}
+                    </motion.h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2 sm:shrink-0 pl-8 sm:pl-0">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[11px] font-display tracking-wide text-cream/20 uppercase"
+                      >
+                        {t(`tags.${tag}` as any)}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <motion.p
+                  className="text-cream/0 text-sm leading-relaxed max-w-xl mt-2 pl-8 sm:pl-10 transition-all duration-500"
+                  variants={{ hover: { color: 'rgba(245,245,240,0.35)' } }}
+                >
+                  {locale === 'de' ? project.description : project.descriptionEn}
+                </motion.p>
+                <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3 pl-8 sm:pl-10">
+                  {project.stack.map((tech) => (
+                    <span key={tech} className="text-[10px] text-cream/10 font-display">
                       {tech}
                     </span>
                   ))}
                 </div>
-              </details>
-
-              {(project.link || project.github) && (
-                <div className="mt-4 pt-4 border-t border-border flex gap-4">
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-display font-medium text-secondary hover:text-secondary-dark transition-colors"
-                    >
-                      {t('viewProject')} →
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-display font-medium text-primary hover:text-primary-light transition-colors"
-                    >
-                      GitHub →
-                    </a>
-                  )}
-                </div>
-              )}
-            </PixelCard>
-          )))}
+              </motion.div>
+            </AnimateIn>
+          ))}
         </div>
       </div>
     </section>

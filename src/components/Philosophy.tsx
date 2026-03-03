@@ -1,80 +1,46 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { staggerDelay } from '@/lib/utils';
+import AnimateIn from './AnimateIn';
 
 export default function Philosophy() {
   const t = useTranslations('philosophy');
 
   const values = [
-    {
-      id: 'clarity',
-      color: 'bg-secondary',
-      icon: '◆',
-    },
-    {
-      id: 'quality',
-      color: 'bg-accent',
-      icon: '■',
-    },
-    {
-      id: 'responsibility',
-      color: 'bg-gray-900',
-      icon: '▲',
-    },
+    { id: 'clarity' as const, number: '01' },
+    { id: 'quality' as const, number: '02' },
+    { id: 'responsibility' as const, number: '03' },
   ];
 
   return (
-    <section id="philosophie" className="py-20 relative overflow-hidden">
-      {/* Pixel-Highlights im Hintergrund */}
-      <div className="absolute top-20 left-10 w-2 h-2 bg-secondary rounded-pixel-sm animate-pulse opacity-20" />
-      <div className="absolute bottom-20 right-16 w-3 h-3 bg-accent rounded-pixel animate-pulse opacity-15" style={{animationDelay: '1s'}} />
-      <div className="absolute top-1/2 right-8 w-2 h-2 bg-primary rounded-pixel-sm animate-pulse opacity-25" style={{animationDelay: '1.5s'}} />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
-            {t('title')}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+    <section id="philosophie" className="py-32 sm:py-40 relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <AnimateIn>
+          <p className="font-display text-sm tracking-widest uppercase text-ink/30 mb-4">
             {t('subtitle')}
           </p>
-        </div>
+          <h2 className="font-display font-extrabold text-display-xl text-ink mb-20 sm:mb-28">
+            {t('title')}
+          </h2>
+        </AnimateIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-5xl mx-auto space-y-0">
           {values.map((value, index) => (
-            <div
-              key={value.id}
-              className="text-center animate-stagger-in opacity-0"
-              style={staggerDelay(index)}
-            >
-              {/* Pillar */}
-              <div className="relative mx-auto w-24 h-48 mb-6">
-                <div className={`absolute inset-0 ${value.color} rounded-pixel`}>
-                  {/* Missing pixel at top */}
-                  <div className="absolute top-0 right-0 w-4 h-4 bg-background" />
+            <AnimateIn key={value.id} delay={index * 0.1}>
+              <div className="group py-10 sm:py-14 border-b border-ink/[0.08] last:border-0 flex flex-col sm:flex-row gap-4 sm:gap-12">
+                <span className="font-display text-xs text-ink/20 tracking-widest tabular-nums shrink-0">
+                  {value.number}
+                </span>
+                <div className="flex-1">
+                  <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-ink mb-4">
+                    {t(`${value.id}.title`)}
+                  </h3>
+                  <p className="text-ink/40 leading-relaxed max-w-xl text-base">
+                    {t(`${value.id}.description`)}
+                  </p>
                 </div>
-                
-                {/* Icon */}
-                <div className="absolute inset-0 flex items-center justify-center text-white text-4xl">
-                  {value.icon}
-                </div>
-                
-                {/* Animated pulse */}
-                <div 
-                  className={`absolute -inset-2 ${value.color} opacity-20 rounded-pixel animate-pulse`}
-                  style={{ animationDelay: `${index * 500}ms` }}
-                />
               </div>
-
-              <h3 className="font-display font-bold text-xl mb-3">
-                {t(`${value.id}.title`)}
-              </h3>
-              
-              <p className="text-gray-700 font-medium max-w-sm mx-auto">
-                {t(`${value.id}.description`)}
-              </p>
-            </div>
+            </AnimateIn>
           ))}
         </div>
       </div>

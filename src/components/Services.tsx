@@ -1,125 +1,66 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useState, useEffect } from 'react';
-import PixelCard from './PixelCard';
-import PixelCardSkeleton from './PixelCardSkeleton';
-import { staggerDelay } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import AnimateIn from './AnimateIn';
 
 export default function Services() {
   const t = useTranslations('services');
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 600);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const services = [
-    {
-      id: 'web',
-      accent: 'Web',
-      icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="2"/>
-          <rect x="8" y="21" width="8" height="1" fill="currentColor"/>
-          <rect x="12" y="17" width="1" height="4" fill="currentColor"/>
-          <rect x="5" y="6" width="3" height="1" fill="currentColor"/>
-          <rect x="5" y="8" width="5" height="1" fill="currentColor"/>
-          <rect x="5" y="10" width="4" height="1" fill="currentColor"/>
-          <rect x="13" y="6" width="4" height="4" fill="none" stroke="currentColor" strokeWidth="1"/>
-        </svg>
-      ),
-    },
-    {
-      id: 'app',
-      accent: 'App',
-      icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <rect x="6" y="2" width="12" height="20" rx="2" fill="none" stroke="currentColor" strokeWidth="2"/>
-          <rect x="9" y="5" width="2" height="1" fill="currentColor"/>
-          <rect x="13" y="5" width="2" height="1" fill="currentColor"/>
-          <rect x="8" y="8" width="8" height="8" fill="none" stroke="currentColor" strokeWidth="1"/>
-          <rect x="10" y="10" width="1" height="1" fill="currentColor"/>
-          <rect x="13" y="10" width="1" height="1" fill="currentColor"/>
-          <rect x="10" y="13" width="1" height="1" fill="currentColor"/>
-          <rect x="13" y="13" width="1" height="1" fill="currentColor"/>
-          <rect x="10" y="19" width="4" height="1" fill="currentColor"/>
-        </svg>
-      ),
-    },
-    {
-      id: 'custom',
-      accent: 'Custom',
-      icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <rect x="2" y="2" width="20" height="16" rx="1" fill="none" stroke="currentColor" strokeWidth="2"/>
-          <rect x="5" y="5" width="1" height="1" fill="currentColor"/>
-          <rect x="7" y="5" width="3" height="1" fill="currentColor"/>
-          <rect x="12" y="5" width="2" height="1" fill="currentColor"/>
-          <rect x="5" y="7" width="4" height="1" fill="currentColor"/>
-          <rect x="11" y="7" width="6" height="1" fill="currentColor"/>
-          <rect x="5" y="9" width="2" height="1" fill="currentColor"/>
-          <rect x="9" y="9" width="5" height="1" fill="currentColor"/>
-          <rect x="5" y="11" width="8" height="1" fill="currentColor"/>
-          <rect x="15" y="11" width="2" height="1" fill="currentColor"/>
-          <rect x="2" y="20" width="4" height="2" fill="currentColor"/>
-          <rect x="8" y="20" width="4" height="2" fill="currentColor"/>
-          <rect x="14" y="20" width="4" height="2" fill="currentColor"/>
-          <rect x="20" y="20" width="2" height="2" fill="currentColor"/>
-        </svg>
-      ),
-    },
+    { id: 'web', number: '01' },
+    { id: 'app', number: '02' },
+    { id: 'custom', number: '03' },
   ];
 
   return (
-    <section id="leistungen" className="py-20 bg-surface relative overflow-hidden">
-      {/* Pixel-Highlights removed */}
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
-            {t('title')}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+    <section id="leistungen" className="py-32 sm:py-40 relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <AnimateIn>
+          <p className="font-display text-sm tracking-widest uppercase text-ink/30 mb-4">
             {t('subtitle')}
           </p>
-        </div>
+          <h2 className="font-display font-extrabold text-display-xl text-ink mb-20 sm:mb-28">
+            {t('title')}
+          </h2>
+        </AnimateIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {isLoading ? (
-            [...Array(3)].map((_, index) => (
-              <PixelCardSkeleton
-                key={`service-skeleton-${index}`}
-                variant="service"
-                className="animate-stagger-in opacity-0"
-                style={staggerDelay(index)}
-              />
-            ))
-          ) : (
-            services.map((service, index) => (
-              <PixelCard
-                key={service.id}
-                className="animate-stagger-in opacity-0"
-                style={staggerDelay(index)}
+        <div className="max-w-5xl mx-auto">
+          {services.map((service, index) => (
+            <AnimateIn key={service.id} delay={index * 0.1}>
+              <motion.div
+                className="group py-10 sm:py-14 border-b border-ink/[0.08] last:border-0 flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-12 cursor-default"
+                whileHover="hover"
               >
-              <div className="flex items-center justify-center w-16 h-16 bg-secondary text-white rounded-pixel mb-4">
-                {service.icon}
-              </div>
-              
-              <h3 className="font-display font-bold text-xl mb-3">
-                <span className="text-accent">{service.accent}</span>{' '}
-                <span>{t(`${service.id}.title`).replace(service.accent, '').trim()}</span>
-              </h3>
-              
-              <p className="text-gray-600">
-                {t(`${service.id}.description`)}
-              </p>
-            </PixelCard>
-          )))}
+                <span className="font-display text-xs text-ink/20 tracking-widest tabular-nums shrink-0">
+                  {service.number}
+                </span>
+                <div className="flex-1">
+                  <motion.h3
+                    className="font-display font-extrabold text-display-lg text-ink/15 transition-colors duration-500"
+                    variants={{ hover: { color: '#0a0a0a' } }}
+                  >
+                    {t(`${service.id}.title` as any)}
+                  </motion.h3>
+                  <motion.p
+                    className="text-ink/0 max-w-xl leading-relaxed mt-3 text-base transition-all duration-500"
+                    variants={{ hover: { color: 'rgba(10,10,10,0.45)' } }}
+                  >
+                    {t(`${service.id}.description` as any)}
+                  </motion.p>
+                </div>
+                <motion.div
+                  className="hidden sm:block"
+                  variants={{ hover: { x: 4 } }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <svg className="w-5 h-5 text-ink/0 group-hover:text-ink/30 transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                </motion.div>
+              </motion.div>
+            </AnimateIn>
+          ))}
         </div>
       </div>
     </section>

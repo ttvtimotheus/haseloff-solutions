@@ -1,12 +1,14 @@
 import { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
+import { hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { Inter } from 'next/font/google';
-import { Space_Grotesk } from 'next/font/google';
+import { Sora } from 'next/font/google';
+import { routing } from '@/i18n/routing';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ScrollProgress from '@/components/ScrollProgress';
+import GradientBackground from '@/components/GradientBackground';
 import '@/styles/globals.css';
 
 const inter = Inter({
@@ -15,20 +17,20 @@ const inter = Inter({
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+const sora = Sora({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
-  weight: ['500', '700'],
+  weight: ['400', '500', '600', '700', '800'],
 });
 
-
 export async function generateMetadata({
-  params
+  params,
 }: {
-  params: Promise<{ locale: string }>
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  const locale = hasLocale(routing.locales, rawLocale) ? rawLocale : routing.defaultLocale;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
@@ -76,34 +78,34 @@ export async function generateMetadata({
       },
     },
     icons: {
-      icon: [
-        { url: '/favicon.ico' },
-      ],
+      icon: [{ url: '/favicon.ico' }],
     },
   };
 }
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  
-  // Validate locale
-  if (!['de', 'en'].includes(locale)) {
+
+  if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
-  const messages = await getMessages();
   const orgJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Haseloff Software Solutions',
     url: 'https://haseloff-software.de',
     logo: 'https://haseloff-software.de/nur-logo-fuer-icon.svg',
+    description:
+      locale === 'de'
+        ? 'Deine Vision. Unser Code.'
+        : 'Your Vision. Our Code.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Breite Straße 7',
@@ -131,12 +133,19 @@ export default async function LocaleLayout({
   } as const;
 
   return (
-    <html lang={locale} className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="min-h-screen bg-background text-primary font-sans" suppressHydrationWarning={true}>
-        <NextIntlClientProvider messages={messages}>
-          <ScrollProgress />
+    <html
+      lang={locale}
+      className={`${inter.variable} ${sora.variable}`}
+      data-scroll-behavior="smooth"
+    >
+      <body
+        className="min-h-screen bg-cream text-ink font-sans antialiased"
+        suppressHydrationWarning={true}
+      >
+        <NextIntlClientProvider>
+          <GradientBackground />
           <Header />
-          <main role="main" className="pt-16">
+          <main role="main">
             {children}
           </main>
           <Footer />

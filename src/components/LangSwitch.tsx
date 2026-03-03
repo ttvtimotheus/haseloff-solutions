@@ -16,27 +16,18 @@ export default function LangSwitch() {
   };
 
   return (
-    <div className="flex items-center gap-1 rounded-pixel border-2 border-primary p-1">
+    <div className="flex items-center gap-1 text-sm font-display font-bold">
       <button
         onClick={() => switchLocale('de')}
-        className={cn(
-          'px-3 py-1 text-sm font-display font-bold transition-colors rounded-pixel-sm',
-          locale === 'de' 
-            ? 'bg-primary text-white' 
-            : 'text-primary hover:bg-surface'
-        )}
+        className={cn('px-2 py-1 rounded transition-colors', locale === 'de' ? 'text-ink' : 'text-ink/30 hover:text-ink/60')}
         aria-label="Deutsch"
       >
         DE
       </button>
+      <span className="text-ink/20">/</span>
       <button
         onClick={() => switchLocale('en')}
-        className={cn(
-          'px-3 py-1 text-sm font-display font-bold transition-colors rounded-pixel-sm',
-          locale === 'en' 
-            ? 'bg-primary text-white' 
-            : 'text-primary hover:bg-surface'
-        )}
+        className={cn('px-2 py-1 rounded transition-colors', locale === 'en' ? 'text-ink' : 'text-ink/30 hover:text-ink/60')}
         aria-label="English"
       >
         EN

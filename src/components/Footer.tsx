@@ -2,81 +2,50 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import Image from 'next/image';
-import SectionLink from './ProjectsLink';
+import AnimateIn from './AnimateIn';
 
 export default function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="bg-primary text-white mt-24 relative overflow-hidden" role="contentinfo">
-      {/* Pixel-Highlights removed */}
-      
-      <div className="container mx-auto px-4 py-16 relative z-10">
-        {/* Zentrierter Claim */}
-        <div className="text-center py-8 mb-16">
-          <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl">
-            {t('hero.title')}{' '}
-            <span className="text-accent">{t('hero.titleHighlight')}</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-12">
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-display font-medium text-base mb-5 text-gray-200">Quick Links</h3>
-            <ul className="space-y-3">
-              <li>
-                <SectionLink sectionId="projekte" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
-                  {t('nav.projekte')}
-                </SectionLink>
-              </li>
-              <li>
-                <SectionLink sectionId="leistungen" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
-                  {t('nav.leistungen')}
-                </SectionLink>
-              </li>
-              <li>
-                <SectionLink sectionId="philosophie" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
-                  {t('nav.philosophie')}
-                </SectionLink>
-              </li>
-              <li>
-                <Link href="/kontakt" className="text-sm text-gray-400 hover:text-accent hover:translate-x-[1px] transition-all duration-200">
-                  {t('nav.kontakt')}
-                </Link>
-              </li>
-            </ul>
+    <footer className="section-dark py-20 sm:py-28" role="contentinfo">
+      <div className="container mx-auto px-4 sm:px-6">
+        <AnimateIn>
+          <div className="mb-20 sm:mb-28">
+            <h2 className="font-display font-extrabold text-display-xl text-cream/15 max-w-4xl">
+              Haseloff Software Solutions
+            </h2>
           </div>
+        </AnimateIn>
 
-          {/* Legal */}
-          <div className="md:pl-6 relative">
-            <div className="hidden md:block absolute left-0 top-2 bottom-8 w-px bg-gray-600"></div>
-            <h3 className="font-display font-medium text-base mb-5 text-gray-200">Legal</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/impressum" className="text-sm text-gray-400 hover:text-secondary hover:translate-x-[1px] transition-all duration-200">
-                  {t('nav.impressum')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/datenschutz" className="text-sm text-gray-400 hover:text-secondary hover:translate-x-[1px] transition-all duration-200">
-                  {t('nav.datenschutz')}
-                </Link>
-              </li>
-            </ul>
+        <AnimateIn delay={0.1}>
+          <div className="flex flex-col sm:flex-row items-start justify-between gap-8 mb-16">
+            <div className="space-y-1 text-sm">
+              <a href="mailto:kontakt@haseloff-solutions.de" className="block text-cream/30 hover:text-cream transition-colors duration-300">
+                kontakt@haseloff-solutions.de
+              </a>
+              <a href="tel:+4915258705975" className="block text-cream/30 hover:text-cream transition-colors duration-300">
+                +49 1525 870 5975
+              </a>
+            </div>
+            <p className="text-cream/15 text-sm max-w-xs">
+              {t('footer.tagline')}
+            </p>
           </div>
-        </div>
+        </AnimateIn>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} {t('footer.company')}. {t('footer.rights')}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-cream/[0.04]">
+          <p className="text-[11px] text-cream/15 tracking-wide">
+            &copy; {new Date().getFullYear()} {t('footer.company')}
           </p>
-          <p className="text-sm text-gray-500 flex items-center gap-2">
-            {t('footer.madeWith')} Next.js
-          </p>
+          <div className="flex gap-6 text-[11px] text-cream/15 tracking-wide">
+            <Link href="/impressum" className="hover:text-cream/40 transition-colors duration-300">
+              {t('nav.impressum')}
+            </Link>
+            <Link href="/datenschutz" className="hover:text-cream/40 transition-colors duration-300">
+              {t('nav.datenschutz')}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

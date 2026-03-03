@@ -1,33 +1,33 @@
 {
   "metadata": {
-    "title": "Haseloff Software Solutions - Software with Structure",
-    "description": "We build web apps and tools with precision, reduced to the essential."
+    "title": "Haseloff Software Solutions – Your Vision. Our Code.",
+    "description": "We build web apps, mobile apps, and custom software. Modern, fast, reliable."
   },
   "hero": {
-    "title": "Software with structure.",
-    "titleHighlight": "Pixel by pixel.",
-    "subtitle": "We build web apps and tools with precision, reduced to the essential.",
+    "title": "Your Vision.",
+    "titleHighlight": "Our Code.",
+    "subtitle": "We build web apps, mobile apps, and custom software – modern, fast, and to the point.",
     "responseHint": "Response within 24h"
   },
   "cta": {
-    "primary": "Request a project",
-    "secondary": "View projects",
+    "primary": "Start a project",
+    "secondary": "Explore projects",
     "responseHint": "Response within 24h"
   },
   "nav": {
     "projekte": "Projects",
     "leistungen": "Services",
-    "philosophie": "Philosophy",
+    "philosophie": "Values",
     "faq": "FAQ",
     "kontakt": "Contact",
     "impressum": "Legal Notice",
     "datenschutz": "Privacy Policy"
   },
   "projects": {
-    "title": "Projects",
-    "subtitle": "Selected works from our portfolio",
+    "title": "Our Projects",
+    "subtitle": "Real solutions for real businesses",
     "viewProject": "View project",
-    "techStack": "Technology Stack",
+    "techStack": "Tech Stack",
     "tags": {
       "webapp": "Web App",
       "mobile": "Mobile",
@@ -38,70 +38,70 @@
     }
   },
   "services": {
-    "title": "Services",
-    "subtitle": "Tailored solutions for your requirements",
+    "title": "What We Do",
+    "subtitle": "Three areas, one goal: software that works",
     "web": {
       "title": "Web Development",
-      "description": "Modern, performant web applications with React, Next.js, and TypeScript. From landing pages to complex business applications."
+      "description": "High-performance web apps with React, Next.js, and TypeScript. From landing pages to complex business applications – we deliver."
     },
     "app": {
       "title": "App Development",
-      "description": "Native and cross-platform apps for iOS and Android. Optimized for performance and user experience."
+      "description": "Native and cross-platform apps for iOS and Android. Fast, stable, and with a UX that excites."
     },
     "custom": {
       "title": "Custom Software",
-      "description": "Tailored solutions for specific requirements. Backend systems, APIs, and automation."
+      "description": "Backend systems, APIs, and automations. Tailored to your requirements, no compromises."
     }
   },
   "philosophy": {
-    "title": "Philosophy",
-    "subtitle": "The values that define our work",
+    "title": "Our Values",
+    "subtitle": "How we work – and why it works",
     "clarity": {
       "title": "Clarity",
-      "description": "Transparent communication and understandable solutions. Reducing complexity without losing functionality."
+      "description": "No BS. Transparent communication, understandable solutions. Reducing complexity without losing functionality."
     },
     "quality": {
       "title": "Quality",
-      "description": "Clean code, well-thought-out architecture, and best practices. Every pixel, every line of code has a purpose."
+      "description": "Clean code, thoughtful architecture, best practices. Every line of code has a purpose – nothing is accidental."
     },
     "responsibility": {
       "title": "Responsibility",
-      "description": "Sustainable development, data protection, and accessibility. Software that is accessible to everyone."
+      "description": "Data protection, accessibility, sustainable development. Software that's accessible to everyone and stays that way."
     }
   },
   "contact": {
-    "title": "Contact",
-    "subtitle": "Let's talk about your project",
+    "title": "Let's Talk",
+    "subtitle": "Got an idea? We've got the code.",
     "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your message",
       "send": "Send message",
       "sending": "Sending...",
-      "success": "Your message was sent successfully!",
-      "error": "An error occurred. Please try again later.",
+      "success": "Message sent! We'll be in touch.",
+      "error": "Something went wrong. Try again or email us directly.",
       "validation": {
-        "nameRequired": "Please enter your name",
-        "emailRequired": "Please enter your email address",
-        "emailInvalid": "Please enter a valid email address",
-        "messageRequired": "Please enter a message",
-        "messageMin": "Message should be at least 10 characters long"
+        "nameRequired": "What's your name?",
+        "emailRequired": "We need your email",
+        "emailInvalid": "That doesn't look like an email",
+        "messageRequired": "Tell us something!",
+        "messageMin": "A bit more please (min. 10 characters)"
       }
     },
-    "alternative": "Or write directly to",
-    "email": "contact@haseloff-solutions.de"
+    "alternative": "Or email us directly at",
+    "email": "kontakt@haseloff-solutions.de"
   },
   "footer": {
     "company": "Haseloff Software Solutions",
-    "tagline": "Software with structure. Pixel by pixel.",
+    "tagline": "Your Vision. Our Code.",
     "rights": "All rights reserved.",
     "madeWith": "Built with"
   },
   "thankYou": {
     "title": "Message Sent!",
-    "message": "Thank you for your message. We have received your inquiry and will get back to you as soon as possible.",
+    "message": "Thanks! We got your inquiry and will get back to you ASAP.",
     "responseTime": "Response time: Within 24 hours",
-    "contact": "For urgent matters: 01525 870 5975",
+    "contact": "Urgent? Call: +49 1525 870 5975",
     "backHome": "Back to Home",
     "viewProjects": "View Projects"
   },
@@ -113,67 +113,67 @@
     "address": "Breite Straße 7",
     "city": "39288 Burg OT Detershagen",
     "contact": "Contact",
-    "phone": "Phone: 01525 870 5975",
-    "email": "Email: contact@haseloff-solutions.de",
+    "phone": "Phone: +49 1525 870 5975",
+    "email": "Email: kontakt@haseloff-solutions.de",
     "vat": "VAT ID",
     "vatNumber": "VAT identification number according to § 27 a VAT Act: [VAT ID]"
   },
   "datenschutz": {
     "title": "Privacy Policy",
-    "intro": "The protection of your personal data is of particular concern to us. We therefore process your data exclusively on the basis of the legal provisions (GDPR, TKG 2003).",
+    "intro": "The protection of your data matters to us. We process your data exclusively on the basis of legal provisions (GDPR, TKG 2003).",
     "controller": {
       "title": "Data Controller",
-      "text": "The data controller responsible for data processing is Haseloff Software Solutions."
+      "text": "The data controller is Haseloff Software Solutions, Breite Straße 7, 39288 Burg OT Detershagen."
     },
     "dataCollection": {
       "title": "Data Collection",
-      "text": "When visiting our website, information of a general nature is automatically collected. This information (server log files) includes the type of web browser, the operating system used, the domain name of your Internet service provider, and similar."
+      "text": "When visiting our website, general information is automatically collected (server log files): browser type, operating system, access time, and similar."
     },
     "cookies": {
       "title": "Cookies",
-      "text": "Our website only uses technically necessary cookies. These cookies are required to enable the basic functions of our website."
+      "text": "Our website only uses technically necessary cookies for basic site functions."
     },
     "contact": {
       "title": "Contact Form",
-      "text": "If you send us inquiries via the contact form, your information from the inquiry form including the contact data you provided there will be stored by us for the purpose of processing the inquiry and in case of follow-up questions."
+      "text": "Your data from the contact form is stored by us for processing the inquiry. We will not share this data without your consent."
     },
     "rights": {
       "title": "Your Rights",
-      "text": "You generally have the rights to information, correction, deletion, restriction, data portability, revocation, and objection."
+      "text": "You have the right to information, correction, deletion, restriction, data portability, revocation, and objection."
     }
   },
   "faq": {
     "title": "FAQ",
-    "subtitle": "The questions I get asked most often",
+    "subtitle": "The questions I get asked most",
     "items": {
       "duration": {
-        "question": "How long does this stuff actually take?",
-        "answer": "Depends on what you need! A slick landing page? 2-3 weeks. A proper web app with backend, database, and all the bells and whistles? I'd plan for 2-4 months. Let's just chat quickly and I can give you a realistic estimate."
+        "question": "How long does a project take?",
+        "answer": "Depends! A landing page: 2–3 weeks. A full web app with backend and everything: 2–4 months. Let's chat quickly and I'll give you a realistic estimate."
       },
       "cost": {
-        "question": "What's this gonna cost me?",
-        "answer": "Honest answer: It depends big time on what you want. A clean website starts around €2,500, a proper app can run €15-25k. Sounds like a lot? But you're getting professional code that'll last for years. Just shoot me what you have in mind - I'll give you a fair quote."
+        "question": "What does it cost?",
+        "answer": "Honestly: it depends on scope. A clean website starts around €2,500, a proper app can run €15–25k. Sounds like a lot? You're getting professional code that lasts for years. Just tell me what you have in mind."
       },
       "technologies": {
-        "question": "What tech do you work with?",
-        "answer": "I stick to what works and is future-proof: React & Next.js for websites (because they're simply fast), React Native for apps, TypeScript (so fewer bugs happen), and PostgreSQL for databases. No fancy stuff that nobody will know in 2 years."
+        "question": "What tech do you use?",
+        "answer": "React & Next.js for websites, React Native for apps, TypeScript everywhere, PostgreSQL for databases. Proven, future-proof, no hype stuff."
       },
       "maintenance": {
-        "question": "What happens after? You gonna leave me hanging?",
-        "answer": "Never! You get 3 months of free support - if something doesn't work or you have questions. After that, you can book a maintenance contract from €150/month. Or just call when something's up. I don't leave anyone alone with broken code."
+        "question": "What happens after launch?",
+        "answer": "3 months of free support. After that, maintenance contracts from €150/month – or just call when something's up. I don't leave anyone alone with broken code."
       },
       "process": {
-        "question": "How does it work? First time here...",
-        "answer": "Super chill: We first talk about your idea (free, obviously). Then I make you an offer. If it fits, I start with design mockups so you see where we're heading. During development, you get regular updates. You're always in the loop, no surprises."
+        "question": "How does the process work?",
+        "answer": "Relaxed: Initial chat (free) → Proposal → Design mockups → Development with regular updates. You're always in the loop, no surprises."
       },
       "support": {
         "question": "How fast do you reply?",
-        "answer": "Within 24h, usually much faster. For urgent problems (\"The website is down!\") I'm also available by phone. I hate it myself when you wait days for answers - so I do it differently."
+        "answer": "Within 24h, usually faster. For emergencies, also by phone. Because waiting days for answers sucks – I do things differently."
       }
     },
     "contact": {
       "title": "More questions?",
-      "description": "Just shoot me a message! Happy to give you free advice."
+      "description": "Shoot me a message! Consultation is free."
     }
   }
 }
