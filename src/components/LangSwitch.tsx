@@ -11,7 +11,7 @@ export default function LangSwitch() {
 
   const switchLocale = (newLocale: 'de' | 'en') => {
     if (newLocale !== locale) {
-      router.replace(pathname, { locale: newLocale });
+      router.replace(pathname as '/', { locale: newLocale });
     }
   };
 

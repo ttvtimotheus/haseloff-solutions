@@ -21,5 +21,24 @@ export const routing = defineRouting({
       en: '/contact',
       de: '/kontakt',
     },
+    '/blog': '/blog',
+    '/blog/[slug]': '/blog/[slug]',
+    '/referenzen': {
+      en: '/case-studies',
+      de: '/referenzen',
+    },
+    '/referenzen/[slug]': {
+      en: '/case-studies/[slug]',
+      de: '/referenzen/[slug]',
+    },
+    '/leistungen': {
+      en: '/services',
+      de: '/leistungen',
+    },
+    '/leistungen/[slug]': {
+      en: '/services/[slug]',
+      de: '/leistungen/[slug]',
+    },
+    '/faq': '/faq',
   },
 });
