@@ -30,6 +30,7 @@
     "subtitle": "Ausgewählte Projekte",
     "projectsIntro": "Jedes Projekt ist maßgeschneidert. Kein Template, kein Copy-Paste – nur Lösungen, die zum Unternehmen passen.",
     "viewProject": "Projekt ansehen",
+    "viewCaseStudy": "Fallstudie lesen",
     "techStack": "Tech Stack",
     "tags": {
       "webapp": "Web App",
@@ -102,6 +103,11 @@
     "experience": { "number": "5+", "label": "Jahre im Game" },
     "clients": { "number": "100%", "label": "Weiterempfehlung" },
     "response": { "number": "<24h", "label": "Antwortzeit" }
+  },
+  "blogPreview": {
+    "title": "Aus dem Blog",
+    "subtitle": "Gedanken zu Softwareentwicklung, Prozessen und dem, was wirklich zählt.",
+    "allArticles": "Alle Artikel"
   },
   "ctaBanner": {
     "title": "Gute Software entsteht nicht von allein.",

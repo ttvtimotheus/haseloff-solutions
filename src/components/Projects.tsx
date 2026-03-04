@@ -2,6 +2,7 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
+import { Link } from '@/i18n/navigation';
 import AnimateIn from './AnimateIn';
 import { projects } from '@/lib/projects';
 
@@ -28,12 +29,9 @@ export default function Projects() {
           </div>
 
           <div className="lg:col-span-8">
-            {projects.map((project, index) => (
-              <AnimateIn key={project.id} delay={index * 0.06}>
-                <motion.div
-                  className="group border-b border-cream/[0.06] py-8 sm:py-10 first:pt-0 last:border-0 cursor-default"
-                  whileHover="hover"
-                >
+            {projects.map((project, index) => {
+              const content = (
+                <>
                   <div className="flex items-baseline justify-between gap-6 mb-2">
                     <div className="flex items-baseline gap-5 min-w-0">
                       <span className="font-display text-xs text-cream/15 tabular-nums shrink-0 tracking-wider">
@@ -64,16 +62,40 @@ export default function Projects() {
                   >
                     {locale === 'de' ? project.description : project.descriptionEn}
                   </motion.p>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 ml-9 sm:ml-10">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-3 ml-9 sm:ml-10">
                     {project.tags.map((tag) => (
                       <span key={tag} className="text-[11px] font-display tracking-wide text-cream/15 uppercase">
                         {t(`tags.${tag}` as any)}
                       </span>
                     ))}
+                    {project.caseStudySlug && (
+                      <span className="text-[11px] font-display tracking-widest uppercase text-cream/20 group-hover:text-cream/40 transition-colors">
+                        {t('viewCaseStudy')}
+                      </span>
+                    )}
                   </div>
-                </motion.div>
-              </AnimateIn>
-            ))}
+                </>
+              );
+              return (
+                <AnimateIn key={project.id} delay={index * 0.06}>
+                  <motion.div
+                    className="group border-b border-cream/[0.06] py-8 sm:py-10 first:pt-0 last:border-0"
+                    whileHover="hover"
+                  >
+                    {project.caseStudySlug ? (
+                      <Link
+                        href={{ pathname: '/referenzen/[slug]', params: { slug: project.caseStudySlug } }}
+                        className="block cursor-pointer"
+                      >
+                        {content}
+                      </Link>
+                    ) : (
+                      content
+                    )}
+                  </motion.div>
+                </AnimateIn>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -5,6 +5,8 @@ export interface Project {
   descriptionEn: string;
   tags: string[];
   stack: string[];
+  /** Slug of the case study page (e.g. logistics-portal). When set, the project links to /referenzen/[slug]. */
+  caseStudySlug?: string;
   link?: string;
   github?: string;
   image?: string;
@@ -13,6 +15,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'heimbach-logistics',
+    caseStudySlug: 'logistics-portal',
     title: 'Heimbach Logistics Portal',
     description: 'Digitale Transformation eines mittelständischen Logistikunternehmens. Kundenportal mit Sendungsverfolgung, automatisierter Rechnungsstellung und Routenoptimierung.',
     descriptionEn: 'Digital transformation of a mid-sized logistics company. Customer portal with shipment tracking, automated billing, and route optimization.',
@@ -21,6 +24,7 @@ export const projects: Project[] = [
   },
   {
     id: 'stadtwerke-app',
+    caseStudySlug: 'utility-customer-app',
     title: 'Stadtwerke Burg Kunden-App',
     description: 'Mobile App für lokale Stadtwerke mit Zählerstandsmeldung, Störungsmeldungen und Verbrauchsanalyse. Push-Benachrichtigungen für wichtige Updates.',
     descriptionEn: 'Mobile app for local utilities with meter readings, fault reporting, and consumption analysis. Push notifications for important updates.',
@@ -53,6 +57,7 @@ export const projects: Project[] = [
   },
   {
     id: 'praxis-software',
+    caseStudySlug: 'dentist-management-system',
     title: 'Zahnarztpraxis Dr. Hoffmann - Patientenportal',
     description: 'Patientenportal mit Online-Terminbuchung, Behandlungshistorie und Recall-System. Nahtlose Integration in bestehende Praxissoftware.',
     descriptionEn: 'Patient portal with online appointment booking, treatment history, and recall system. Seamless integration with existing practice software.',

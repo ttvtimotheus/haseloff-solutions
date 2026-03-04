@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import Marquee from '@/components/Marquee';
 import Projects from '@/components/Projects';
 import Stats from '@/components/Stats';
+import BlogPreview from '@/components/BlogPreview';
 import Services from '@/components/Services';
 import Philosophy from '@/components/Philosophy';
 import FAQ from '@/components/FAQ';
@@ -45,6 +46,7 @@ export default function HomePage() {
       <Marquee />
       <Projects />
       <Stats />
+      <BlogPreview />
       <Services />
       <Philosophy />
       <FAQ />

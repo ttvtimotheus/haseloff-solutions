@@ -30,6 +30,7 @@
     "subtitle": "Selected Projects",
     "projectsIntro": "Every project is custom-built. No templates, no copy-paste – only solutions that fit the business.",
     "viewProject": "View project",
+    "viewCaseStudy": "Read case study",
     "techStack": "Tech Stack",
     "tags": {
       "webapp": "Web App",
@@ -102,6 +103,11 @@
     "experience": { "number": "5+", "label": "Years in the Game" },
     "clients": { "number": "100%", "label": "Referral Rate" },
     "response": { "number": "<24h", "label": "Response Time" }
+  },
+  "blogPreview": {
+    "title": "From the Blog",
+    "subtitle": "Thoughts on software development, process, and what actually matters.",
+    "allArticles": "All articles"
   },
   "ctaBanner": {
     "title": "Great software doesn't build itself.",
