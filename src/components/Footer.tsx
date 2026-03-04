@@ -48,6 +48,12 @@ export default function Footer() {
                     {t(`nav.${id}` as any)}
                   </button>
                 ))}
+                <Link href="/blog" className="block text-cream/30 hover:text-cream transition-colors duration-300">
+                  {t('nav.blog')}
+                </Link>
+                <Link href="/referenzen" className="block text-cream/30 hover:text-cream transition-colors duration-300">
+                  {t('nav.referenzen')}
+                </Link>
               </div>
             </nav>
 

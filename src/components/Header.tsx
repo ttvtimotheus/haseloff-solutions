@@ -29,11 +29,16 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  const navItems = [
+  const scrollNavItems = [
     { id: 'projekte', label: t('projekte') },
     { id: 'leistungen', label: t('leistungen') },
     { id: 'philosophie', label: t('philosophie') },
     { id: 'faq', label: t('faq') },
+  ];
+
+  const linkNavItems = [
+    { href: '/blog' as const, label: t('blog') },
+    { href: '/referenzen' as const, label: t('referenzen') },
   ];
 
   const hamburger = (
@@ -119,7 +124,7 @@ export default function Header() {
           >
             <div className="container mx-auto px-4 sm:px-6">
               <nav className="space-y-2">
-                {navItems.map((item, i) => (
+                {scrollNavItems.map((item, i) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, y: 30 }}
@@ -140,11 +145,28 @@ export default function Header() {
                     </button>
                   </motion.div>
                 ))}
+                {linkNavItems.map((item, i) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4, delay: (scrollNavItems.length + i) * 0.05 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="block font-display font-extrabold text-[clamp(2.5rem,8vw,5rem)] leading-[1.1] text-ink/20 hover:text-ink transition-colors duration-300"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, delay: navItems.length * 0.05 }}
+                  transition={{ duration: 0.4, delay: (scrollNavItems.length + linkNavItems.length) * 0.05 }}
                 >
                   <Link
                     href="/kontakt"
